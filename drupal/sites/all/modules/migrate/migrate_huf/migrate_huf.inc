@@ -13,10 +13,10 @@ class HufUserMigration extends Migration {
  
     $query = db_select('HUF_Users','u')
       ->fields('u', array('ID','Brugernavn','Password','Email','Oprettet'))
-      ->condition('u.Brugernavn', array('admin', 'rgates'), 'NOT IN')
+      ->condition('u.Brugernavn', array('admin', 'HUF', 'webmaster'), 'NOT IN')
       ->condition('u.ID', 0, '>');
     $this->source = new MigrateSourceSQL($query, $source_fields);
-    $this->destination = new MigrateDestinationUser(array('md5_passwords' => TRUE));
+    $this->destination = new MigrateDestinationUser();
 
     $this->map = new MigrateSQLMap($this->machineName,
       array(
@@ -24,7 +24,7 @@ class HufUserMigration extends Migration {
           'type' => 'int',
           'unsigned' => TRUE,
           'not null' => TRUE,
-          'description' => 'D7 Unique User ID',
+          'description' => 'Old Unique User ID',
           'alias' => 'u',
         )
       ),
@@ -32,8 +32,10 @@ class HufUserMigration extends Migration {
     );
  
     // Make the mappings
+    $this->addFieldMapping('is_new')->defaultValue(TRUE);
+    $this->addFieldMapping('uid', 'ID');
     $this->addFieldMapping('name', 'Brugernavn')->dedupe('users', 'name');
-    $this->addFieldMapping('pass', 'Password');
+    $this->addFieldMapping('pass')->defaultValue('1234');
     //$this->addFieldMapping('mail', 'Email')->dedupe('users', 'mail');
     $this->addFieldMapping('language')->defaultValue('');
     $this->addFieldMapping('theme')->defaultValue('');
@@ -42,7 +44,7 @@ class HufUserMigration extends Migration {
     $this->addFieldMapping('created', 'Oprettet');
     //$this->addFieldMapping('access', 'access');
     //$this->addFieldMapping('login', 'login');
-    //$this->addFieldMapping('status', 'status');
+    $this->addFieldMapping('status')->defaultValue('1');
     //$this->addFieldMapping('picture')->defaultValue(0);
     $this->addFieldMapping('init', 'init');
     $this->addFieldMapping('timezone')->defaultValue(NULL);
