@@ -1,4 +1,4 @@
-name = Article
+name = HUF Article
 description = This feature contains configuration of the article
 core = 7.x
 package = Huf

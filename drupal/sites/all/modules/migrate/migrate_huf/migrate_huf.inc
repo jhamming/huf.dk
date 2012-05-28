@@ -28,6 +28,50 @@ abstract class HufMigration extends Migration {
  *    associated with the mappings.
  */
 
+  class HufKategoriTermMigration extends HufMigration {
+    public function __construct() {
+      parent::__construct();
+      // Human-friendly description of your migration process. Be as detailed as you
+      // like.
+      $this->description = t('Migrate categories from the HUF article database');
+
+      // Create a map object for tracking the relationships between source rows
+      // and their resulting Drupal objects. Usually, you'll use the MigrateSQLMap
+      // class, which uses database tables for tracking. Pass the machine name
+      // of this migration to use in generating map and message tables.
+      // And, pass schema definitions for the primary keys of the source and
+      // destination - we need to be explicit for our source, but the destination
+      // class knows its schema already.
+      $this->map = new MigrateSQLMap($this->machineName,
+          array(
+            'Kategori' => array('type' => 'varchar',
+                             'length' => 255,
+                             'not null' => TRUE,
+                             'description' => 'Category ID',
+                            )
+          ),
+          MigrateDestinationTerm::getKeySchema()
+        );
+
+      $query = db_select(MY_MIGRATION_DATABASE_NAME .'Story', 's')
+               ->fields('s', array('Kategori'));
+               
+
+      // Create a MigrateSource object, which manages retrieving the input data.
+      $this->source = new MigrateSourceSQL($query);
+
+      // Set up our destination - terms in the migrate_example_beer_styles vocabulary
+      $this->destination = new MigrateDestinationTerm('kategori');
+
+      // Assign mappings TO destination fields FROM source fields. To discover
+      // the names used in these calls, use the drush commands
+      // drush migrate-fields-destination BeerTerm
+      // drush migrate-fields-source BeerTerm
+      $this->addFieldMapping('name', 'Kategori');
+      }
+  }
+  
+
   class HufUserMigration extends HufMigration {
     public function __construct() {
       parent::__construct();
