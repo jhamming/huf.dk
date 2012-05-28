@@ -2,54 +2,184 @@
 /*
 Implemented with inspiration from http://btmash.com/article/2011-03-02/migrating-content-part-1-users
 */
-class HufUserMigration extends Migration {
-  public function __construct() {
-    parent::__construct();
-    $this->description = t('Migrate HUF users');
- 
-    $source_fields = array(
-      'ID' => t('User ID'),
-    );
- 
-    $query = db_select('HUF_Users','u')
-      ->fields('u', array('ID','Brugernavn','Password','Email','Oprettet'))
-      ->condition('u.Brugernavn', array('admin', 'HUF', 'webmaster'), 'NOT IN')
-      ->condition('u.ID', 0, '>');
-    $this->source = new MigrateSourceSQL($query, $source_fields);
-    $this->destination = new MigrateDestinationUser();
 
-    $this->map = new MigrateSQLMap($this->machineName,
-      array(
-        'ID' => array(
-          'type' => 'int',
-          'unsigned' => TRUE,
-          'not null' => TRUE,
-          'description' => 'Old Unique User ID',
-          'alias' => 'u',
-        )
-      ),
-      MigrateDestinationUser::getKeySchema()
-    );
- 
-    // Make the mappings
-    $this->addFieldMapping('is_new')->defaultValue(TRUE);
-    $this->addFieldMapping('uid', 'ID');
-    $this->addFieldMapping('name', 'Brugernavn')->dedupe('users', 'name');
-    $this->addFieldMapping('pass')->defaultValue('1234');
-    //$this->addFieldMapping('mail', 'Email')->dedupe('users', 'mail');
-    $this->addFieldMapping('language')->defaultValue('');
-    $this->addFieldMapping('theme')->defaultValue('');
-    $this->addFieldMapping('signature')->defaultValue('');
-    $this->addFieldMapping('signature_format')->defaultValue('filtered_html');
-    $this->addFieldMapping('created', 'Oprettet');
-    //$this->addFieldMapping('access', 'access');
-    //$this->addFieldMapping('login', 'login');
-    $this->addFieldMapping('status')->defaultValue('1');
-    //$this->addFieldMapping('picture')->defaultValue(0);
-    $this->addFieldMapping('init', 'init');
-    $this->addFieldMapping('timezone')->defaultValue(NULL);
-    $this->addFieldMapping('path')->issueGroup(t('DNM'));
-    $this->addFieldMapping('pathauto_perform_alias')->defaultValue('1');
-    $this->addFieldMapping('roles', 'roles');
+const MY_MIGRATION_DATABASE_NAME = 'HUF_';
+abstract class HufMigration extends Migration {
+  public function __construct() {
+    // Always call the parent constructor first for basic setup
+    parent::__construct();
+
+    
   }
 }
+
+/**
+ * There are four essential components to set up in your constructor:
+ *  $this->source - An instance of a class derived from MigrateSource, this
+ *    will feed data to the migration.
+ *  $this->destination - An instance of a class derived from MigrateDestination,
+ *    this will receive data that originated from the source and has been mapped
+ *    by the Migration class, and create Drupal objects.
+ *  $this->map - An instance of a class derived from MigrateMap, this will keep
+ *    track of which source items have been imported and what destination objects
+ *    they map to.
+ *  Mappings - Use $this->addFieldMapping to tell the Migration class what source
+ *    fields correspond to what destination fields, and additional information
+ *    associated with the mappings.
+ */
+
+  class HufUserMigration extends HufMigration {
+    public function __construct() {
+      parent::__construct();
+      $this->description = t('Migrate HUF users');
+   
+      $source_fields = array(
+        'ID' => t('User ID'),
+      );
+   
+      $query = db_select(MY_MIGRATION_DATABASE_NAME .'Users' , 'u')
+        ->fields('u', array('ID','Brugernavn','Password','Email','Oprettet'))
+        ->condition('u.Brugernavn', array('admin', 'HUF', 'webmaster'), 'NOT IN')
+        ->condition('u.ID', 0, '>');
+      $this->source = new MigrateSourceSQL($query, $source_fields);
+      $this->destination = new MigrateDestinationUser();
+
+      $this->map = new MigrateSQLMap($this->machineName,
+        array(
+          'ID' => array(
+            'type' => 'int',
+            'unsigned' => TRUE,
+            'not null' => TRUE,
+            'description' => 'Old Unique User ID',
+            'alias' => 'u',
+          )
+        ),
+        MigrateDestinationUser::getKeySchema()
+      );
+   
+      // Make the mappings
+      $this->addFieldMapping('is_new')->defaultValue(TRUE);
+      $this->addFieldMapping('uid', 'ID');
+      $this->addFieldMapping('name', 'Brugernavn')->dedupe('users', 'name');
+      $this->addFieldMapping('pass')->defaultValue('1234');
+      //$this->addFieldMapping('mail', 'Email')->dedupe('users', 'mail');
+      $this->addFieldMapping('language')->defaultValue('');
+      $this->addFieldMapping('theme')->defaultValue('');
+      $this->addFieldMapping('signature')->defaultValue('');
+      $this->addFieldMapping('signature_format')->defaultValue('filtered_html');
+      $this->addFieldMapping('created', 'Oprettet');
+      //$this->addFieldMapping('access', 'access');
+      //$this->addFieldMapping('login', 'login');
+      $this->addFieldMapping('status')->defaultValue('1');
+      //$this->addFieldMapping('picture')->defaultValue(0);
+      $this->addFieldMapping('init', 'init');
+      $this->addFieldMapping('timezone')->defaultValue(NULL);
+      $this->addFieldMapping('path')->issueGroup(t('DNM'));
+      $this->addFieldMapping('pathauto_perform_alias')->defaultValue('1');
+      $this->addFieldMapping('roles', 'roles');
+    }
+  }
+
+  class HufArticleMigration extends HufMigration {
+    /**
+     * Class Constructor
+     */
+    public function __construct() {
+        parent::__construct();
+     
+        $this->description = t('Migrate old articles');
+     
+        $source_fields = array(
+          'ID' => t('The node ID of the article'),
+        //  'linked_files' => t('The set of linked files'),
+        //  'right_side_images' => t('The set of images that previously appeared on the side'),
+        );
+     
+        $query = db_select(MY_MIGRATION_DATABASE_NAME .'Story', 's')
+          ->fields('s', array('ID', 'ejer_id', 'Note', 'kap','Rubrik', 'Text_', 'Dato', 'Chg', 'Kategori', 'samling'));
+          //->condition('s.type', 'page', '=');
+        /*$query->join(MY_MIGRATION_DATABASE_NAME .'.node_revisions', 'nr', 'n.vid = nr.vid');
+        $query->addField('nr', 'body');
+        $query->addField('nr', 'teaser');
+        $query->join(MY_MIGRATION_DATABASE_NAME .'.users', 'u', 'n.uid = u.uid');
+        $query->addField('u', 'name');
+        $query->orderBy('n.changed');
+          
+        $this->highwaterField = array(
+          'name' => 'changed', // Column to be used as highwater mark
+          'alias' => 'n',           // Table alias containing that column
+        );
+     */
+        $this->source = new MigrateSourceSQL($query, $source_fields);
+        $this->destination = new MigrateDestinationNode('article');
+     
+        $this->map = new MigrateSQLMap($this->machineName,
+          array(
+            'ID' => array(
+              'type' => 'int',
+              'unsigned' => TRUE,
+              'not null' => TRUE,
+              'description' => 'Old Unique Node ID',
+              'alias' => 's',
+            )
+          ),
+          MigrateDestinationNode::getKeySchema()
+        );
+       // Make the mappings
+        $this->addFieldMapping('title', 'Rubrik');
+        $this->addFieldMapping('revision')->defaultValue(TRUE);
+        $this->addFieldMapping('created', 'Dato');
+        $this->addFieldMapping('changed', 'Dato');
+        $this->addFieldMapping('body', 'Text_');
+        $this->addFieldMapping('uid', 'ejer_id');
+        $this->addFieldMapping('field_kategori', 'Kategori');
+        $this->addFieldMapping('field_samling', 'samling');
+        $this->addFieldMapping('field_note', 'Note');
+        $this->addFieldMapping('field_kapitel', 'kap');
+        $this->addFieldMapping(NULL, 'ID');
+      }
+   /*
+   Remember to ad the vocabulary and the terms:
+    Digte
+    Kortprosa
+    Noveller
+    Andet
+    Fantasy
+    UfÃ_rdige tekster
+    Eventyr
+    Essays
+    Udsnit af romaner
+    Romaner
+    Artikler
+    SkriveÃ¸velser
+    Stile
+    Gys
+    Drama
+    Børnebøger
+   */ 
+   /*
+    public function prepareRow($current_row) {
+      // Comments
+      $comments_query = db_select(MY_MIGRATION_DATABASE_NAME .'.content_field_right_side_image', 'rsi')
+        ->fields('rsi')
+        ->condition('rsi.nid', $nid, '=');
+      $right_side_image_query->join(MY_MIGRATION_DATABASE_NAME .'.files', 'f', 'rsi.field_right_side_image_fid = f.fid');
+      $right_side_image_query->addField('f', 'filepath');
+      $results = $right_side_image_query->execute();
+   
+      $images = array();
+   
+    foreach ($results as $row) {
+      $image_data = unserialize($row->field_right_side_image_data);
+      $current_image_data = array(
+        'path' => REDCAT_MIGRATION_FILES_DIRECTORY .'/'. $row->filepath,
+        'alt' => $image_data['alt'],
+        'title' => $image_data['title'],
+      );
+      $images[] = drupal_json_encode($current_image_data);
+    }
+      $current_row->right_side_images = $images
+      return TRUE;
+    }
+    */
+  }
