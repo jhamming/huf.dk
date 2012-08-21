@@ -1,7 +1,7 @@
 name = HUF Nyhed
 description = Content type for news stories from HUF
 core = 7.x
-package = Features
+package = Huf
 dependencies[] = features
 dependencies[] = field_sql_storage
 dependencies[] = filter
