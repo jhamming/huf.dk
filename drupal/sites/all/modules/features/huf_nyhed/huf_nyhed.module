@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the HUF Nyhed feature.
+ */
+
+include_once 'huf_nyhed.features.inc';
