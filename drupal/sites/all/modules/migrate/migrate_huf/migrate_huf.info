@@ -1,5 +1,5 @@
 name = "Migrate HUF.dk"
-description = "Migration of data from old huf.dk site."
+description = "Migration of data from old huf.dk site. Remember to run term and user migration before article"
 package = "Development"
 core = 7.x
 dependencies[] = taxonomy
@@ -9,14 +9,8 @@ dependencies[] = migrate
 dependencies[] = list
 dependencies[] = number
 
-;node_reference is useful but not required
-;dependencies[] = node_reference
-
 files[] = migrate_huf.module
 files[] = migrate_huf.inc
-
-; For testing table_copy plugin. Since is infrequently used, we comment it out.
-; files[] = example.table_copy.inc
 
 ; Information added by drupal.org packaging script on 2012-03-13
 version = "7.x-2.3"

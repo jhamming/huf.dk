@@ -141,19 +141,7 @@ abstract class HufMigration extends Migration {
      
         $query = db_select(MY_MIGRATION_DATABASE_NAME .'Story', 's')
           ->fields('s', array('ID', 'ejer_id', 'Note', 'kap','Rubrik', 'Text_', 'Dato', 'Chg', 'Kategori', 'samling'));
-          //->condition('s.type', 'page', '=');
-        /*$query->join(MY_MIGRATION_DATABASE_NAME .'.node_revisions', 'nr', 'n.vid = nr.vid');
-        $query->addField('nr', 'body');
-        $query->addField('nr', 'teaser');
-        $query->join(MY_MIGRATION_DATABASE_NAME .'.users', 'u', 'n.uid = u.uid');
-        $query->addField('u', 'name');
-        $query->orderBy('n.changed');
-          
-        $this->highwaterField = array(
-          'name' => 'changed', // Column to be used as highwater mark
-          'alias' => 'n',           // Table alias containing that column
-        );
-     */
+
         $this->source = new MigrateSourceSQL($query, $source_fields);
         $this->destination = new MigrateDestinationNode('article');
      
@@ -181,49 +169,5 @@ abstract class HufMigration extends Migration {
         $this->addFieldMapping('field_note', 'Note');
         $this->addFieldMapping('field_kapitel', 'kap');
         $this->addFieldMapping(NULL, 'ID');
-      }
-   /*
-   Remember to ad the vocabulary and the terms:
-    Digte
-    Kortprosa
-    Noveller
-    Andet
-    Fantasy
-    UfÃ_rdige tekster
-    Eventyr
-    Essays
-    Udsnit af romaner
-    Romaner
-    Artikler
-    SkriveÃ¸velser
-    Stile
-    Gys
-    Drama
-    Børnebøger
-   */ 
-   /*
-    public function prepareRow($current_row) {
-      // Comments
-      $comments_query = db_select(MY_MIGRATION_DATABASE_NAME .'.content_field_right_side_image', 'rsi')
-        ->fields('rsi')
-        ->condition('rsi.nid', $nid, '=');
-      $right_side_image_query->join(MY_MIGRATION_DATABASE_NAME .'.files', 'f', 'rsi.field_right_side_image_fid = f.fid');
-      $right_side_image_query->addField('f', 'filepath');
-      $results = $right_side_image_query->execute();
-   
-      $images = array();
-   
-    foreach ($results as $row) {
-      $image_data = unserialize($row->field_right_side_image_data);
-      $current_image_data = array(
-        'path' => REDCAT_MIGRATION_FILES_DIRECTORY .'/'. $row->filepath,
-        'alt' => $image_data['alt'],
-        'title' => $image_data['title'],
-      );
-      $images[] = drupal_json_encode($current_image_data);
-    }
-      $current_row->right_side_images = $images
-      return TRUE;
-    }
-    */
+      }    
   }
