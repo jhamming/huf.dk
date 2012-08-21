@@ -10,9 +10,9 @@
 function article_node_info() {
   $items = array(
     'article' => array(
-      'name' => t('Artikel'),
+      'name' => t('Tekster'),
       'base' => 'node_content',
-      'description' => t('Brug <em>artikler</em> til tidsfølsomt indhold som nyheder, pressemeddelelser eller blogindlæg.'),
+      'description' => t('Tekster skrevet af HUF\'s medlemmer'),
       'has_title' => '1',
       'title_label' => t('Title'),
       'help' => '',
