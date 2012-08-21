@@ -105,7 +105,7 @@ function article_field_default_fields() {
       ),
       'module' => 'image',
       'settings' => array(
-        'default_image' => FALSE,
+        'default_image' => 0,
         'uri_scheme' => 'public',
       ),
       'translatable' => '0',

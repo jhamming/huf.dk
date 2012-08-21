@@ -5,6 +5,7 @@ package = Huf
 php = 5.2.4
 dependencies[] = features
 dependencies[] = image
+dependencies[] = migrate
 dependencies[] = number
 dependencies[] = taxonomy
 features[features_api][] = api:1
