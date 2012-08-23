@@ -132,7 +132,7 @@ abstract class HufMigration extends Migration {
         parent::__construct();
      
         $this->description = t('Migrate old articles');
-     
+        $this->dependencies = array('HufUser','HufKategoriTerm');
         $source_fields = array(
           'ID' => t('The node ID of the article'),
         //  'linked_files' => t('The set of linked files'),
@@ -171,3 +171,54 @@ abstract class HufMigration extends Migration {
         $this->addFieldMapping(NULL, 'ID');
       }    
   }
+  class HufCommentMigration extends HufMigration {
+  public function __construct() {
+    if (module_exists('node_reference')) {
+      echo 'hello';
+    };
+    die;
+    parent::__construct();
+    $this->description = 'Comments to Huf articles';
+    $this->dependencies = array('HufArticle');
+    $this->map = new MigrateSQLMap($this->machineName,
+      //should this be set to ID? perhaps query needs to be moved up before this part
+      array('ID' => array(
+            'type' => 'int',
+            'not null' => TRUE,
+            'description' => 'Comment ID'
+           )
+         ),
+      MigrateDestinationComment::getKeySchema()
+    );
+    //debugging to be done, why do i not get any data from the source database
+    //echo MY_MIGRATION_DATABASE_NAME .'Comment';
+    $query = db_select(MY_MIGRATION_DATABASE_NAME .'Comment', 'mec')
+             ->fields('mec', array('ID', 'ejer_id', 'fra_id', 'Comment', 'Dato'));
+    $this->source = new MigrateSourceSQL($query);
+    $this->destination = new MigrateDestinationComment('comment_node_migrate_huf');
+    // Mapped fields
+    //$this->addSimpleMappings(array('name', 'subject', 'mail'));
+    $this->addFieldMapping('status')
+         ->defaultValue(COMMENT_PUBLISHED);
+
+    // We preserved bid => nid ids during BeerNode import so simple mapping suffices.
+    $this->addFieldMapping('nid', 'ID')
+         ->sourceMigration('HufArticle');
+    $this->addFieldMapping('uid', 'fra_id')
+         ->sourceMigration('HufUser')
+         ->defaultValue(0);
+    $this->addFieldMapping('pid')
+         ->defaultValue(0);
+    $this->addFieldMapping('subject')
+         ->defaultValue(1); //need to figure out what to put here
+
+    //$this->addFieldMapping('comment_body', 'Comment'); //need to find out how to append the body
+    $this->addFieldMapping(NULL,'ejer_id');
+    $this->addFieldMapping('created', 'dato');
+    $this->addFieldMapping('changed', 'dato');
+    // No unmapped source fields
+
+    // Unmapped destination fields
+    $this->addUnmigratedDestinations(array('name', 'mail', 'hostname', 'thread', 'homepage', 'language'));
+  }
+}
