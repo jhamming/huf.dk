@@ -205,9 +205,10 @@ abstract class HufMigration extends Migration {
          ->defaultValue(0);
     $this->addFieldMapping('pid')
          ->defaultValue(0);
-    $this->addFieldMapping('subject')
-         ->defaultValue(1); //need to figure out what to put here
-
+    $this->addFieldMapping('subject', substr('comment',0,100));
+         //->defaultValue(1); //need to figure out what to put here
+//regex for determining first period: /^(.*?(?<!\b\w)[.?!])\s+[A-Z0-9]/
+         //pulling out substring: $string2 = substr($string1, 0, 100);
     //$this->addFieldMapping('comment_body', 'Comment'); //need to find out how to append the body
     $this->addFieldMapping(NULL,'ejer_id');
     $this->addFieldMapping('created', 'dato');
