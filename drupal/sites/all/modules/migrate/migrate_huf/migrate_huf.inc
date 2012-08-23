@@ -173,10 +173,6 @@ abstract class HufMigration extends Migration {
   }
   class HufCommentMigration extends HufMigration {
   public function __construct() {
-    if (module_exists('node_reference')) {
-      echo 'hello';
-    };
-    die;
     parent::__construct();
     $this->description = 'Comments to Huf articles';
     $this->dependencies = array('HufArticle');
