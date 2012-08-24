@@ -272,6 +272,7 @@ abstract class HufMigration extends Migration {
       parent::__construct();
       // Human-friendly description of your migration process. Be as detailed as you
       // like.
+
       $this->dependencies = array('HufForumType');
       $this->description = t('Migrate forums from the old HUF database. The forum types are automatically created but the Forum feature needs to be enabled first. The forum type will be imported with their ID in the old system as name, so thsi should be changed afterwards, 64 = Administration, 65 = Skrivegrupper, 66 = Generelt');
 
@@ -301,6 +302,7 @@ abstract class HufMigration extends Migration {
       // drush migrate-fields-destination BeerTerm
       // drush migrate-fields-source BeerTerm
       $this->addFieldMapping('field_forum_type', 'type')
+
       ->sourceMigration('HufForumType')
       ->arguments(array('source_type' => 'tid'));
       //$this->addFieldMapping('field_forum_type:source_type', 'ID')

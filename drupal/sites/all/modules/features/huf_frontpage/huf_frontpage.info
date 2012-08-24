@@ -1,0 +1,12 @@
+name = HUF Frontpage
+description = Configuration of the front page
+core = 7.x
+package = Huf
+dependencies[] = ctools
+dependencies[] = features
+dependencies[] = menu
+dependencies[] = views
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:1
+features[menu_custom][] = main-menu
+features[views_view][] = most_active_users
