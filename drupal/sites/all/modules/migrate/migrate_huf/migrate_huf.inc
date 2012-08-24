@@ -4,6 +4,7 @@ Implemented with inspiration from http://btmash.com/article/2011-03-02/migrating
 */
 
 const MY_MIGRATION_DATABASE_NAME = 'HUF_';
+const MY_MIGRATION_FORUM_DATABASE_NAME = 'TESTFORUM_';
 abstract class HufMigration extends Migration {
   public function __construct() {
     // Always call the parent constructor first for basic setup
@@ -217,5 +218,172 @@ abstract class HufMigration extends Migration {
 
     // Unmapped destination fields
     $this->addUnmigratedDestinations(array('name', 'mail', 'hostname', 'thread', 'homepage', 'language'));
+    } 
   }
-}
+
+  class HufForumTypeMigration extends HufMigration {
+    public function __construct() {
+      parent::__construct();
+      // Human-friendly description of your migration process. Be as detailed as you
+      // like.
+      $this->description = t('Migrate forum types from the old HUF database. Isnt needed since the forum migration will create the terms on the fly');
+
+      // Create a map object for tracking the relationships between source rows
+      // and their resulting Drupal objects. Usually, you'll use the MigrateSQLMap
+      // class, which uses database tables for tracking. Pass the machine name
+      // of this migration to use in generating map and message tables.
+      // And, pass schema definitions for the primary keys of the source and
+      // destination - we need to be explicit for our source, but the destination
+      // class knows its schema already.
+      $this->map = new MigrateSQLMap($this->machineName,
+          array(
+            'ID' => array('type' => 'int',
+                             //'length' => 255,
+                             'not null' => TRUE,
+                             'description' => 'Forum Type ID',
+                            )
+          ),
+          MigrateDestinationTerm::getKeySchema()
+        );
+
+      $query = db_select(MY_MIGRATION_FORUM_DATABASE_NAME .'type', 'ft')
+               ->fields('ft', array('ID','titel','beskrivelse'));
+               
+
+      // Create a MigrateSource object, which manages retrieving the input data.
+      $this->source = new MigrateSourceSQL($query);
+
+      // Set up our destination - terms in the migrate_example_beer_styles vocabulary
+      $this->destination = new MigrateDestinationTerm('forumtype');
+
+      // Assign mappings TO destination fields FROM source fields. To discover
+      // the names used in these calls, use the drush commands
+      // drush migrate-fields-destination BeerTerm
+      // drush migrate-fields-source BeerTerm
+      $this->addFieldMapping('name', 'titel');
+      $this->addFieldMapping('description', 'beskrivelse');
+      $this->addFieldMapping(NULL, 'id');
+      $this->addUnmigratedDestinations(array('parent', 'parent_name', 'format', 'weight', 'path'));
+      }
+  }
+  
+  class HufForumMigration extends HufMigration {
+    public function __construct() {
+      parent::__construct();
+      // Human-friendly description of your migration process. Be as detailed as you
+      // like.
+      //$this->dependencies = array('HufForumType');
+      $this->description = t('Migrate forums from the old HUF database. The forum types are automatically created but the Forum feature needs to be enabled first. The forum type will be imported with their ID in the old system as name, so thsi should be changed afterwards, 64 = Administration, 65 = Skrivegrupper, 66 = Generelt');
+
+      $this->map = new MigrateSQLMap($this->machineName,
+          array(
+            'ID' => array('type' => 'int',
+                             //'length' => 255,
+                             'not null' => TRUE,
+                             'description' => 'Forum Type ID',
+                            )
+          ),
+          MigrateDestinationTerm::getKeySchema()
+        );
+
+      $query = db_select(MY_MIGRATION_FORUM_DATABASE_NAME .'fora', 'ff')
+               ->fields('ff', array('ID','type','titel','beskrivelse'));
+               
+
+      // Create a MigrateSource object, which manages retrieving the input data.
+      $this->source = new MigrateSourceSQL($query);
+
+      // Set up our destination - terms in the migrate_example_beer_styles vocabulary
+      $this->destination = new MigrateDestinationTerm('forums');
+
+      // Assign mappings TO destination fields FROM source fields. To discover
+      // the names used in these calls, use the drush commands
+      // drush migrate-fields-destination BeerTerm
+      // drush migrate-fields-source BeerTerm
+      $this->addFieldMapping('field_forum_type', 'type')
+      ->sourceMigration('HufForumType');
+      //$this->addFieldMapping('field_forum_type:source_type', 'ID')
+      //->sourceMigration('HufForumType');
+      $this->addFieldMapping('field_forum_type:create_term')->defaultValue(TRUE);
+      $this->addFieldMapping('name', 'titel');
+      $this->addFieldMapping('description', 'beskrivelse');
+      $this->addFieldMapping(NULL, 'id');
+      $this->addUnmigratedDestinations(array('parent', 'parent_name', 'format', 'weight', 'path'));
+
+      }
+
+      public function prepare(stdClass $account) {
+        //we need to convert the name and description to utf 8 from iso latin to avoid errors with special characters
+        $account->name = utf8_encode(html_entity_decode($account->name));
+        $account->description = utf8_encode(html_entity_decode($account->description));   
+    }
+  }
+    
+ class HufForumThreadMigration extends HufMigration {
+    /**
+     * Class Constructor
+     */
+    public function __construct() {
+        parent::__construct();
+     
+        $this->description = t('Migrate old forum');
+        $this->dependencies = array('HufUser','HufForum');
+        $source_fields = array(
+          'ID' => t('The node ID of the thread'),
+        //  'linked_files' => t('The set of linked files'),
+        //  'right_side_images' => t('The set of images that previously appeared on the side'),
+        );
+     
+        $query = db_select(MY_MIGRATION_FORUM_DATABASE_NAME .'threads', 'fth')
+          ->fields('fth', array('ID', 'fora', 'opretter', 'titel', 'text', 'oprettet', 'important', 'archive'));
+        $this->source = new MigrateSourceSQL($query, $source_fields);
+        $this->destination = new MigrateDestinationNode('forum');
+     //echo $this->source;die;
+        $this->map = new MigrateSQLMap($this->machineName,
+          array(
+            'ID' => array(
+              'type' => 'int',
+              'unsigned' => TRUE,
+              'not null' => TRUE,
+              'description' => 'Old Unique thread ID',
+              'alias' => 'fth',
+            )
+          ),
+          MigrateDestinationNode::getKeySchema()
+        );
+       // Make the mappings
+        $this->addFieldMapping('title', 'titel');
+        $this->addFieldMapping('status', 'archive');
+        $this->addFieldMapping('revision')->defaultValue(TRUE);
+        $this->addFieldMapping('promote')->defaultValue(FALSE);
+        $this->addFieldMapping('language')->defaultValue('da');
+        $this->addFieldMapping('sticky', 'important');
+        $this->addFieldMapping('created', 'oprettet');
+        $this->addFieldMapping('changed', 'oprettet');
+        $this->addFieldMapping('body', 'text');
+        $this->addFieldMapping('uid', 'opretter')
+        ->sourceMigration('HufUser');
+        $this->addFieldMapping('taxonomy_forums', 'fora')
+        ->sourceMigration('HufForum')
+        ->arguments(array('source_type' => 'tid'));
+        $this->addFieldMapping(NULL, 'ID');
+      }
+      public function prepare(stdClass $account, stdClass $row) {
+        //we need to convert the name and description to utf 8 from iso latin to avoid errors with special characters
+        $account->title = utf8_encode(html_entity_decode($account->title));
+        $account->body['und'][0]['value'] = utf8_encode(html_entity_decode($account->body['und'][0]['value']));
+        
+        //since the parameter archive indicates with a '1' that a node is archived, we need to flip it, to make it fit with the published parameter in Drupal
+        switch ($row->archive) {
+          case 0;
+            $account->status = 1;
+            break;
+          case 1;
+            $account->status = 0;
+            break;
+          default;
+            $account->status = 1;
+            break;
+          }
+        }
+    }    
