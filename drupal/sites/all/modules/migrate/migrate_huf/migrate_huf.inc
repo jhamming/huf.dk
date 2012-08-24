@@ -108,7 +108,7 @@ abstract class HufMigration extends Migration {
       $this->addFieldMapping('name', 'Brugernavn')->dedupe('users', 'name');
       $this->addFieldMapping('pass')->defaultValue('1234');
       //$this->addFieldMapping('mail', 'Email')->dedupe('users', 'mail');
-      $this->addFieldMapping('language')->defaultValue('');
+      $this->addFieldMapping('language')->defaultValue('da');
       $this->addFieldMapping('theme')->defaultValue('');
       $this->addFieldMapping('signature')->defaultValue('');
       $this->addFieldMapping('signature_format')->defaultValue('filtered_html');
@@ -192,13 +192,10 @@ abstract class HufMigration extends Migration {
     $query = db_select(MY_MIGRATION_DATABASE_NAME .'Comment', 'mec')
              ->fields('mec', array('ID', 'ejer_id', 'fra_id', 'Comment', 'Dato'));
     $this->source = new MigrateSourceSQL($query);
-    $this->destination = new MigrateDestinationComment('comment_node_migrate_huf');
-    // Mapped fields
-    //$this->addSimpleMappings(array('name', 'subject', 'mail'));
+    $this->destination = new MigrateDestinationComment('comment_node_article');
+
     $this->addFieldMapping('status')
          ->defaultValue(COMMENT_PUBLISHED);
-
-    // We preserved bid => nid ids during BeerNode import so simple mapping suffices.
     $this->addFieldMapping('nid', 'ID')
          ->sourceMigration('HufArticle');
     $this->addFieldMapping('uid', 'fra_id')
@@ -206,18 +203,36 @@ abstract class HufMigration extends Migration {
          ->defaultValue(0);
     $this->addFieldMapping('pid')
          ->defaultValue(0);
-    $this->addFieldMapping('subject', substr('comment',0,100));
-         //->defaultValue(1); //need to figure out what to put here
-//regex for determining first period: /^(.*?(?<!\b\w)[.?!])\s+[A-Z0-9]/
-         //pulling out substring: $string2 = substr($string1, 0, 100);
-    //$this->addFieldMapping('comment_body', 'Comment'); //need to find out how to append the body
+    $this->addFieldMapping('subject', NULL);
+    $this->addFieldMapping('comment_body', 'Comment');
+    $this->addFieldMapping('comment_body:language')->defaultValue('da');
     $this->addFieldMapping(NULL,'ejer_id');
     $this->addFieldMapping('created', 'dato');
     $this->addFieldMapping('changed', 'dato');
+    $this->addFieldMapping('language')->defaultValue('da');
     // No unmapped source fields
 
     // Unmapped destination fields
-    $this->addUnmigratedDestinations(array('name', 'mail', 'hostname', 'thread', 'homepage', 'language'));
+    $this->addUnmigratedDestinations(array('name', 'mail', 'hostname', 'thread', 'homepage', 'comment_body:format', 'path'));
+    }
+    public function prepare($account) {
+        
+        //We get the article title and use it as subject for all the comments, since they don't have a subject on the old site.
+        $nid = $account->nid;
+        if ($nid) {
+          $nid = node_load($nid);
+          $articletitle = $nid->title;
+          //get the first 64 characters since the title can't be longer
+          $articletitle = substr($articletitle, 0, 64);
+          $account->subject = $articletitle;
+          }
+          else
+            return FALSE;
+
+        
+        //we need to convert the name and description to utf 8 from iso latin to avoid errors with special characters
+        //$account->subject = utf8_encode(html_entity_decode($account->subject));
+        //$account->comment_body['und'][0]['value'] = utf8_encode(html_entity_decode($account->comment_body['und'][0]['value']));
     } 
   }
 
@@ -455,7 +470,11 @@ abstract class HufMigration extends Migration {
         //we need to convert the name and description to utf 8 from iso latin to avoid errors with special characters
         //$account->subject = utf8_encode(html_entity_decode($account->subject));
         $account->comment_body['und'][0]['value'] = utf8_encode(html_entity_decode($account->comment_body['und'][0]['value']));
+        $commentbody = $account->comment_body['und'][0]['value'];
         
+        $account->comment_body['und'][0]['value'] = str_replace('&#039;', '´', $commentbody);
+        //print $commentbody;
+        //var_dump($account->comment_body['und'][0]['value']);die;
         //this was an attempt to extract first sentence, but it became to long and didn't make any sence.        
         //$subject = $account->subject;
         //$pattern = '/^(.*?(?<!\b\w)[.?!])\s+[A-Z0-9]/'; //need to get this regex working
