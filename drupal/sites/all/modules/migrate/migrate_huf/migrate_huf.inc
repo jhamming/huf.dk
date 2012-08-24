@@ -226,8 +226,7 @@ abstract class HufMigration extends Migration {
       parent::__construct();
       // Human-friendly description of your migration process. Be as detailed as you
       // like.
-      $this->description = t('Migrate forum types from the old HUF database. Isnt needed since the forum migration will create the terms on the fly');
-
+      $this->description = t('Migrate forum types from the old HUF database. Will map the type with the ones created on the forum type migration');
       // Create a map object for tracking the relationships between source rows
       // and their resulting Drupal objects. Usually, you'll use the MigrateSQLMap
       // class, which uses database tables for tracking. Pass the machine name
@@ -274,7 +273,7 @@ abstract class HufMigration extends Migration {
       // like.
 
       $this->dependencies = array('HufForumType');
-      $this->description = t('Migrate forums from the old HUF database. The forum types are automatically created but the Forum feature needs to be enabled first. The forum type will be imported with their ID in the old system as name, so thsi should be changed afterwards, 64 = Administration, 65 = Skrivegrupper, 66 = Generelt');
+      $this->description = t('Migrate forums from the old HUF database. Needs to be run after ForumTypeMigration');
 
       $this->map = new MigrateSQLMap($this->machineName,
           array(
@@ -302,7 +301,6 @@ abstract class HufMigration extends Migration {
       // drush migrate-fields-destination BeerTerm
       // drush migrate-fields-source BeerTerm
       $this->addFieldMapping('field_forum_type', 'type')
-
       ->sourceMigration('HufForumType')
       ->arguments(array('source_type' => 'tid'));
       //$this->addFieldMapping('field_forum_type:source_type', 'ID')
@@ -389,4 +387,84 @@ abstract class HufMigration extends Migration {
             break;
           }
         }
-    }    
+    }
+  class HufForumCommentMigration extends HufMigration {
+    public function __construct() {
+    parent::__construct();
+    $this->description = 'Comments to Huf Forum';
+    $this->dependencies = array('HufForumThread');
+    $this->map = new MigrateSQLMap($this->machineName,
+      array('ID' => array(
+            'type' => 'int',
+            'not null' => TRUE,
+            'description' => 'Forum Comment ID'
+           )
+         ),
+      MigrateDestinationComment::getKeySchema()
+    );
+
+
+    //debugging to be done, why do i not get any data from the source database
+    //echo MY_MIGRATION_DATABASE_NAME .'Comment';
+    $query = db_select(MY_MIGRATION_FORUM_DATABASE_NAME .'svar', 'fsv')
+             ->fields('fsv', array('ID', 'thread', 'opretter', 'tekst', 'oprettet'));
+    $this->source = new MigrateSourceSQL($query);
+    $this->destination = new MigrateDestinationComment('comment_node_forum');
+
+    $this->addFieldMapping('status')
+         ->defaultValue(COMMENT_PUBLISHED);
+    $this->addFieldMapping('nid', 'thread')
+         ->sourceMigration('HufForumThread')
+         ->description('Matching comment to parent thread, removing orphans in prepare statement');
+    $this->addFieldMapping('uid', 'opretter')
+         ->sourceMigration('HufUser')
+         ->defaultValue(0);
+    $this->addFieldMapping('pid')
+         ->defaultValue(0);
+    $this->addFieldMapping('subject', NULL);
+    $this->addFieldMapping('comment_body', 'tekst');
+    $this->addFieldMapping('language')->defaultValue('da');
+    $this->addFieldMapping('comment_body:language')->defaultValue('da');
+    $this->addFieldMapping(NULL, 'id');
+         //->defaultValue(1); //need to figure out what to put here
+          //regex for determining first period: /^(.*?(?<!\b\w)[.?!])\s+[A-Z0-9]/
+         //pulling out substring: $string2 = substr($string1, 0, 100);
+          //$this->addFieldMapping('comment_body', 'Comment'); //need to find out how to append the body
+    $this->addFieldMapping('created', 'oprettet');
+    //$this->addFieldMapping('changed', 'dato');
+    // No unmapped source fields
+
+    // Unmapped destination fields
+    $this->addUnmigratedDestinations(array('name', 'mail', 'hostname', 'thread', 'homepage', 'changed', 'path', 'comment_body:format'));
+    }
+
+    public function prepare($account) {
+        
+        //We get the thread title and use it as subject for all the comments, since they don't have a subject on the old site.
+        $nid = $account->nid;
+        if ($nid) {
+          $nid = node_load($nid);
+          $threadtitle = $nid->title;
+          //get the first 64 characters since the title can't be longer
+          $threadtitle = substr($threadtitle, 0, 64);
+          $account->subject = $threadtitle;
+          }
+          else
+            return FALSE;
+
+        //we need to convert the name and description to utf 8 from iso latin to avoid errors with special characters
+        //$account->subject = utf8_encode(html_entity_decode($account->subject));
+        $account->comment_body['und'][0]['value'] = utf8_encode(html_entity_decode($account->comment_body['und'][0]['value']));
+        
+        //this was an attempt to extract first sentence, but it became to long and didn't make any sence.        
+        //$subject = $account->subject;
+        //$pattern = '/^(.*?(?<!\b\w)[.?!])\s+[A-Z0-9]/'; //need to get this regex working
+        //$subject = 'U.S.A. hej. med dig';
+        //$pattern = '/^[^.!?]*/';
+        //var_dump($subject);die;
+        //preg_match($pattern, $subject, $matches);
+        //print($matches[0]); die;
+        //$account->subject = $matches[0];
+        //var_dump($account->subject); die;
+    } 
+  }    
