@@ -133,7 +133,7 @@ abstract class HufMigration extends Migration {
         parent::__construct();
      
         $this->description = t('Migrate old articles');
-        $this->dependencies = array('HufUser','HufKategoriTerm');
+        $this->dependencies = array('HufUser');
         $source_fields = array(
           'ID' => t('The node ID of the article'),
         //  'linked_files' => t('The set of linked files'),
@@ -141,7 +141,7 @@ abstract class HufMigration extends Migration {
         );
      
         $query = db_select(MY_MIGRATION_DATABASE_NAME .'Story', 's')
-          ->fields('s', array('ID', 'ejer_id', 'Note', 'kap','Rubrik', 'Text_', 'Dato', 'Chg', 'Kategori', 'samling'));
+          ->fields('s', array('ID', 'ejer_id', 'Note', 'kap','Rubrik', 'Text_', 'Dato', 'Chg', 'Kategori', 'samling', 'inaktiv'));
 
         $this->source = new MigrateSourceSQL($query, $source_fields);
         $this->destination = new MigrateDestinationNode('article');
@@ -161,15 +161,41 @@ abstract class HufMigration extends Migration {
        // Make the mappings
         $this->addFieldMapping('title', 'Rubrik');
         $this->addFieldMapping('revision')->defaultValue(TRUE);
+        $this->addFieldMapping('language')->defaultValue('da');
+        $this->addFieldMapping('body:language')->defaultValue('da');
         $this->addFieldMapping('created', 'Dato');
         $this->addFieldMapping('changed', 'Dato');
         $this->addFieldMapping('body', 'Text_');
         $this->addFieldMapping('uid', 'ejer_id');
         $this->addFieldMapping('field_kategori', 'Kategori');
         $this->addFieldMapping('field_samling', 'samling');
+        $this->addFieldMapping('field_samling:create_term')->defaultValue(TRUE);
         $this->addFieldMapping('field_note', 'Note');
         $this->addFieldMapping('field_kapitel', 'kap');
+        $this->addFieldMapping('status', 'inaktiv');
         $this->addFieldMapping(NULL, 'ID');
+      }
+      public function prepare($account, $row) {
+        //Getting rid of &#039; and other special chars
+        $account->body['und'][0]['value'] = html_entity_decode(htmlspecialchars_decode(($account->body['und'][0]['value']), ENT_QUOTES));
+        $unwantedchars = array('&#8221;', '&#8220;', '&#8222;', '&#8230');
+        $wantedchars = array('”', '“', '„', '…');
+        $account->body['und'][0]['value'] = str_replace($unwantedchars, $wantedchars, $account->body['und'][0]['value']); 
+
+        $account->title = html_entity_decode(htmlspecialchars_decode(($account->title), ENT_QUOTES));
+        $account->title = str_replace($unwantedchars, $wantedchars, $account->title); 
+
+        switch ($row->inaktiv) {
+          case 0;
+            $account->status = 1;
+            break;
+          case 1;
+            $account->status = 0;
+            break;
+          default;
+            $account->status = 1;
+            break;
+            }    
       }    
   }
   class HufCommentMigration extends HufMigration {
@@ -229,10 +255,10 @@ abstract class HufMigration extends Migration {
           else
             return FALSE;
 
-        
         //we need to convert the name and description to utf 8 from iso latin to avoid errors with special characters
         //$account->subject = utf8_encode(html_entity_decode($account->subject));
-        //$account->comment_body['und'][0]['value'] = utf8_encode(html_entity_decode($account->comment_body['und'][0]['value']));
+        //$account->comment_body['und'][0]['value'] = str_replace('&#039;', '´', $account->comment_body['und'][0]['value']);
+        $account->comment_body['und'][0]['value'] = htmlspecialchars_decode(($account->comment_body['und'][0]['value']), ENT_QUOTES);
     } 
   }
 
@@ -387,7 +413,8 @@ abstract class HufMigration extends Migration {
       public function prepare(stdClass $account, stdClass $row) {
         //we need to convert the name and description to utf 8 from iso latin to avoid errors with special characters
         $account->title = utf8_encode(html_entity_decode($account->title));
-        $account->body['und'][0]['value'] = utf8_encode(html_entity_decode($account->body['und'][0]['value']));
+        $account->body['und'][0]['value'] = utf8_encode(html_entity_decode($account->body['und'][0]['value'], ENT_QUOTES));
+        //$account->body['und'][0]['value'] = str_replace('&#039;', '´', $account->body['und'][0]['value']);
         
         //since the parameter archive indicates with a '1' that a node is archived, we need to flip it, to make it fit with the published parameter in Drupal
         switch ($row->archive) {
@@ -438,8 +465,8 @@ abstract class HufMigration extends Migration {
          ->defaultValue(0);
     $this->addFieldMapping('subject', NULL);
     $this->addFieldMapping('comment_body', 'tekst');
-    $this->addFieldMapping('language')->defaultValue('da');
-    $this->addFieldMapping('comment_body:language')->defaultValue('da');
+    //$this->addFieldMapping('language')->defaultValue('da');
+    //$this->addFieldMapping('comment_body:language')->defaultValue('da');
     $this->addFieldMapping(NULL, 'id');
          //->defaultValue(1); //need to figure out what to put here
           //regex for determining first period: /^(.*?(?<!\b\w)[.?!])\s+[A-Z0-9]/
@@ -469,10 +496,10 @@ abstract class HufMigration extends Migration {
 
         //we need to convert the name and description to utf 8 from iso latin to avoid errors with special characters
         //$account->subject = utf8_encode(html_entity_decode($account->subject));
-        $account->comment_body['und'][0]['value'] = utf8_encode(html_entity_decode($account->comment_body['und'][0]['value']));
+        /*$account->comment_body['und'][0]['value'] = utf8_encode(html_entity_decode($account->comment_body['und'][0]['value']));
         $commentbody = $account->comment_body['und'][0]['value'];
-        
-        $account->comment_body['und'][0]['value'] = str_replace('&#039;', '´', $commentbody);
+        */
+        $account->comment_body['und'][0]['value'] = utf8_encode(html_entity_decode($account->comment_body['und'][0]['value'], ENT_QUOTES));
         //print $commentbody;
         //var_dump($account->comment_body['und'][0]['value']);die;
         //this was an attempt to extract first sentence, but it became to long and didn't make any sence.        
