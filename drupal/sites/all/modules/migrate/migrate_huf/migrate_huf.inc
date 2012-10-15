@@ -1,4 +1,5 @@
 <?php
+
 /*
 Implemented with inspiration from http://btmash.com/article/2011-03-02/migrating-content-part-1-users
 */
@@ -216,7 +217,8 @@ abstract class HufMigration extends Migration {
         $this->addFieldMapping('created', 'Dato');
         $this->addFieldMapping('changed', 'Dato');
         $this->addFieldMapping('body', 'Text_');
-        $this->addFieldMapping('uid', 'ejer_id');
+        $this->addFieldMapping('uid', 'ejer_id')
+             ->sourceMigration('HufUser');
         $this->addFieldMapping('field_kategori', 'Kategori');
         $this->addFieldMapping('field_samling', 'samling');
         $this->addFieldMapping('field_samling:create_term')->defaultValue(TRUE);
