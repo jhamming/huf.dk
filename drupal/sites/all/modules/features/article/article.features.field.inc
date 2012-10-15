@@ -10,7 +10,131 @@
 function article_field_default_fields() {
   $fields = array();
 
-  // Exported field: 'node-article-body'
+  // Exported field: 'comment-comment_node_article-comment_body'.
+  $fields['comment-comment_node_article-comment_body'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(
+        0 => 'comment',
+      ),
+      'field_name' => 'comment_body',
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'text',
+      'settings' => array(),
+      'translatable' => '0',
+      'type' => 'text_long',
+    ),
+    'field_instance' => array(
+      'bundle' => 'comment_node_article',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'comment',
+      'field_name' => 'comment_body',
+      'label' => 'Comment',
+      'required' => TRUE,
+      'settings' => array(
+        'text_processing' => 1,
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'module' => 'text',
+        'settings' => array(
+          'rows' => 5,
+        ),
+        'type' => 'text_textarea',
+        'weight' => 0,
+      ),
+    ),
+  );
+
+  // Exported field: 'comment-comment_node_page-comment_body'.
+  $fields['comment-comment_node_page-comment_body'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(
+        0 => 'comment',
+      ),
+      'field_name' => 'comment_body',
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'text',
+      'settings' => array(),
+      'translatable' => '0',
+      'type' => 'text_long',
+    ),
+    'field_instance' => array(
+      'bundle' => 'comment_node_page',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'comment',
+      'field_name' => 'comment_body',
+      'label' => 'Comment',
+      'required' => TRUE,
+      'settings' => array(
+        'text_processing' => 1,
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'module' => 'text',
+        'settings' => array(
+          'rows' => 5,
+        ),
+        'type' => 'text_textarea',
+        'weight' => 0,
+      ),
+    ),
+  );
+
+  // Exported field: 'node-article-body'.
   $fields['node-article-body'] = array(
     'field_config' => array(
       'active' => '1',
@@ -33,6 +157,7 @@ function article_field_default_fields() {
           0 => 'format',
         ),
       ),
+      'locked' => '0',
       'module' => 'text',
       'settings' => array(),
       'translatable' => '0',
@@ -82,7 +207,7 @@ function article_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-article-field_image'
+  // Exported field: 'node-article-field_image'.
   $fields['node-article-field_image'] = array(
     'field_config' => array(
       'active' => '1',
@@ -103,6 +228,7 @@ function article_field_default_fields() {
           0 => 'fid',
         ),
       ),
+      'locked' => '0',
       'module' => 'image',
       'settings' => array(
         'default_image' => 0,
@@ -164,7 +290,7 @@ function article_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-article-field_kapitel'
+  // Exported field: 'node-article-field_kapitel'.
   $fields['node-article-field_kapitel'] = array(
     'field_config' => array(
       'active' => '1',
@@ -174,14 +300,11 @@ function article_field_default_fields() {
       'field_name' => 'field_kapitel',
       'foreign keys' => array(),
       'indexes' => array(),
+      'locked' => '0',
       'module' => 'number',
-      'settings' => array(
-        'decimal_separator' => '.',
-        'precision' => '10',
-        'scale' => '0',
-      ),
+      'settings' => array(),
       'translatable' => '0',
-      'type' => 'number_decimal',
+      'type' => 'number_integer',
     ),
     'field_instance' => array(
       'bundle' => 'article',
@@ -195,11 +318,11 @@ function article_field_default_fields() {
           'settings' => array(
             'decimal_separator' => '.',
             'prefix_suffix' => TRUE,
-            'scale' => 2,
+            'scale' => 0,
             'thousand_separator' => ' ',
           ),
-          'type' => 'number_decimal',
-          'weight' => 14,
+          'type' => 'number_integer',
+          'weight' => 16,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -214,7 +337,7 @@ function article_field_default_fields() {
       'required' => 0,
       'settings' => array(
         'max' => '',
-        'min' => '0',
+        'min' => '1',
         'prefix' => '',
         'suffix' => '',
         'user_register_form' => FALSE,
@@ -224,12 +347,12 @@ function article_field_default_fields() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '3',
+        'weight' => '5',
       ),
     ),
   );
 
-  // Exported field: 'node-article-field_kategori'
+  // Exported field: 'node-article-field_kategori'.
   $fields['node-article-field_kategori'] = array(
     'field_config' => array(
       'active' => '1',
@@ -250,6 +373,7 @@ function article_field_default_fields() {
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -302,7 +426,7 @@ function article_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-article-field_note'
+  // Exported field: 'node-article-field_note'.
   $fields['node-article-field_note'] = array(
     'field_config' => array(
       'active' => '1',
@@ -323,6 +447,7 @@ function article_field_default_fields() {
           0 => 'format',
         ),
       ),
+      'locked' => '0',
       'module' => 'text',
       'settings' => array(
         'max_length' => '255',
@@ -370,7 +495,7 @@ function article_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-article-field_samling'
+  // Exported field: 'node-article-field_samling'.
   $fields['node-article-field_samling'] = array(
     'field_config' => array(
       'active' => '1',
@@ -379,24 +504,30 @@ function article_field_default_fields() {
       'entity_types' => array(),
       'field_name' => 'field_samling',
       'foreign keys' => array(
-        'format' => array(
+        'tid' => array(
           'columns' => array(
-            'format' => 'format',
+            'tid' => 'tid',
           ),
-          'table' => 'filter_format',
+          'table' => 'taxonomy_term_data',
         ),
       ),
       'indexes' => array(
-        'format' => array(
-          0 => 'format',
+        'tid' => array(
+          0 => 'tid',
         ),
       ),
-      'module' => 'text',
+      'locked' => '0',
+      'module' => 'taxonomy',
       'settings' => array(
-        'max_length' => '255',
+        'allowed_values' => array(
+          0 => array(
+            'vocabulary' => 'samling',
+            'parent' => '0',
+          ),
+        ),
       ),
       'translatable' => '0',
-      'type' => 'text',
+      'type' => 'taxonomy_term_reference',
     ),
     'field_instance' => array(
       'bundle' => 'article',
@@ -406,10 +537,10 @@ function article_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'text',
+          'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'text_default',
-          'weight' => 13,
+          'type' => 'taxonomy_term_reference_link',
+          'weight' => 15,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -423,22 +554,22 @@ function article_field_default_fields() {
       'label' => 'Samling',
       'required' => 0,
       'settings' => array(
-        'text_processing' => '0',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
-        'active' => 1,
-        'module' => 'text',
+        'active' => 0,
+        'module' => 'taxonomy',
         'settings' => array(
-          'size' => '60',
+          'autocomplete_path' => 'taxonomy/autocomplete',
+          'size' => 60,
         ),
-        'type' => 'text_textfield',
-        'weight' => '2',
+        'type' => 'taxonomy_autocomplete',
+        'weight' => '4',
       ),
     ),
   );
 
-  // Exported field: 'node-article-field_tags'
+  // Exported field: 'node-article-field_tags'.
   $fields['node-article-field_tags'] = array(
     'field_config' => array(
       'active' => '1',
@@ -459,6 +590,7 @@ function article_field_default_fields() {
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -514,6 +646,7 @@ function article_field_default_fields() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Body');
+  t('Comment');
   t('Image');
   t('Indtast en kommasepareret list af ord som beskriver dit indhold.');
   t('Kapitel');

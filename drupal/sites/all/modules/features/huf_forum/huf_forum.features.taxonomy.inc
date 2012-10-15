@@ -32,5 +32,28 @@ function huf_forum_taxonomy_default_vocabularies() {
         ),
       ),
     ),
+    'forumtype' => array(
+      'name' => 'Forumtype',
+      'machine_name' => 'forumtype',
+      'description' => 'Angiver forummets type (administrativt eller kreativt)',
+      'hierarchy' => '0',
+      'module' => 'taxonomy',
+      'weight' => '0',
+      'rdf_mapping' => array(
+        'rdftype' => array(
+          0 => 'skos:ConceptScheme',
+        ),
+        'name' => array(
+          'predicates' => array(
+            0 => 'dc:title',
+          ),
+        ),
+        'description' => array(
+          'predicates' => array(
+            0 => 'rdfs:comment',
+          ),
+        ),
+      ),
+    ),
   );
 }

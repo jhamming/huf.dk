@@ -22,7 +22,9 @@ function huf_forum_user_default_permissions() {
   // Exported permission: create forum content.
   $permissions['create forum content'] = array(
     'name' => 'create forum content',
-    'roles' => array(),
+    'roles' => array(
+      0 => 'authenticated user',
+    ),
     'module' => 'node',
   );
 
@@ -57,7 +59,9 @@ function huf_forum_user_default_permissions() {
   // Exported permission: edit own forum content.
   $permissions['edit own forum content'] = array(
     'name' => 'edit own forum content',
-    'roles' => array(),
+    'roles' => array(
+      0 => 'authenticated user',
+    ),
     'module' => 'node',
   );
 

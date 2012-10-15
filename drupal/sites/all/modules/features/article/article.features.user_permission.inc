@@ -15,6 +15,7 @@ function article_user_default_permissions() {
     'name' => 'create article content',
     'roles' => array(
       0 => 'administrator',
+      1 => 'authenticated user',
     ),
     'module' => 'node',
   );
@@ -51,6 +52,7 @@ function article_user_default_permissions() {
     'name' => 'edit own article content',
     'roles' => array(
       0 => 'administrator',
+      1 => 'authenticated user',
     ),
     'module' => 'node',
   );
