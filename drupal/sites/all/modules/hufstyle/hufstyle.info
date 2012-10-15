@@ -1,0 +1,4 @@
+name = "Hufstyle"
+description = "Styles for Huf.dk"
+package = "Development"
+core = 7.x
