@@ -83,9 +83,10 @@ abstract class HufMigration extends Migration {
       );
    
       $query = db_select(MY_MIGRATION_DATABASE_NAME .'Users' , 'u')
-        ->fields('u', array('ID','Brugernavn','Password','Email','Oprettet'))
-        ->condition('u.Brugernavn', array('admin', 'HUF', 'webmaster'), 'NOT IN')
-        ->condition('u.ID', 0, '>');
+        ->fields('u', array('ID','Brugernavn','Password','Email','Oprettet', 'Navn', 'Nick', 'Adresse', 'region', 'kommune', 'Alder', 'Tlf', 'Profil', 'lukket', 'seneste_indbetaling'))
+        ->condition('u.Brugernavn', array('admin','webmaster'), 'NOT IN')
+        ->condition('u.ID', 2, '>')
+        ->orderBy('ID', 'ASC');
       $this->source = new MigrateSourceSQL($query, $source_fields);
       $this->destination = new MigrateDestinationUser();
 
@@ -104,25 +105,74 @@ abstract class HufMigration extends Migration {
    
       // Make the mappings
       $this->addFieldMapping('is_new')->defaultValue(TRUE);
-      $this->addFieldMapping('uid', 'ID');
+      $this->addFieldMapping(NULL, 'ID');
       $this->addFieldMapping('name', 'Brugernavn')->dedupe('users', 'name');
       $this->addFieldMapping('pass')->defaultValue('1234');
       //$this->addFieldMapping('mail', 'Email')->dedupe('users', 'mail');
       $this->addFieldMapping('language')->defaultValue('da');
-      $this->addFieldMapping('theme')->defaultValue('');
-      $this->addFieldMapping('signature')->defaultValue('');
+      $this->addFieldMapping('theme')->defaultValue(NULL);
+      $this->addFieldMapping('signature')->defaultValue(NULL);
       $this->addFieldMapping('signature_format')->defaultValue('filtered_html');
       $this->addFieldMapping('created', 'Oprettet');
-      //$this->addFieldMapping('access', 'access');
-      //$this->addFieldMapping('login', 'login');
-      $this->addFieldMapping('status')->defaultValue('1');
+      $this->addFieldMapping('access', NULL);
+      $this->addFieldMapping('login', NULL);
+      $this->addFieldMapping('status', 'lukket');
       //$this->addFieldMapping('picture')->defaultValue(0);
-      $this->addFieldMapping('init', 'init');
+      $this->addFieldMapping('init', NULL);
+      $this->addFieldMapping('mail', 'Email');
       $this->addFieldMapping('timezone')->defaultValue(NULL);
       $this->addFieldMapping('path')->issueGroup(t('DNM'));
-      $this->addFieldMapping('pathauto_perform_alias')->defaultValue('1');
-      $this->addFieldMapping('roles', 'roles');
-    }
+      $this->addFieldMapping('roles')->defaultValue(2);
+      $this->addFieldMapping('field_navn', 'Navn');
+      $this->addFieldMapping('field_nick', 'Nick');
+      $this->addFieldMapping('field_adresse', 'Adresse');
+      $this->addFieldMapping('field_region', 'region');
+      $this->addFieldMapping('field_kommune', 'kommune');
+      $this->addFieldMapping('field_telefonnummer', 'Tlf');
+      $this->addFieldMapping('field_profiltekst', 'Profil');
+      $this->addFieldMapping('field_seneste_indbetaling', 'seneste_indbetaling')->callbacks(array($this, 'indbetalingCleanUp'));
+      $this->addFieldMapping('field_f_dselsdato', 'Alder')->callbacks(array($this, 'debugging'));
+      }
+
+      protected function debugging($value) {
+        $value = str_replace('/', '-', $value);
+        //var_dump($value);die;
+        return $value;
+      }
+
+      protected function indbetalingCleanUp($value) {
+        $value = str_replace('0000-00-00', NULL, $value);
+        return $value;
+      }
+
+      public function prepare(stdClass $account, stdClass $row) {
+        
+        //Flip the bit for wether a user is active
+        switch ($row->lukket) {
+
+          case 0;
+            $account->status = 1;
+            break;
+          case 1;
+            $account->status = 0;
+            break;
+          default;
+            $account->status = 0;
+            break;
+        }
+
+        /* Set the default created time to 2005-01-01
+        to avoid it being set to now */
+        switch ($row->Oprettet) {
+          
+          case '';
+            $account->created = 1104559200;
+            break;
+          default;
+            break;
+        }
+      
+      }    
   }
 
   class HufArticleMigration extends HufMigration {
@@ -258,7 +308,7 @@ abstract class HufMigration extends Migration {
         //we need to convert the name and description to utf 8 from iso latin to avoid errors with special characters
         //$account->subject = utf8_encode(html_entity_decode($account->subject));
         //$account->comment_body['und'][0]['value'] = str_replace('&#039;', '´', $account->comment_body['und'][0]['value']);
-        $account->comment_body['und'][0]['value'] = htmlspecialchars_decode(($account->comment_body['und'][0]['value']), ENT_QUOTES);
+        $account->comment_body['und'][0]['value'] = utf8_encode(html_entity_decode(($account->comment_body['und'][0]['value']), ENT_QUOTES));
     } 
   }
 
