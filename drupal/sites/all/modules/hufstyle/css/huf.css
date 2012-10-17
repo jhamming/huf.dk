@@ -8,3 +8,64 @@
 	height: auto;
 	width: auto;
 }
+
+#highlighted .content {
+	background: yellow;
+	border-radius: 5px;
+	padding: 0px 0px 4px 6px;
+}
+
+#highlighted p {
+	color: black;
+	font-size: 18px;
+	font-weight: normal;
+}
+
+ body.html {
+	background: #FAFAF0;
+}
+
+#header-top img {
+	width: 745px;
+	border-radius: 10px;
+}
+
+#header.clearfix {
+	margin-top: 0px;
+}
+
+.views-slideshow-controls-text-pause {
+	line-height: 0px;
+	display: block;
+	text-indent: -5000px;
+}
+
+.views-slideshow-controls-text-previous {
+	display: block;
+	background: url(/sites/all/modules/hufstyle/arrow_left.png) no-repeat;
+	background-size: 20px;
+	width: 31px;
+	height: 46px;
+	text-indent: -5000px;
+	position: absolute;
+	top: 44%;
+	left: 7px;
+	z-index: 1000;
+}
+
+.views-slideshow-controls-text-next {
+	display: block;
+	background: url(/sites/all/modules/hufstyle/arrow_right.png) no-repeat;
+	background-size: 20px;
+	width: 31px;
+	height: 46px;
+	text-indent: -5000px;
+	position: absolute;
+	top: 44%;
+	right: 5px;
+	z-index: 1000;
+}
+
+.views_slideshow_cycle_teaser_section {
+	left: 25px;
+}
