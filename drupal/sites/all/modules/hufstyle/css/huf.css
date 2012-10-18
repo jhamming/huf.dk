@@ -71,3 +71,7 @@
 .item-list .pager {
 	margin: 10px;
 }
+
+#block-panels-mini-nyeste-indhold > .content {
+	margin-top: -20px;
+}
