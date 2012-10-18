@@ -50,7 +50,6 @@
 	position: absolute;
 	top: 44%;
 	left: 7px;
-	z-index: 1000;
 }
 
 .views-slideshow-controls-text-next {
@@ -63,9 +62,12 @@
 	position: absolute;
 	top: 44%;
 	right: 5px;
-	z-index: 1000;
 }
 
 .views_slideshow_cycle_teaser_section {
 	left: 25px;
+}
+
+.item-list .pager {
+	margin: 10px;
 }
