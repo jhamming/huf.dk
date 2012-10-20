@@ -23,7 +23,10 @@ function huf_user_user_default_permissions() {
   $permissions['access all views'] = array(
     'name' => 'access all views',
     'roles' => array(
-      0 => 'administrator',
+      0 => 'Bestyrelse',
+      1 => 'administrator',
+      2 => 'anonymous user',
+      3 => 'authenticated user',
     ),
     'module' => 'views',
   );
@@ -32,9 +35,10 @@ function huf_user_user_default_permissions() {
   $permissions['access comments'] = array(
     'name' => 'access comments',
     'roles' => array(
-      0 => 'administrator',
-      1 => 'anonymous user',
-      2 => 'authenticated user',
+      0 => 'Bestyrelse',
+      1 => 'administrator',
+      2 => 'anonymous user',
+      3 => 'authenticated user',
     ),
     'module' => 'comment',
   );
@@ -43,8 +47,8 @@ function huf_user_user_default_permissions() {
   $permissions['access content'] = array(
     'name' => 'access content',
     'roles' => array(
-      0 => 'administrator',
-      1 => 'anonymous user',
+      0 => 'Bestyrelse',
+      1 => 'administrator',
       2 => 'authenticated user',
     ),
     'module' => 'node',
@@ -54,7 +58,9 @@ function huf_user_user_default_permissions() {
   $permissions['access content overview'] = array(
     'name' => 'access content overview',
     'roles' => array(
-      0 => 'administrator',
+      0 => 'Bestyrelse',
+      1 => 'administrator',
+      2 => 'authenticated user',
     ),
     'module' => 'node',
   );
@@ -63,7 +69,8 @@ function huf_user_user_default_permissions() {
   $permissions['access contextual links'] = array(
     'name' => 'access contextual links',
     'roles' => array(
-      0 => 'administrator',
+      0 => 'Bestyrelse',
+      1 => 'administrator',
     ),
     'module' => 'contextual',
   );
@@ -72,16 +79,29 @@ function huf_user_user_default_permissions() {
   $permissions['access dashboard'] = array(
     'name' => 'access dashboard',
     'roles' => array(
-      0 => 'administrator',
+      0 => 'Bestyrelse',
+      1 => 'administrator',
+      2 => 'authenticated user',
     ),
     'module' => 'dashboard',
+  );
+
+  // Exported permission: access newsletter statistics.
+  $permissions['access newsletter statistics'] = array(
+    'name' => 'access newsletter statistics',
+    'roles' => array(
+      0 => 'Bestyrelse',
+      1 => 'administrator',
+    ),
+    'module' => 'newsletter',
   );
 
   // Exported permission: access overlay.
   $permissions['access overlay'] = array(
     'name' => 'access overlay',
     'roles' => array(
-      0 => 'administrator',
+      0 => 'Bestyrelse',
+      1 => 'administrator',
     ),
     'module' => 'overlay',
   );
@@ -99,7 +119,8 @@ function huf_user_user_default_permissions() {
   $permissions['access site reports'] = array(
     'name' => 'access site reports',
     'roles' => array(
-      0 => 'administrator',
+      0 => 'Bestyrelse',
+      1 => 'administrator',
     ),
     'module' => 'system',
   );
@@ -108,7 +129,10 @@ function huf_user_user_default_permissions() {
   $permissions['access site-wide contact form'] = array(
     'name' => 'access site-wide contact form',
     'roles' => array(
-      0 => 'administrator',
+      0 => 'Bestyrelse',
+      1 => 'administrator',
+      2 => 'anonymous user',
+      3 => 'authenticated user',
     ),
     'module' => 'contact',
   );
@@ -117,7 +141,9 @@ function huf_user_user_default_permissions() {
   $permissions['access toolbar'] = array(
     'name' => 'access toolbar',
     'roles' => array(
-      0 => 'administrator',
+      0 => 'Bestyrelse',
+      1 => 'administrator',
+      2 => 'authenticated user',
     ),
     'module' => 'toolbar',
   );
@@ -126,7 +152,9 @@ function huf_user_user_default_permissions() {
   $permissions['access user contact forms'] = array(
     'name' => 'access user contact forms',
     'roles' => array(
-      0 => 'administrator',
+      0 => 'Bestyrelse',
+      1 => 'administrator',
+      2 => 'authenticated user',
     ),
     'module' => 'contact',
   );
@@ -135,7 +163,9 @@ function huf_user_user_default_permissions() {
   $permissions['access user profiles'] = array(
     'name' => 'access user profiles',
     'roles' => array(
-      0 => 'administrator',
+      0 => 'Bestyrelse',
+      1 => 'administrator',
+      2 => 'authenticated user',
     ),
     'module' => 'user',
   );
@@ -171,7 +201,8 @@ function huf_user_user_default_permissions() {
   $permissions['administer comments'] = array(
     'name' => 'administer comments',
     'roles' => array(
-      0 => 'administrator',
+      0 => 'Bestyrelse',
+      1 => 'administrator',
     ),
     'module' => 'comment',
   );
@@ -180,7 +211,8 @@ function huf_user_user_default_permissions() {
   $permissions['administer contact forms'] = array(
     'name' => 'administer contact forms',
     'roles' => array(
-      0 => 'administrator',
+      0 => 'Bestyrelse',
+      1 => 'administrator',
     ),
     'module' => 'contact',
   );
@@ -234,7 +266,8 @@ function huf_user_user_default_permissions() {
   $permissions['administer menu'] = array(
     'name' => 'administer menu',
     'roles' => array(
-      0 => 'administrator',
+      0 => 'Bestyrelse',
+      1 => 'administrator',
     ),
     'module' => 'menu',
   );
@@ -246,6 +279,16 @@ function huf_user_user_default_permissions() {
       0 => 'administrator',
     ),
     'module' => 'system',
+  );
+
+  // Exported permission: administer newsletters.
+  $permissions['administer newsletters'] = array(
+    'name' => 'administer newsletters',
+    'roles' => array(
+      0 => 'Bestyrelse',
+      1 => 'administrator',
+    ),
+    'module' => 'newsletter',
   );
 
   // Exported permission: administer nodes.
@@ -297,7 +340,8 @@ function huf_user_user_default_permissions() {
   $permissions['administer search'] = array(
     'name' => 'administer search',
     'roles' => array(
-      0 => 'administrator',
+      0 => 'Bestyrelse',
+      1 => 'administrator',
     ),
     'module' => 'search',
   );
@@ -333,7 +377,8 @@ function huf_user_user_default_permissions() {
   $permissions['administer taxonomy'] = array(
     'name' => 'administer taxonomy',
     'roles' => array(
-      0 => 'administrator',
+      0 => 'Bestyrelse',
+      1 => 'administrator',
     ),
     'module' => 'taxonomy',
   );
@@ -351,7 +396,8 @@ function huf_user_user_default_permissions() {
   $permissions['administer url aliases'] = array(
     'name' => 'administer url aliases',
     'roles' => array(
-      0 => 'administrator',
+      0 => 'Bestyrelse',
+      1 => 'administrator',
     ),
     'module' => 'path',
   );
@@ -360,7 +406,8 @@ function huf_user_user_default_permissions() {
   $permissions['administer users'] = array(
     'name' => 'administer users',
     'roles' => array(
-      0 => 'administrator',
+      0 => 'Bestyrelse',
+      1 => 'administrator',
     ),
     'module' => 'user',
   );
@@ -378,7 +425,8 @@ function huf_user_user_default_permissions() {
   $permissions['block IP addresses'] = array(
     'name' => 'block IP addresses',
     'roles' => array(
-      0 => 'administrator',
+      0 => 'Bestyrelse',
+      1 => 'administrator',
     ),
     'module' => 'system',
   );
@@ -397,6 +445,7 @@ function huf_user_user_default_permissions() {
     'name' => 'cancel account',
     'roles' => array(
       0 => 'administrator',
+      1 => 'authenticated user',
     ),
     'module' => 'user',
   );
@@ -414,16 +463,10 @@ function huf_user_user_default_permissions() {
   $permissions['change own username'] = array(
     'name' => 'change own username',
     'roles' => array(
-      0 => 'administrator',
+      0 => 'Bestyrelse',
+      1 => 'administrator',
     ),
     'module' => 'user',
-  );
-
-  // Exported permission: create mass_contact content.
-  $permissions['create mass_contact content'] = array(
-    'name' => 'create mass_contact content',
-    'roles' => array(),
-    'module' => 'node',
   );
 
   // Exported permission: create page content.
@@ -439,7 +482,8 @@ function huf_user_user_default_permissions() {
   $permissions['create url aliases'] = array(
     'name' => 'create url aliases',
     'roles' => array(
-      0 => 'administrator',
+      0 => 'Bestyrelse',
+      1 => 'administrator',
     ),
     'module' => 'path',
   );
@@ -453,26 +497,12 @@ function huf_user_user_default_permissions() {
     'module' => 'shortcut',
   );
 
-  // Exported permission: delete any mass_contact content.
-  $permissions['delete any mass_contact content'] = array(
-    'name' => 'delete any mass_contact content',
-    'roles' => array(),
-    'module' => 'node',
-  );
-
   // Exported permission: delete any page content.
   $permissions['delete any page content'] = array(
     'name' => 'delete any page content',
     'roles' => array(
       0 => 'administrator',
     ),
-    'module' => 'node',
-  );
-
-  // Exported permission: delete own mass_contact content.
-  $permissions['delete own mass_contact content'] = array(
-    'name' => 'delete own mass_contact content',
-    'roles' => array(),
     'module' => 'node',
   );
 
@@ -489,7 +519,8 @@ function huf_user_user_default_permissions() {
   $permissions['delete revisions'] = array(
     'name' => 'delete revisions',
     'roles' => array(
-      0 => 'administrator',
+      0 => 'Bestyrelse',
+      1 => 'administrator',
     ),
     'module' => 'node',
   );
@@ -498,7 +529,8 @@ function huf_user_user_default_permissions() {
   $permissions['delete terms in 1'] = array(
     'name' => 'delete terms in 1',
     'roles' => array(
-      0 => 'administrator',
+      0 => 'Bestyrelse',
+      1 => 'administrator',
     ),
     'module' => 'taxonomy',
   );
@@ -506,64 +538,37 @@ function huf_user_user_default_permissions() {
   // Exported permission: delete terms in 10.
   $permissions['delete terms in 10'] = array(
     'name' => 'delete terms in 10',
-    'roles' => array(),
+    'roles' => array(
+      0 => 'Bestyrelse',
+    ),
     'module' => 'taxonomy',
   );
 
   // Exported permission: delete terms in 2.
   $permissions['delete terms in 2'] = array(
     'name' => 'delete terms in 2',
-    'roles' => array(),
+    'roles' => array(
+      0 => 'Bestyrelse',
+    ),
     'module' => 'taxonomy',
   );
 
   // Exported permission: delete terms in 3.
   $permissions['delete terms in 3'] = array(
     'name' => 'delete terms in 3',
-    'roles' => array(),
-    'module' => 'taxonomy',
-  );
-
-  // Exported permission: delete terms in 4.
-  $permissions['delete terms in 4'] = array(
-    'name' => 'delete terms in 4',
-    'roles' => array(),
-    'module' => 'taxonomy',
-  );
-
-  // Exported permission: delete terms in 5.
-  $permissions['delete terms in 5'] = array(
-    'name' => 'delete terms in 5',
-    'roles' => array(),
-    'module' => 'taxonomy',
-  );
-
-  // Exported permission: delete terms in 6.
-  $permissions['delete terms in 6'] = array(
-    'name' => 'delete terms in 6',
-    'roles' => array(),
-    'module' => 'taxonomy',
-  );
-
-  // Exported permission: delete terms in 7.
-  $permissions['delete terms in 7'] = array(
-    'name' => 'delete terms in 7',
-    'roles' => array(),
+    'roles' => array(
+      0 => 'Bestyrelse',
+    ),
     'module' => 'taxonomy',
   );
 
   // Exported permission: delete terms in 9.
   $permissions['delete terms in 9'] = array(
     'name' => 'delete terms in 9',
-    'roles' => array(),
+    'roles' => array(
+      0 => 'Bestyrelse',
+    ),
     'module' => 'taxonomy',
-  );
-
-  // Exported permission: edit any mass_contact content.
-  $permissions['edit any mass_contact content'] = array(
-    'name' => 'edit any mass_contact content',
-    'roles' => array(),
-    'module' => 'node',
   );
 
   // Exported permission: edit any page content.
@@ -579,16 +584,11 @@ function huf_user_user_default_permissions() {
   $permissions['edit own comments'] = array(
     'name' => 'edit own comments',
     'roles' => array(
-      0 => 'administrator',
+      0 => 'Bestyrelse',
+      1 => 'administrator',
+      2 => 'authenticated user',
     ),
     'module' => 'comment',
-  );
-
-  // Exported permission: edit own mass_contact content.
-  $permissions['edit own mass_contact content'] = array(
-    'name' => 'edit own mass_contact content',
-    'roles' => array(),
-    'module' => 'node',
   );
 
   // Exported permission: edit own page content.
@@ -604,7 +604,8 @@ function huf_user_user_default_permissions() {
   $permissions['edit terms in 1'] = array(
     'name' => 'edit terms in 1',
     'roles' => array(
-      0 => 'administrator',
+      0 => 'Bestyrelse',
+      1 => 'administrator',
     ),
     'module' => 'taxonomy',
   );
@@ -612,56 +613,36 @@ function huf_user_user_default_permissions() {
   // Exported permission: edit terms in 10.
   $permissions['edit terms in 10'] = array(
     'name' => 'edit terms in 10',
-    'roles' => array(),
+    'roles' => array(
+      0 => 'Bestyrelse',
+    ),
     'module' => 'taxonomy',
   );
 
   // Exported permission: edit terms in 2.
   $permissions['edit terms in 2'] = array(
     'name' => 'edit terms in 2',
-    'roles' => array(),
+    'roles' => array(
+      0 => 'Bestyrelse',
+    ),
     'module' => 'taxonomy',
   );
 
   // Exported permission: edit terms in 3.
   $permissions['edit terms in 3'] = array(
     'name' => 'edit terms in 3',
-    'roles' => array(),
-    'module' => 'taxonomy',
-  );
-
-  // Exported permission: edit terms in 4.
-  $permissions['edit terms in 4'] = array(
-    'name' => 'edit terms in 4',
-    'roles' => array(),
-    'module' => 'taxonomy',
-  );
-
-  // Exported permission: edit terms in 5.
-  $permissions['edit terms in 5'] = array(
-    'name' => 'edit terms in 5',
-    'roles' => array(),
-    'module' => 'taxonomy',
-  );
-
-  // Exported permission: edit terms in 6.
-  $permissions['edit terms in 6'] = array(
-    'name' => 'edit terms in 6',
-    'roles' => array(),
-    'module' => 'taxonomy',
-  );
-
-  // Exported permission: edit terms in 7.
-  $permissions['edit terms in 7'] = array(
-    'name' => 'edit terms in 7',
-    'roles' => array(),
+    'roles' => array(
+      0 => 'Bestyrelse',
+    ),
     'module' => 'taxonomy',
   );
 
   // Exported permission: edit terms in 9.
   $permissions['edit terms in 9'] = array(
     'name' => 'edit terms in 9',
-    'roles' => array(),
+    'roles' => array(
+      0 => 'Bestyrelse',
+    ),
     'module' => 'taxonomy',
   );
 
@@ -672,85 +653,6 @@ function huf_user_user_default_permissions() {
       0 => 'administrator',
     ),
     'module' => 'features',
-  );
-
-  // Exported permission: mass contact administer.
-  $permissions['mass contact administer'] = array(
-    'name' => 'mass contact administer',
-    'roles' => array(
-      0 => 'administrator',
-    ),
-    'module' => 'mass_contact',
-  );
-
-  // Exported permission: mass contact archive messages.
-  $permissions['mass contact archive messages'] = array(
-    'name' => 'mass contact archive messages',
-    'roles' => array(
-      0 => 'administrator',
-    ),
-    'module' => 'mass_contact',
-  );
-
-  // Exported permission: mass contact change default sender information.
-  $permissions['mass contact change default sender information'] = array(
-    'name' => 'mass contact change default sender information',
-    'roles' => array(
-      0 => 'administrator',
-    ),
-    'module' => 'mass_contact',
-  );
-
-  // Exported permission: mass contact include attachments.
-  $permissions['mass contact include attachments'] = array(
-    'name' => 'mass contact include attachments',
-    'roles' => array(
-      0 => 'administrator',
-    ),
-    'module' => 'mass_contact',
-  );
-
-  // Exported permission: mass contact override archiving.
-  $permissions['mass contact override archiving'] = array(
-    'name' => 'mass contact override archiving',
-    'roles' => array(
-      0 => 'administrator',
-    ),
-    'module' => 'mass_contact',
-  );
-
-  // Exported permission: mass contact override bcc.
-  $permissions['mass contact override bcc'] = array(
-    'name' => 'mass contact override bcc',
-    'roles' => array(
-      0 => 'administrator',
-    ),
-    'module' => 'mass_contact',
-  );
-
-  // Exported permission: mass contact override text format.
-  $permissions['mass contact override text format'] = array(
-    'name' => 'mass contact override text format',
-    'roles' => array(
-      0 => 'administrator',
-    ),
-    'module' => 'mass_contact',
-  );
-
-  // Exported permission: mass contact send messages.
-  $permissions['mass contact send messages'] = array(
-    'name' => 'mass contact send messages',
-    'roles' => array(
-      0 => 'administrator',
-    ),
-    'module' => 'mass_contact',
-  );
-
-  // Exported permission: mass contact send to users in the Test category.
-  $permissions['mass contact send to users in the Test category'] = array(
-    'name' => 'mass contact send to users in the Test category',
-    'roles' => array(),
-    'module' => 'mass_contact',
   );
 
   // Exported permission: migration information.
@@ -766,8 +668,9 @@ function huf_user_user_default_permissions() {
   $permissions['post comments'] = array(
     'name' => 'post comments',
     'roles' => array(
-      0 => 'administrator',
-      1 => 'authenticated user',
+      0 => 'Bestyrelse',
+      1 => 'administrator',
+      2 => 'authenticated user',
     ),
     'module' => 'comment',
   );
@@ -776,7 +679,8 @@ function huf_user_user_default_permissions() {
   $permissions['revert revisions'] = array(
     'name' => 'revert revisions',
     'roles' => array(
-      0 => 'administrator',
+      0 => 'Bestyrelse',
+      1 => 'administrator',
     ),
     'module' => 'node',
   );
@@ -785,7 +689,10 @@ function huf_user_user_default_permissions() {
   $permissions['search content'] = array(
     'name' => 'search content',
     'roles' => array(
-      0 => 'administrator',
+      0 => 'Bestyrelse',
+      1 => 'administrator',
+      2 => 'anonymous user',
+      3 => 'authenticated user',
     ),
     'module' => 'search',
   );
@@ -809,6 +716,18 @@ function huf_user_user_default_permissions() {
     'module' => 'comment',
   );
 
+  // Exported permission: subscribe newsletters.
+  $permissions['subscribe newsletters'] = array(
+    'name' => 'subscribe newsletters',
+    'roles' => array(
+      0 => 'Bestyrelse',
+      1 => 'administrator',
+      2 => 'anonymous user',
+      3 => 'authenticated user',
+    ),
+    'module' => 'newsletter',
+  );
+
   // Exported permission: switch shortcut sets.
   $permissions['switch shortcut sets'] = array(
     'name' => 'switch shortcut sets',
@@ -822,7 +741,8 @@ function huf_user_user_default_permissions() {
   $permissions['translate interface'] = array(
     'name' => 'translate interface',
     'roles' => array(
-      0 => 'administrator',
+      0 => 'Bestyrelse',
+      1 => 'administrator',
     ),
     'module' => 'locale',
   );
@@ -831,7 +751,9 @@ function huf_user_user_default_permissions() {
   $permissions['use advanced search'] = array(
     'name' => 'use advanced search',
     'roles' => array(
-      0 => 'administrator',
+      0 => 'Bestyrelse',
+      1 => 'administrator',
+      2 => 'authenticated user',
     ),
     'module' => 'search',
   );
@@ -876,9 +798,10 @@ function huf_user_user_default_permissions() {
   $permissions['use text format filtered_html'] = array(
     'name' => 'use text format filtered_html',
     'roles' => array(
-      0 => 'administrator',
-      1 => 'anonymous user',
-      2 => 'authenticated user',
+      0 => 'Bestyrelse',
+      1 => 'administrator',
+      2 => 'anonymous user',
+      3 => 'authenticated user',
     ),
     'module' => 'filter',
   );
@@ -903,8 +826,9 @@ function huf_user_user_default_permissions() {
   $permissions['view own unpublished content'] = array(
     'name' => 'view own unpublished content',
     'roles' => array(
-      0 => 'administrator',
-      1 => 'authenticated user',
+      0 => 'Bestyrelse',
+      1 => 'administrator',
+      2 => 'authenticated user',
     ),
     'module' => 'node',
   );
@@ -922,7 +846,8 @@ function huf_user_user_default_permissions() {
   $permissions['view revisions'] = array(
     'name' => 'view revisions',
     'roles' => array(
-      0 => 'administrator',
+      0 => 'Bestyrelse',
+      1 => 'administrator',
     ),
     'module' => 'node',
   );
@@ -931,7 +856,8 @@ function huf_user_user_default_permissions() {
   $permissions['view the administration theme'] = array(
     'name' => 'view the administration theme',
     'roles' => array(
-      0 => 'administrator',
+      0 => 'Bestyrelse',
+      1 => 'administrator',
     ),
     'module' => 'system',
   );
