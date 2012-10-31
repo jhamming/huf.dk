@@ -1,3 +1,4 @@
+/*
 .field-name-field-image-gallery .field-item { 
 	float: left;
 	margin-top: 5px;
@@ -20,7 +21,7 @@
 	font-size: 18px;
 	font-weight: normal;
 }
-
+/*
  body.html {
 	background: #FAFAF0;
 }
@@ -75,3 +76,73 @@
 #block-panels-mini-nyeste-indhold > .content {
 	margin-top: -20px;
 }
+
+*/
+
+/* TouchPro Theme styling */
+/* The calender block for the frontpage */
+
+.date-nav > .pager > .date-next a {
+	float: none;
+}
+
+.date-nav.item-list > ul.pager {
+	height: 0px;
+}
+
+.view-header > .date-nav-wrapper {
+	height: 0em;
+}
+
+.date-nav > .date-heading > h3 > a {
+	font-size: 27px;
+	line-height: 35px;
+	color: #454545;
+	text-decoration: none;
+}
+
+.date-nav > .pager > li.date-prev {
+	left: 0px;
+	width: 97%;
+}
+
+.view-header > .date-nav-wrapper > .date-nav > .date-heading {
+	z-index: 2;
+	padding: 0.3em;
+}
+
+.pane-views > .pane-content > .view-calendar {
+	margin-bottom: 2em;
+}
+
+#mini-panel-kalender_og_kommende .pane-title {
+	font-size: 18px;
+	line-height: 18px;
+}
+
+/* Aktuelt box in top of front page */
+
+.region-preblocks .field-content > p {
+	font-size: 2em;
+	line-height: 1.5em;
+}
+
+/* Tables */
+
+.views-table {
+	width: 100%;
+	border: 1px solid white;
+	outline: 1px solid #D1D1D1;
+	padding: 19px;
+	overflow: hidden;
+	background-color: #F0F0F0;
+	position: relative;
+	top: -9px;
+}
+
+.views-table > thead .views-field {
+	text-align: left;
+	font-size: 1.5em;
+	line-height: 1.5em;
+}
+
