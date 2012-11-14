@@ -144,5 +144,41 @@
 	text-align: left;
 	font-size: 1.5em;
 	line-height: 1.5em;
+	border-bottom: 1px solid black;
+	margin-bottom: 20px;
 }
 
+.views-table > tbody > tr {
+	line-height: 1.8em;
+}
+
+/*User search page styling*/
+section.region-content > article > .content {
+	border: 1px solid white;
+	outline: 1px solid #D1D1D1;
+	padding: 19px;
+	overflow: hidden;
+	background-color: #F0F0F0;
+	background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #EEE), color-stop(100%, #F6F6F6));
+	background-image: -webkit-linear-gradient(#EEE, #F6F6F6);
+	background-image: -moz-linear-gradient(#EEE, #F6F6F6);
+	background-image: -o-linear-gradient(#EEE, #F6F6F6);
+	background-image: -ms-linear-gradient(#EEE, #F6F6F6);
+	background-image: linear-gradient(#EEE, #F6F6F6);
+}
+
+section article .view-users .views-row {
+	padding-top: 10px;
+	border-top: 1px solid black;
+	margin-bottom: 20px;
+}
+
+section article .view-users .views-row .views-label {
+	font-weight: bold;
+} 
+
+/*OG listings*/
+.view-og-all-user-group-content .item-list {
+	border-bottom: 1px solid black;
+	margin-bottom: 20px;
+}
