@@ -174,7 +174,7 @@ function article_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'hidden',
@@ -244,13 +244,17 @@ function article_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'hidden',
-          'module' => 'image',
+          'module' => 'colorbox',
           'settings' => array(
-            'image_link' => '',
-            'image_style' => 'large',
+            'colorbox_caption' => 'auto',
+            'colorbox_caption_custom' => '',
+            'colorbox_gallery' => 'post',
+            'colorbox_gallery_custom' => '',
+            'colorbox_image_style' => 'gallery',
+            'colorbox_node_style' => 'large',
           ),
-          'type' => 'image',
-          'weight' => -1,
+          'type' => 'colorbox',
+          'weight' => '-1',
         ),
         'teaser' => array(
           'label' => 'hidden',
@@ -322,7 +326,7 @@ function article_field_default_fields() {
             'thousand_separator' => ' ',
           ),
           'type' => 'number_integer',
-          'weight' => 16,
+          'weight' => '16',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -397,7 +401,7 @@ function article_field_default_fields() {
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
-          'weight' => 11,
+          'weight' => '11',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -466,7 +470,7 @@ function article_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => 12,
+          'weight' => '12',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -540,7 +544,7 @@ function article_field_default_fields() {
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
-          'weight' => 15,
+          'weight' => '15',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -614,7 +618,7 @@ function article_field_default_fields() {
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
-          'weight' => 10,
+          'weight' => '10',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -643,10 +647,90 @@ function article_field_default_fields() {
     ),
   );
 
+  // Exported field: 'node-article-group_audience'.
+  $fields['node-article-group_audience'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '-1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'group_audience',
+      'foreign keys' => array(
+        'og' => array(
+          'columns' => array(
+            'gid' => 'gid',
+          ),
+          'table' => 'og',
+        ),
+      ),
+      'indexes' => array(
+        'gid' => array(
+          0 => 'gid',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'og',
+      'no_ui' => TRUE,
+      'settings' => array(),
+      'translatable' => '0',
+      'type' => 'group',
+    ),
+    'field_instance' => array(
+      'bundle' => 'article',
+      'default_value' => NULL,
+      'default_value_function' => 'og_field_audience_default_value',
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '17',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'group_audience',
+      'label' => 'Groups audience',
+      'required' => FALSE,
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
+      'view modes' => array(
+        'full' => array(
+          'custom settings' => FALSE,
+          'label' => 'Full',
+          'type' => 'og_list_default',
+        ),
+        'teaser' => array(
+          'custom settings' => FALSE,
+          'label' => 'Smagsprøve',
+          'type' => 'og_list_default',
+        ),
+      ),
+      'widget' => array(
+        'module' => 'og',
+        'settings' => array(
+          'opt_group' => 'auto',
+        ),
+        'type' => 'group_audience',
+        'weight' => '6',
+      ),
+      'widget_type' => 'group_audience',
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Body');
   t('Comment');
+  t('Groups audience');
   t('Image');
   t('Indtast en kommasepareret list af ord som beskriver dit indhold.');
   t('Kapitel');

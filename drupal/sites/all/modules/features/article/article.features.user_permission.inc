@@ -14,8 +14,9 @@ function article_user_default_permissions() {
   $permissions['create article content'] = array(
     'name' => 'create article content',
     'roles' => array(
-      0 => 'administrator',
-      1 => 'authenticated user',
+      0 => 'Bestyrelse',
+      1 => 'administrator',
+      2 => 'authenticated user',
     ),
     'module' => 'node',
   );
@@ -24,7 +25,8 @@ function article_user_default_permissions() {
   $permissions['delete any article content'] = array(
     'name' => 'delete any article content',
     'roles' => array(
-      0 => 'administrator',
+      0 => 'Bestyrelse',
+      1 => 'administrator',
     ),
     'module' => 'node',
   );
@@ -33,7 +35,8 @@ function article_user_default_permissions() {
   $permissions['delete own article content'] = array(
     'name' => 'delete own article content',
     'roles' => array(
-      0 => 'administrator',
+      0 => 'Bestyrelse',
+      1 => 'administrator',
     ),
     'module' => 'node',
   );
@@ -42,7 +45,8 @@ function article_user_default_permissions() {
   $permissions['edit any article content'] = array(
     'name' => 'edit any article content',
     'roles' => array(
-      0 => 'administrator',
+      0 => 'Bestyrelse',
+      1 => 'administrator',
     ),
     'module' => 'node',
   );
@@ -51,8 +55,9 @@ function article_user_default_permissions() {
   $permissions['edit own article content'] = array(
     'name' => 'edit own article content',
     'roles' => array(
-      0 => 'administrator',
-      1 => 'authenticated user',
+      0 => 'Bestyrelse',
+      1 => 'administrator',
+      2 => 'authenticated user',
     ),
     'module' => 'node',
   );
