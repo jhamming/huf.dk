@@ -14,7 +14,8 @@ function huf_forum_user_default_permissions() {
   $permissions['administer forums'] = array(
     'name' => 'administer forums',
     'roles' => array(
-      0 => 'administrator',
+      0 => 'Bestyrelse',
+      1 => 'administrator',
     ),
     'module' => 'forum',
   );
@@ -23,7 +24,8 @@ function huf_forum_user_default_permissions() {
   $permissions['create forum content'] = array(
     'name' => 'create forum content',
     'roles' => array(
-      0 => 'authenticated user',
+      0 => 'Bestyrelse',
+      1 => 'authenticated user',
     ),
     'module' => 'node',
   );
@@ -31,28 +33,36 @@ function huf_forum_user_default_permissions() {
   // Exported permission: delete any forum content.
   $permissions['delete any forum content'] = array(
     'name' => 'delete any forum content',
-    'roles' => array(),
+    'roles' => array(
+      0 => 'Bestyrelse',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: delete own forum content.
   $permissions['delete own forum content'] = array(
     'name' => 'delete own forum content',
-    'roles' => array(),
+    'roles' => array(
+      0 => 'Bestyrelse',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: delete terms in 8.
   $permissions['delete terms in 8'] = array(
     'name' => 'delete terms in 8',
-    'roles' => array(),
+    'roles' => array(
+      0 => 'Bestyrelse',
+    ),
     'module' => 'taxonomy',
   );
 
   // Exported permission: edit any forum content.
   $permissions['edit any forum content'] = array(
     'name' => 'edit any forum content',
-    'roles' => array(),
+    'roles' => array(
+      0 => 'Bestyrelse',
+    ),
     'module' => 'node',
   );
 
@@ -60,7 +70,8 @@ function huf_forum_user_default_permissions() {
   $permissions['edit own forum content'] = array(
     'name' => 'edit own forum content',
     'roles' => array(
-      0 => 'authenticated user',
+      0 => 'Bestyrelse',
+      1 => 'authenticated user',
     ),
     'module' => 'node',
   );
@@ -68,7 +79,9 @@ function huf_forum_user_default_permissions() {
   // Exported permission: edit terms in 8.
   $permissions['edit terms in 8'] = array(
     'name' => 'edit terms in 8',
-    'roles' => array(),
+    'roles' => array(
+      0 => 'Bestyrelse',
+    ),
     'module' => 'taxonomy',
   );
 

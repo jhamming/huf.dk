@@ -10,13 +10,13 @@
 function huf_nyhed_filter_default_formats() {
   $formats = array();
 
-  // Exported format: Filtered HTML
+  // Exported format: Filtered HTML.
   $formats['filtered_html'] = array(
     'format' => 'filtered_html',
     'name' => 'Filtered HTML',
     'cache' => '1',
     'status' => '1',
-    'weight' => '0',
+    'weight' => '-10',
     'filters' => array(
       'filter_url' => array(
         'weight' => '0',
@@ -47,13 +47,13 @@ function huf_nyhed_filter_default_formats() {
     ),
   );
 
-  // Exported format: Full HTML
+  // Exported format: Full HTML.
   $formats['full_html'] = array(
     'format' => 'full_html',
     'name' => 'Full HTML',
     'cache' => '1',
     'status' => '1',
-    'weight' => '1',
+    'weight' => '5',
     'filters' => array(
       'filter_url' => array(
         'weight' => '0',
@@ -75,13 +75,13 @@ function huf_nyhed_filter_default_formats() {
     ),
   );
 
-  // Exported format: Plain text
+  // Exported format: Plain text.
   $formats['plain_text'] = array(
     'format' => 'plain_text',
     'name' => 'Plain text',
     'cache' => '1',
     'status' => '1',
-    'weight' => '10',
+    'weight' => '0',
     'filters' => array(
       'filter_html_escape' => array(
         'weight' => '0',

@@ -23,10 +23,7 @@ function huf_user_user_default_permissions() {
   $permissions['access all views'] = array(
     'name' => 'access all views',
     'roles' => array(
-      0 => 'Bestyrelse',
-      1 => 'administrator',
-      2 => 'anonymous user',
-      3 => 'authenticated user',
+      0 => 'administrator',
     ),
     'module' => 'views',
   );
@@ -244,6 +241,16 @@ function huf_user_user_default_permissions() {
     'module' => 'filter',
   );
 
+  // Exported permission: administer group.
+  $permissions['administer group'] = array(
+    'name' => 'administer group',
+    'roles' => array(
+      0 => 'Bestyrelse',
+      1 => 'administrator',
+    ),
+    'module' => 'og',
+  );
+
   // Exported permission: administer image styles.
   $permissions['administer image styles'] = array(
     'name' => 'administer image styles',
@@ -270,6 +277,15 @@ function huf_user_user_default_permissions() {
       1 => 'administrator',
     ),
     'module' => 'menu',
+  );
+
+  // Exported permission: administer mini panels.
+  $permissions['administer mini panels'] = array(
+    'name' => 'administer mini panels',
+    'roles' => array(
+      0 => 'administrator',
+    ),
+    'module' => 'panels_mini',
   );
 
   // Exported permission: administer modules.
@@ -307,6 +323,15 @@ function huf_user_user_default_permissions() {
       0 => 'administrator',
     ),
     'module' => 'panels',
+  );
+
+  // Exported permission: administer panel-nodes.
+  $permissions['administer panel-nodes'] = array(
+    'name' => 'administer panel-nodes',
+    'roles' => array(
+      0 => 'administrator',
+    ),
+    'module' => 'panels_node',
   );
 
   // Exported permission: administer panels layouts.
@@ -362,6 +387,15 @@ function huf_user_user_default_permissions() {
       0 => 'administrator',
     ),
     'module' => 'system',
+  );
+
+  // Exported permission: administer smtp module.
+  $permissions['administer smtp module'] = array(
+    'name' => 'administer smtp module',
+    'roles' => array(
+      0 => 'administrator',
+    ),
+    'module' => 'smtp',
   );
 
   // Exported permission: administer software updates.
@@ -469,6 +503,43 @@ function huf_user_user_default_permissions() {
     'module' => 'user',
   );
 
+  // Exported permission: create event content.
+  $permissions['create event content'] = array(
+    'name' => 'create event content',
+    'roles' => array(
+      0 => 'Bestyrelse',
+      1 => 'authenticated user',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: create gallery content.
+  $permissions['create gallery content'] = array(
+    'name' => 'create gallery content',
+    'roles' => array(
+      0 => 'Bestyrelse',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: create gruppe content.
+  $permissions['create gruppe content'] = array(
+    'name' => 'create gruppe content',
+    'roles' => array(
+      0 => 'authenticated user',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: create mini panels.
+  $permissions['create mini panels'] = array(
+    'name' => 'create mini panels',
+    'roles' => array(
+      0 => 'administrator',
+    ),
+    'module' => 'panels_mini',
+  );
+
   // Exported permission: create page content.
   $permissions['create page content'] = array(
     'name' => 'create page content',
@@ -476,6 +547,24 @@ function huf_user_user_default_permissions() {
       0 => 'administrator',
     ),
     'module' => 'node',
+  );
+
+  // Exported permission: create panel content.
+  $permissions['create panel content'] = array(
+    'name' => 'create panel content',
+    'roles' => array(
+      0 => 'Bestyrelse',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: create panel-nodes.
+  $permissions['create panel-nodes'] = array(
+    'name' => 'create panel-nodes',
+    'roles' => array(
+      0 => 'administrator',
+    ),
+    'module' => 'panels_node',
   );
 
   // Exported permission: create url aliases.
@@ -497,11 +586,83 @@ function huf_user_user_default_permissions() {
     'module' => 'shortcut',
   );
 
+  // Exported permission: delete any event content.
+  $permissions['delete any event content'] = array(
+    'name' => 'delete any event content',
+    'roles' => array(
+      0 => 'Bestyrelse',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: delete any gallery content.
+  $permissions['delete any gallery content'] = array(
+    'name' => 'delete any gallery content',
+    'roles' => array(
+      0 => 'Bestyrelse',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: delete any gruppe content.
+  $permissions['delete any gruppe content'] = array(
+    'name' => 'delete any gruppe content',
+    'roles' => array(
+      0 => 'Bestyrelse',
+    ),
+    'module' => 'node',
+  );
+
   // Exported permission: delete any page content.
   $permissions['delete any page content'] = array(
     'name' => 'delete any page content',
     'roles' => array(
       0 => 'administrator',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: delete any panel content.
+  $permissions['delete any panel content'] = array(
+    'name' => 'delete any panel content',
+    'roles' => array(
+      0 => 'Bestyrelse',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: delete any panel-nodes.
+  $permissions['delete any panel-nodes'] = array(
+    'name' => 'delete any panel-nodes',
+    'roles' => array(
+      0 => 'administrator',
+    ),
+    'module' => 'panels_node',
+  );
+
+  // Exported permission: delete own event content.
+  $permissions['delete own event content'] = array(
+    'name' => 'delete own event content',
+    'roles' => array(
+      0 => 'Bestyrelse',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: delete own gallery content.
+  $permissions['delete own gallery content'] = array(
+    'name' => 'delete own gallery content',
+    'roles' => array(
+      0 => 'Bestyrelse',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: delete own gruppe content.
+  $permissions['delete own gruppe content'] = array(
+    'name' => 'delete own gruppe content',
+    'roles' => array(
+      0 => 'Bestyrelse',
     ),
     'module' => 'node',
   );
@@ -513,6 +674,24 @@ function huf_user_user_default_permissions() {
       0 => 'administrator',
     ),
     'module' => 'node',
+  );
+
+  // Exported permission: delete own panel content.
+  $permissions['delete own panel content'] = array(
+    'name' => 'delete own panel content',
+    'roles' => array(
+      0 => 'Bestyrelse',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: delete own panel-nodes.
+  $permissions['delete own panel-nodes'] = array(
+    'name' => 'delete own panel-nodes',
+    'roles' => array(
+      0 => 'administrator',
+    ),
+    'module' => 'panels_node',
   );
 
   // Exported permission: delete revisions.
@@ -571,6 +750,33 @@ function huf_user_user_default_permissions() {
     'module' => 'taxonomy',
   );
 
+  // Exported permission: edit any event content.
+  $permissions['edit any event content'] = array(
+    'name' => 'edit any event content',
+    'roles' => array(
+      0 => 'Bestyrelse',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: edit any gallery content.
+  $permissions['edit any gallery content'] = array(
+    'name' => 'edit any gallery content',
+    'roles' => array(
+      0 => 'Bestyrelse',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: edit any gruppe content.
+  $permissions['edit any gruppe content'] = array(
+    'name' => 'edit any gruppe content',
+    'roles' => array(
+      0 => 'Bestyrelse',
+    ),
+    'module' => 'node',
+  );
+
   // Exported permission: edit any page content.
   $permissions['edit any page content'] = array(
     'name' => 'edit any page content',
@@ -578,6 +784,24 @@ function huf_user_user_default_permissions() {
       0 => 'administrator',
     ),
     'module' => 'node',
+  );
+
+  // Exported permission: edit any panel content.
+  $permissions['edit any panel content'] = array(
+    'name' => 'edit any panel content',
+    'roles' => array(
+      0 => 'Bestyrelse',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: edit any panel-nodes.
+  $permissions['edit any panel-nodes'] = array(
+    'name' => 'edit any panel-nodes',
+    'roles' => array(
+      0 => 'administrator',
+    ),
+    'module' => 'panels_node',
   );
 
   // Exported permission: edit own comments.
@@ -591,6 +815,34 @@ function huf_user_user_default_permissions() {
     'module' => 'comment',
   );
 
+  // Exported permission: edit own event content.
+  $permissions['edit own event content'] = array(
+    'name' => 'edit own event content',
+    'roles' => array(
+      0 => 'Bestyrelse',
+      1 => 'authenticated user',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: edit own gallery content.
+  $permissions['edit own gallery content'] = array(
+    'name' => 'edit own gallery content',
+    'roles' => array(
+      0 => 'Bestyrelse',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: edit own gruppe content.
+  $permissions['edit own gruppe content'] = array(
+    'name' => 'edit own gruppe content',
+    'roles' => array(
+      0 => 'authenticated user',
+    ),
+    'module' => 'node',
+  );
+
   // Exported permission: edit own page content.
   $permissions['edit own page content'] = array(
     'name' => 'edit own page content',
@@ -598,6 +850,24 @@ function huf_user_user_default_permissions() {
       0 => 'administrator',
     ),
     'module' => 'node',
+  );
+
+  // Exported permission: edit own panel content.
+  $permissions['edit own panel content'] = array(
+    'name' => 'edit own panel content',
+    'roles' => array(
+      0 => 'Bestyrelse',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: edit own panel-nodes.
+  $permissions['edit own panel-nodes'] = array(
+    'name' => 'edit own panel-nodes',
+    'roles' => array(
+      0 => 'administrator',
+    ),
+    'module' => 'panels_node',
   );
 
   // Exported permission: edit terms in 1.
@@ -747,6 +1017,15 @@ function huf_user_user_default_permissions() {
     'module' => 'locale',
   );
 
+  // Exported permission: use admin toolbar.
+  $permissions['use admin toolbar'] = array(
+    'name' => 'use admin toolbar',
+    'roles' => array(
+      0 => 'administrator',
+    ),
+    'module' => 'admin',
+  );
+
   // Exported permission: use advanced search.
   $permissions['use advanced search'] = array(
     'name' => 'use advanced search',
@@ -820,6 +1099,36 @@ function huf_user_user_default_permissions() {
     'name' => 'use text format migrate_example',
     'roles' => array(),
     'module' => 'filter',
+  );
+
+  // Exported permission: view advanced help index.
+  $permissions['view advanced help index'] = array(
+    'name' => 'view advanced help index',
+    'roles' => array(
+      0 => 'Bestyrelse',
+      1 => 'administrator',
+    ),
+    'module' => 'advanced_help',
+  );
+
+  // Exported permission: view advanced help popup.
+  $permissions['view advanced help popup'] = array(
+    'name' => 'view advanced help popup',
+    'roles' => array(
+      0 => 'Bestyrelse',
+      1 => 'administrator',
+    ),
+    'module' => 'advanced_help',
+  );
+
+  // Exported permission: view advanced help topic.
+  $permissions['view advanced help topic'] = array(
+    'name' => 'view advanced help topic',
+    'roles' => array(
+      0 => 'Bestyrelse',
+      1 => 'administrator',
+    ),
+    'module' => 'advanced_help',
   );
 
   // Exported permission: view own unpublished content.

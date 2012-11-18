@@ -1,0 +1,15 @@
+name = HUF Gallery
+description = Feature for the galleries
+core = 7.x
+package = Huf
+php = 5.2.4
+dependencies[] = colorbox
+dependencies[] = features
+dependencies[] = huf_user
+dependencies[] = image
+dependencies[] = libraries
+dependencies[] = views
+features[features_api][] = api:1
+features[field][] = comment-comment_node_gallery-comment_body
+features[field][] = node-gallery-field_image_gallery
+features[node][] = gallery
