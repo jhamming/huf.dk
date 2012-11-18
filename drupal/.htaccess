@@ -1,3 +1,10 @@
+# Blocking access to externals
+
+AuthUserFile /~/../../Applications/MAMP/htdocs/huf.dk/.httys
+AuthType Basic
+Authname "Secret HUF"
+Require valid-user
+
 #
 # Apache/PHP/Drupal settings:
 #
