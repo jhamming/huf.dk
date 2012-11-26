@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the HUF Frontpage feature.
+ */
+
+include_once 'huf_frontpage.features.inc';

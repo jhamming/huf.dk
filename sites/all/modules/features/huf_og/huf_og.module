@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the HUF OG feature.
+ */
+
+include_once 'huf_og.features.inc';

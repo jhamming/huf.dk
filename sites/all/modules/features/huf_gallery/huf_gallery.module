@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the HUF Gallery feature.
+ */
+
+include_once 'huf_gallery.features.inc';

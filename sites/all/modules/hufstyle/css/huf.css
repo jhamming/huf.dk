@@ -1,0 +1,184 @@
+/*
+.field-name-field-image-gallery .field-item { 
+	float: left;
+	margin-top: 5px;
+	margin-right: 5px; 
+}
+
+.views-row .node-teaser {
+	height: auto;
+	width: auto;
+}
+
+#highlighted .content {
+	background: yellow;
+	border-radius: 5px;
+	padding: 0px 0px 4px 6px;
+}
+
+#highlighted p {
+	color: black;
+	font-size: 18px;
+	font-weight: normal;
+}
+/*
+ body.html {
+	background: #FAFAF0;
+}
+
+#header-top img {
+	width: 745px;
+	border-radius: 10px;
+}
+
+#header.clearfix {
+	margin-top: 0px;
+}
+
+.views-slideshow-controls-text-pause {
+	line-height: 0px;
+	display: block;
+	text-indent: -5000px;
+}
+
+.views-slideshow-controls-text-previous {
+	display: block;
+	background: url(/sites/all/modules/hufstyle/arrow_left.png) no-repeat;
+	background-size: 20px;
+	width: 31px;
+	height: 46px;
+	text-indent: -5000px;
+	position: absolute;
+	top: 44%;
+	left: 7px;
+}
+
+.views-slideshow-controls-text-next {
+	display: block;
+	background: url(/sites/all/modules/hufstyle/arrow_right.png) no-repeat;
+	background-size: 20px;
+	width: 31px;
+	height: 46px;
+	text-indent: -5000px;
+	position: absolute;
+	top: 44%;
+	right: 5px;
+}
+
+.views_slideshow_cycle_teaser_section {
+	left: 25px;
+}
+
+.item-list .pager {
+	margin: 10px;
+}
+
+#block-panels-mini-nyeste-indhold > .content {
+	margin-top: -20px;
+}
+
+*/
+
+/* TouchPro Theme styling */
+/* The calender block for the frontpage */
+
+.date-nav > .pager > .date-next a {
+	float: none;
+}
+
+.date-nav.item-list > ul.pager {
+	height: 0px;
+}
+
+.view-header > .date-nav-wrapper {
+	height: 0em;
+}
+
+.date-nav > .date-heading > h3 > a {
+	font-size: 27px;
+	line-height: 35px;
+	color: #454545;
+	text-decoration: none;
+}
+
+.date-nav > .pager > li.date-prev {
+	left: 0px;
+	width: 97%;
+}
+
+.view-header > .date-nav-wrapper > .date-nav > .date-heading {
+	z-index: 2;
+	padding: 0.3em;
+}
+
+.pane-views > .pane-content > .view-calendar {
+	margin-bottom: 2em;
+}
+
+#mini-panel-kalender_og_kommende .pane-title {
+	font-size: 18px;
+	line-height: 18px;
+}
+
+/* Aktuelt box in top of front page */
+
+.region-preblocks .field-content > p {
+	font-size: 2em;
+	line-height: 1.5em;
+}
+
+/* Tables */
+
+.views-table {
+	width: 100%;
+	border: 1px solid white;
+	outline: 1px solid #D1D1D1;
+	padding: 19px;
+	overflow: hidden;
+	background-color: #F0F0F0;
+	position: relative;
+	top: -9px;
+}
+
+.views-table > thead .views-field {
+	text-align: left;
+	font-size: 1.5em;
+	line-height: 1.5em;
+	border-bottom: 1px solid black;
+	margin-bottom: 20px;
+}
+
+.views-table > tbody > tr {
+	line-height: 1.8em;
+}
+
+/*User search page styling*/
+section.region-content > article > .content {
+	border: 1px solid white;
+	outline: 1px solid #D1D1D1;
+	padding: 19px;
+	overflow: hidden;
+	background-color: #F0F0F0;
+	background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #EEE), color-stop(100%, #F6F6F6));
+	background-image: -webkit-linear-gradient(#EEE, #F6F6F6);
+	background-image: -moz-linear-gradient(#EEE, #F6F6F6);
+	background-image: -o-linear-gradient(#EEE, #F6F6F6);
+	background-image: -ms-linear-gradient(#EEE, #F6F6F6);
+	background-image: linear-gradient(#EEE, #F6F6F6);
+}
+
+section article .view-users .views-row {
+	padding-top: 10px;
+	border-top: 1px solid black;
+	margin-bottom: 20px;
+}
+
+section article .view-users .views-row .views-label {
+	font-weight: bold;
+} 
+
+/*OG listings*/
+.view-og-all-user-group-content .item-list {
+	border-bottom: 1px solid black;
+	margin-bottom: 20px;
+}
