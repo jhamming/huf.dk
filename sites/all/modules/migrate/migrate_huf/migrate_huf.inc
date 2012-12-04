@@ -4,8 +4,8 @@
 Implemented with inspiration from http://btmash.com/article/2011-03-02/migrating-content-part-1-users
 */
 
-const MY_MIGRATION_DATABASE_NAME = 'HUF_';
-const MY_MIGRATION_FORUM_DATABASE_NAME = 'TESTFORUM_';
+//const MY_MIGRATION_DATABASE_NAME = 'HUF_';
+//const MY_MIGRATION_FORUM_DATABASE_NAME = 'TESTFORUM_';
 abstract class HufMigration extends Migration {
   public function __construct() {
     // Always call the parent constructor first for basic setup
