@@ -123,7 +123,6 @@ features[user_permission][] = delete own panel content
 features[user_permission][] = delete own panel-nodes
 features[user_permission][] = delete revisions
 features[user_permission][] = delete terms in 1
-features[user_permission][] = delete terms in 10
 features[user_permission][] = delete terms in 2
 features[user_permission][] = delete terms in 3
 features[user_permission][] = delete terms in 9
