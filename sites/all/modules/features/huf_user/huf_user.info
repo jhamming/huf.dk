@@ -125,7 +125,6 @@ features[user_permission][] = delete revisions
 features[user_permission][] = delete terms in 1
 features[user_permission][] = delete terms in 2
 features[user_permission][] = delete terms in 3
-features[user_permission][] = delete terms in 9
 features[user_permission][] = edit any event content
 features[user_permission][] = edit any gallery content
 features[user_permission][] = edit any gruppe content

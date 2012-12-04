@@ -732,15 +732,6 @@ function huf_user_user_default_permissions() {
     'module' => 'taxonomy',
   );
 
-  // Exported permission: delete terms in 9.
-  $permissions['delete terms in 9'] = array(
-    'name' => 'delete terms in 9',
-    'roles' => array(
-      0 => 'Bestyrelse',
-    ),
-    'module' => 'taxonomy',
-  );
-
   // Exported permission: edit any event content.
   $permissions['edit any event content'] = array(
     'name' => 'edit any event content',
