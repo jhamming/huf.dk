@@ -310,7 +310,7 @@ abstract class HufMigration extends Migration {
         //we need to convert the name and description to utf 8 from iso latin to avoid errors with special characters
         //$account->subject = utf8_encode(html_entity_decode($account->subject));
         //$account->comment_body['und'][0]['value'] = str_replace('&#039;', '´', $account->comment_body['und'][0]['value']);
-        $account->comment_body['und'][0]['value'] = utf8_encode(html_entity_decode(($account->comment_body['und'][0]['value']), ENT_QUOTES));
+        $account->comment_body['und'][0]['value'] = html_entity_decode(($account->comment_body['und'][0]['value']), ENT_QUOTES);
     } 
   }
 
