@@ -230,13 +230,15 @@ abstract class HufMigration extends Migration {
       public function prepare($account, $row) {
         //Getting rid of &#039; and other special chars
         $account->body['und'][0]['value'] = html_entity_decode(htmlspecialchars_decode(($account->body['und'][0]['value']), ENT_QUOTES));
-        $unwantedchars = array('&#8221;', '&#8220;', '&#8222;', '&#8230');
-        $wantedchars = array('”', '“', '„', '…');
+        $unwantedchars = array('&#8221;', '&#8220;', '&#8222;', '&#8230', '&#8217;');
+        $wantedchars = array('”', '“', '„', '…', '’');
         $account->body['und'][0]['value'] = str_replace($unwantedchars, $wantedchars, $account->body['und'][0]['value']); 
 
         $account->title = html_entity_decode(htmlspecialchars_decode(($account->title), ENT_QUOTES));
-        $account->title = str_replace($unwantedchars, $wantedchars, $account->title); 
-
+        $account->title = str_replace($unwantedchars, $wantedchars, $account->title);
+        $account->field_note['und'][0]['value'] = html_entity_decode(htmlspecialchars_decode(($account->field_note['und'][0]['value'])), ENT_QUOTES, 'UTF-8');
+        $account->field_note['und'][0]['value'] = str_replace($unwantedchars, $wantedchars, $account->field_note['und'][0]['value']);
+        
         switch ($row->inaktiv) {
           case 0;
             $account->status = 1;
