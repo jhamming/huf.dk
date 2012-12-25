@@ -312,6 +312,93 @@ function huf_nyhed_field_default_fields() {
     ),
   );
 
+  // Exported field: 'node-event-field_registration'.
+  $fields['node-event-field_registration'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_registration',
+      'foreign keys' => array(
+        'registration_type' => array(
+          'columns' => array(
+            'registration_type' => 'name',
+          ),
+          'table' => 'registration_type',
+        ),
+      ),
+      'indexes' => array(
+        'registration_type' => array(
+          0 => 'registration_type',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'registration',
+      'settings' => array(),
+      'translatable' => '0',
+      'type' => 'registration',
+    ),
+    'field_instance' => array(
+      'bundle' => 'event',
+      'default_value' => array(
+        0 => array(
+          'registration_type' => 'huf_event',
+        ),
+      ),
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'registration',
+          'settings' => array(),
+          'type' => 'registration_form',
+          'weight' => '4',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_registration',
+      'label' => 'Registration',
+      'required' => 0,
+      'settings' => array(
+        'default_registration_settings' => array(
+          'capacity' => '0',
+          'reminder' => array(
+            'reminder_settings' => array(
+              'reminder_date' => '',
+              'reminder_template' => '',
+            ),
+            'send_reminder' => 0,
+          ),
+          'scheduling' => array(
+            'close' => '',
+            'open' => '',
+          ),
+          'settings' => array(
+            'from_address' => 'noreply@huf.dk',
+            'multiple_registrations' => 0,
+          ),
+          'status' => 0,
+        ),
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 0,
+        'module' => 'registration',
+        'settings' => array(),
+        'type' => 'registration_select',
+        'weight' => '1',
+      ),
+    ),
+  );
+
   // Exported field: 'node-event-group_audience'.
   $fields['node-event-group_audience'] = array(
     'field_config' => array(
@@ -352,7 +439,7 @@ function huf_nyhed_field_default_fields() {
           'module' => 'og',
           'settings' => array(),
           'type' => 'og_list_default',
-          'weight' => 3,
+          'weight' => '3',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -386,7 +473,7 @@ function huf_nyhed_field_default_fields() {
           'opt_group' => 'auto',
         ),
         'type' => 'group_audience',
-        'weight' => 0,
+        'weight' => '0',
       ),
       'widget_type' => 'group_audience',
     ),
@@ -785,6 +872,7 @@ function huf_nyhed_field_default_fields() {
   t('Groups audience');
   t('Hvis nyhed sættes til aktuelt vil den blive vist fremhævet i toppen af forsiden');
   t('Nyhedskategori');
+  t('Registration');
 
   return $fields;
 }
