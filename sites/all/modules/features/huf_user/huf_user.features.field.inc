@@ -211,61 +211,6 @@ function huf_user_field_default_fields() {
     ),
   );
 
-  // Exported field: 'user-user-field_migrate_example_gender'.
-  $fields['user-user-field_migrate_example_gender'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_migrate_example_gender',
-      'foreign keys' => array(),
-      'indexes' => array(
-        'value' => array(
-          0 => 'value',
-        ),
-      ),
-      'locked' => '0',
-      'module' => 'list',
-      'settings' => array(
-        'allowed_values' => '0|Male
-1|Female
-',
-        'allowed_values_function' => '',
-      ),
-      'translatable' => '0',
-      'type' => 'list_integer',
-    ),
-    'field_instance' => array(
-      'bundle' => 'user',
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => '',
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'module' => 'list',
-          'settings' => array(),
-          'type' => 'list_default',
-          'weight' => '0',
-        ),
-      ),
-      'entity_type' => 'user',
-      'field_name' => 'field_migrate_example_gender',
-      'label' => 'Gender',
-      'required' => FALSE,
-      'settings' => array(
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'module' => 'options',
-        'settings' => array(),
-        'type' => 'options_select',
-        'weight' => '2',
-      ),
-    ),
-  );
-
   // Exported field: 'user-user-field_navn'.
   $fields['user-user-field_navn'] = array(
     'field_config' => array(
@@ -647,7 +592,6 @@ function huf_user_field_default_fields() {
   t('Adresse');
   t('En kort beskrivelse af dig selv');
   t('Fødselsdato');
-  t('Gender');
   t('Kommune');
   t('Navn');
   t('Nick');
