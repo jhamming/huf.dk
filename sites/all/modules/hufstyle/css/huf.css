@@ -149,6 +149,8 @@ nav.primary-menu {
 .view-header > .date-nav-wrapper > .date-nav > .date-heading {
 	z-index: 2;
 	padding: 0.3em;
+	left: 15%;
+	max-width: 70%;
 }
 
 .pane-views > .pane-content > .view-calendar {

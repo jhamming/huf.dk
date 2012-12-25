@@ -40,7 +40,6 @@ features[features_api][] = api:1
 features[field][] = user-user-field_adresse
 features[field][] = user-user-field_f_dselsdato
 features[field][] = user-user-field_kommune
-features[field][] = user-user-field_migrate_example_gender
 features[field][] = user-user-field_navn
 features[field][] = user-user-field_nick
 features[field][] = user-user-field_profiltekst
