@@ -80,8 +80,48 @@
 */
 
 /* TouchPro Theme styling */
-/* The calender block for the frontpage */
+/* Making the menu responsive */
+nav select {
+  display: none;
+}
 
+nav.primary-menu {
+	float: right;
+	color: black;
+}
+
+@media (max-width: 1100px) {
+  li.leaf     { font-size: 12px; }
+}
+
+@media (max-width: 800px) {
+  nav ul     { display: none; }
+  nav select { display: inline-block; }
+}
+
+.masthead select {
+  position: relative;
+  padding: 12px 11px;
+  background-color: #323232;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #3f3f3f), color-stop(100%, #242424));
+  background-image: -webkit-linear-gradient(#3f3f3f, #242424);
+  background-image: -moz-linear-gradient(#3f3f3f, #242424);
+  background-image: -o-linear-gradient(#3f3f3f, #242424);
+  background-image: -ms-linear-gradient(#3f3f3f, #242424);
+  background-image: linear-gradient(#3f3f3f, #242424);
+  -pie-background: linear-gradient(#3f3f3f, #242424);
+  -moz-box-shadow: rgba(255, 255, 255, 0.2) 0 0 0 1px inset;
+  -webkit-box-shadow: rgba(255, 255, 255, 0.2) 0 0 0 1px inset;
+  -o-box-shadow: rgba(255, 255, 255, 0.2) 0 0 0 1px inset;
+  box-shadow: rgba(255, 255, 255, 0.2) 0 0 0 1px inset;
+  border: 1px solid #000;
+  color: #ebebeb;
+  text-shadow: black 1px 1px 1px;
+  filter: dropshadow(color=#333333, offX=1, offY=2);
+  min-width: 140px;
+  }
+
+/* The calender block for the frontpage */
 .date-nav > .pager > .date-next a {
 	float: none;
 }
