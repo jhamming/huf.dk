@@ -27,7 +27,7 @@ function huf_nyhed_views_api() {
 function huf_nyhed_node_info() {
   $items = array(
     'event' => array(
-      'name' => t('Event'),
+      'name' => t('Arrangement'),
       'base' => 'node_content',
       'description' => t('Content type for calendar events'),
       'has_title' => '1',
@@ -43,5 +43,59 @@ function huf_nyhed_node_info() {
       'help' => '',
     ),
   );
+  return $items;
+}
+
+/**
+ * Implements hook_default_registration_state().
+ */
+function huf_nyhed_default_registration_state() {
+  $items = array();
+  $items['canceled'] = entity_import('registration_state', '{
+    "name" : "canceled",
+    "label" : "Canceled",
+    "description" : "Registration was cancelled",
+    "default_state" : "0",
+    "active" : "0",
+    "show_on_form" : "0",
+    "weight" : "1",
+    "rdf_mapping" : []
+  }');
+  $items['complete'] = entity_import('registration_state', '{
+    "name" : "complete",
+    "label" : "Complete",
+    "description" : "Registration has been completed.",
+    "default_state" : "1",
+    "active" : "1",
+    "show_on_form" : "0",
+    "weight" : "1",
+    "rdf_mapping" : []
+  }');
+  $items['pending'] = entity_import('registration_state', '{
+    "name" : "pending",
+    "label" : "Pending",
+    "description" : "Registration is pending.",
+    "default_state" : "0",
+    "active" : "0",
+    "show_on_form" : "0",
+    "weight" : "1",
+    "rdf_mapping" : []
+  }');
+  return $items;
+}
+
+/**
+ * Implements hook_default_registration_type().
+ */
+function huf_nyhed_default_registration_type() {
+  $items = array();
+  $items['huf_event'] = entity_import('registration_type', '{
+    "name" : "huf_event",
+    "label" : "Huf Event",
+    "locked" : "0",
+    "weight" : "0",
+    "data" : null,
+    "rdf_mapping" : []
+  }');
   return $items;
 }
