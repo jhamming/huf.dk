@@ -365,7 +365,7 @@ function huf_nyhed_field_default_fields() {
       ),
       'entity_type' => 'node',
       'field_name' => 'field_registration',
-      'label' => 'Registration',
+      'label' => 'Tilmelding',
       'required' => 0,
       'settings' => array(
         'default_registration_settings' => array(
@@ -384,6 +384,11 @@ function huf_nyhed_field_default_fields() {
           'settings' => array(
             'from_address' => 'noreply@huf.dk',
             'multiple_registrations' => 0,
+            'registration_entity_access_roles' => array(
+              2 => 0,
+              3 => 0,
+              4 => 0,
+            ),
           ),
           'status' => 0,
         ),
@@ -872,7 +877,7 @@ function huf_nyhed_field_default_fields() {
   t('Groups audience');
   t('Hvis nyhed sættes til aktuelt vil den blive vist fremhævet i toppen af forsiden');
   t('Nyhedskategori');
-  t('Registration');
+  t('Tilmelding');
 
   return $fields;
 }
