@@ -749,7 +749,10 @@ function huf_frontpage_views_default_views() {
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Galleri';
-  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['use_more'] = TRUE;
+  $handler->display->display_options['use_more_always'] = TRUE;
+  $handler->display->display_options['use_more_text'] = 'Flere gallerier';
+  $handler->display->display_options['link_display'] = 'custom_url';
   $handler->display->display_options['access']['type'] = 'role';
   $handler->display->display_options['access']['role'] = array(
     3 => '3',
@@ -821,13 +824,14 @@ function huf_frontpage_views_default_views() {
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['link_url'] = 'gallerier';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '5';
   $translatables['gallery_slideshow'] = array(
     t('Master'),
     t('Galleri'),
-    t('more'),
+    t('Flere gallerier'),
     t('Apply'),
     t('Gendan'),
     t('Sort by'),
@@ -843,6 +847,7 @@ function huf_frontpage_views_default_views() {
     t('image from field_image_gallery'),
     t('Alle'),
     t('Block'),
+    t('more'),
   );
   $export['gallery_slideshow'] = $view;
 

@@ -17,6 +17,15 @@ function huf_frontpage_context_default_contexts() {
   $context->description = 'All pages concerning news from huf.dk';
   $context->tag = 'section';
   $context->conditions = array(
+    'node' => array(
+      'values' => array(
+        'event' => 'event',
+        'gallery' => 'gallery',
+      ),
+      'options' => array(
+        'node_form' => '1',
+      ),
+    ),
     'views' => array(
       'values' => array(
         'calendar' => 'calendar',
@@ -24,6 +33,8 @@ function huf_frontpage_context_default_contexts() {
         'calendar:page_1' => 'calendar:page_1',
         'calendar:page_2' => 'calendar:page_2',
         'calendar:page_3' => 'calendar:page_3',
+        'gallery' => 'gallery',
+        'gallery:page' => 'gallery:page',
         'nyheder' => 'nyheder',
       ),
     ),
@@ -252,7 +263,7 @@ function huf_frontpage_context_default_contexts() {
       ),
     ),
   );
-  $context->condition_mode = 1;
+  $context->condition_mode = 0;
 
   // Translatables
   // Included for use with string extractors like potx.
