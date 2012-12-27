@@ -25,6 +25,7 @@ dependencies[] = views
 features[context][] = calendar
 features[context][] = frontpage
 features[context][] = frontpage_anonymus
+features[context][] = tekster
 features[ctools][] = context:context:3
 features[ctools][] = panels_mini:panels_default:1
 features[ctools][] = views:views_default:3.0
