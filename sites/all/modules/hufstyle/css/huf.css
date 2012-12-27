@@ -81,6 +81,7 @@
 
 /* TouchPro Theme styling */
 /* Making the menu responsive */
+/*
 nav select {
   display: none;
 }
@@ -98,6 +99,7 @@ nav.primary-menu {
   nav ul     { display: none; }
   nav select { display: inline-block; }
 }
+*/
 
 .masthead select {
   position: relative;
