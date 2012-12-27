@@ -303,3 +303,15 @@ margin-top: -3px;
 a:hover {
 	text-decoration: underline;
 }
+
+/* Styling of gallery node view */
+.field-name-field-image-gallery .field-item {
+	margin-right: 10px;
+	float: left;
+}
+
+.node .field-name-body {
+	clear: both;
+	font-size: 1.2em;
+	padding-top: 10px;
+}
