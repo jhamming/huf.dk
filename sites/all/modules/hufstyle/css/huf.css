@@ -232,13 +232,13 @@ ul a {
 	text-decoration: none;
 }
 
-body:nth-of-type(1) ul li.views-row, .more-link {
+body:nth-of-type(1) ul li.views-row, body:nth-of-type(1) ul.views-summary li, .more-link {
 list-style-type:none;
 padding: 0 0 0 25px;
 position:relative;
 }
 
-body:nth-of-type(1) ul li.views-row:after {
+body:nth-of-type(1) ul li.views-row:after, body:nth-of-type(1) ul.views-summary li:after {
 /*Add another block-level blank space*/
 content:"\00a0";
 display:block;
@@ -266,6 +266,12 @@ margin-top: -4px;
 /* Making sure that the active users listing will go into two lines*/
 span.views-field > span.field-content {
 	display:block;
+}
+
+/* Adjusting archive news listing */
+.view-nyheder > .item-list > ul.views-summary > li {
+	padding-bottom: 6px;
+	font-size: 1.3em;
 }
 
 /* Adjusting the more links on lists */
@@ -315,3 +321,14 @@ a:hover {
 	font-size: 1.2em;
 	padding-top: 10px;
 }
+
+/* Styling af article node view */
+article.node.clearfix > .content.clearfix {
+	padding-left: 0px;
+}
+
+article.node.clearfix > .content > .field.field-type-image {
+	margin-left: 0px;
+	width: 100%;
+}
+
