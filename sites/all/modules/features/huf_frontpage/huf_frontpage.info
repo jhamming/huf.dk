@@ -20,6 +20,7 @@ dependencies[] = newsletter
 dependencies[] = panels_mini
 dependencies[] = search
 dependencies[] = views
+features[context][] = calendar
 features[context][] = frontpage
 features[context][] = frontpage_anonymus
 features[ctools][] = context:context:3
