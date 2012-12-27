@@ -33,6 +33,8 @@ function huf_nyhed_context_default_contexts() {
     ),
     'views' => array(
       'values' => array(
+        'comments_recent' => 'comments_recent',
+        'comments_recent:page' => 'comments_recent:page',
         'forside_seneste_nyt:page_1' => 'forside_seneste_nyt:page_1',
         'nyheder' => 'nyheder',
       ),
@@ -41,11 +43,17 @@ function huf_nyhed_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
+        'search-form' => array(
+          'module' => 'search',
+          'delta' => 'form',
+          'region' => 'sidebar_second',
+          'weight' => '-10',
+        ),
         'panels_mini-kalender_og_kommende' => array(
           'module' => 'panels_mini',
           'delta' => 'kalender_og_kommende',
           'region' => 'sidebar_second',
-          'weight' => '-10',
+          'weight' => '-9',
         ),
         'newsletter-newsletter_subscribe' => array(
           'module' => 'newsletter',
@@ -206,6 +214,25 @@ function huf_nyhed_context_default_contexts() {
           'content_bottom' => 0,
           'postblocks' => 0,
           'footer' => 0,
+          'dashboard_main' => 0,
+          'dashboard_sidebar' => 0,
+          'dashboard_inactive' => 0,
+        ),
+      ),
+      'touchpro_subtheme' => array(
+        'disable' => array(
+          'header' => 0,
+          'featured' => 0,
+          'preblocks' => 0,
+          'sidebar_first' => 0,
+          'sidebar_second' => 0,
+          'content_top' => 0,
+          'help' => 0,
+          'content' => 0,
+          'content_bottom' => 0,
+          'postblocks' => 0,
+          'footer' => 0,
+          'footer_extra' => 0,
           'dashboard_main' => 0,
           'dashboard_sidebar' => 0,
           'dashboard_inactive' => 0,

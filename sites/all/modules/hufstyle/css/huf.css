@@ -81,6 +81,7 @@
 
 /* TouchPro Theme styling */
 /* Making the menu responsive */
+/*
 nav select {
   display: none;
 }
@@ -98,6 +99,7 @@ nav.primary-menu {
   nav ul     { display: none; }
   nav select { display: inline-block; }
 }
+*/
 
 .masthead select {
   position: relative;
@@ -219,8 +221,85 @@ section article .view-users .views-row .views-label {
 	font-weight: bold;
 } 
 
-/*OG listings*/
+/* ==OG listings== */
 .view-og-all-user-group-content .item-list {
 	border-bottom: 1px solid black;
 	margin-bottom: 20px;
+}
+
+/* ==General list styling== */
+ul a {
+	text-decoration: none;
+}
+
+body:nth-of-type(1) ul li.views-row, .more-link {
+list-style-type:none;
+padding: 0 0 0 25px;
+position:relative;
+}
+
+body:nth-of-type(1) ul li.views-row:after {
+/*Add another block-level blank space*/
+content:"\00a0";
+display:block;
+ 
+/*Make it a small rectangle so the border will create an V-shape*/
+width: 3px;
+height: 3px;
+ 
+/*Add a blue border on the bottom and left, creating that 'V' */
+border: solid #004D7D;
+border-width: 0 2px 2px 0;
+ 
+/*Position it on top of the circle*/
+position:absolute;
+left: 4px;
+top: 40%;
+margin-top: -4px;
+ 
+/*Rotate the V -45 degrees to turn it into a arrow pointer*/
+-webkit-transform: rotate(-45deg);
+-moz-transform: rotate(-45deg);
+-o-transform: rotate(-45deg);
+}
+
+/* Making sure that the active users listing will go into two lines*/
+span.views-field > span.field-content {
+	display:block;
+}
+
+/* Adjusting the more links on lists */
+.more-link > a {
+	font-size: 1.1em;
+	text-decoration: none;
+}
+
+body:nth-of-type(1)  .more-link > a:after{
+/*Add another block-level blank space*/
+content:"\00a0";
+display:block;
+ 
+/*Make it a small rectangle so the border will create an V-shape*/
+width: 4px;
+height: 4px;
+ 
+/*Add a blue border on the bottom and left, creating that 'V' */
+border: solid #004D7D;
+border-width: 0 2px 2px 0;
+ 
+/*Position it on top of the circle*/
+position:absolute;
+left: 4px;
+top: 40%;
+margin-top: -3px;
+ 
+/*Rotate the V -45 degrees to turn it into a arrow pointer*/
+-webkit-transform: rotate(-45deg);
+-moz-transform: rotate(-45deg);
+-o-transform: rotate(-45deg);
+}
+
+/* Adding mouse over to all links */
+a:hover {
+	text-decoration: underline;
 }
