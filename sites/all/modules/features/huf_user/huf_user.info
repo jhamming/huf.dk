@@ -168,3 +168,5 @@ features[user_permission][] = view revisions
 features[user_permission][] = view the administration theme
 features[user_role][] = Bestyrelse
 features[user_role][] = administrator
+features[views_view][] = active_users
+features[views_view][] = most_active_users
