@@ -46,7 +46,8 @@ function huf_user_user_default_permissions() {
     'roles' => array(
       0 => 'Bestyrelse',
       1 => 'administrator',
-      2 => 'authenticated user',
+      2 => 'anonymous user',
+      3 => 'authenticated user',
     ),
     'module' => 'node',
   );
@@ -518,6 +519,7 @@ function huf_user_user_default_permissions() {
     'name' => 'create gallery content',
     'roles' => array(
       0 => 'Bestyrelse',
+      1 => 'administrator',
     ),
     'module' => 'node',
   );
@@ -554,6 +556,7 @@ function huf_user_user_default_permissions() {
     'name' => 'create panel content',
     'roles' => array(
       0 => 'Bestyrelse',
+      1 => 'administrator',
     ),
     'module' => 'node',
   );
@@ -591,6 +594,7 @@ function huf_user_user_default_permissions() {
     'name' => 'delete any event content',
     'roles' => array(
       0 => 'Bestyrelse',
+      1 => 'administrator',
     ),
     'module' => 'node',
   );
@@ -600,6 +604,7 @@ function huf_user_user_default_permissions() {
     'name' => 'delete any gallery content',
     'roles' => array(
       0 => 'Bestyrelse',
+      1 => 'administrator',
     ),
     'module' => 'node',
   );
@@ -609,6 +614,7 @@ function huf_user_user_default_permissions() {
     'name' => 'delete any gruppe content',
     'roles' => array(
       0 => 'Bestyrelse',
+      1 => 'administrator',
     ),
     'module' => 'node',
   );
@@ -625,9 +631,7 @@ function huf_user_user_default_permissions() {
   // Exported permission: delete any panel content.
   $permissions['delete any panel content'] = array(
     'name' => 'delete any panel content',
-    'roles' => array(
-      0 => 'Bestyrelse',
-    ),
+    'roles' => array(),
     'module' => 'node',
   );
 
@@ -645,6 +649,7 @@ function huf_user_user_default_permissions() {
     'name' => 'delete own event content',
     'roles' => array(
       0 => 'Bestyrelse',
+      1 => 'administrator',
     ),
     'module' => 'node',
   );
@@ -654,6 +659,7 @@ function huf_user_user_default_permissions() {
     'name' => 'delete own gallery content',
     'roles' => array(
       0 => 'Bestyrelse',
+      1 => 'administrator',
     ),
     'module' => 'node',
   );
@@ -663,6 +669,7 @@ function huf_user_user_default_permissions() {
     'name' => 'delete own gruppe content',
     'roles' => array(
       0 => 'Bestyrelse',
+      1 => 'administrator',
     ),
     'module' => 'node',
   );
@@ -681,6 +688,7 @@ function huf_user_user_default_permissions() {
     'name' => 'delete own panel content',
     'roles' => array(
       0 => 'Bestyrelse',
+      1 => 'administrator',
     ),
     'module' => 'node',
   );
@@ -714,11 +722,56 @@ function huf_user_user_default_permissions() {
     'module' => 'taxonomy',
   );
 
+  // Exported permission: delete terms in 10.
+  $permissions['delete terms in 10'] = array(
+    'name' => 'delete terms in 10',
+    'roles' => array(
+      0 => 'Bestyrelse',
+      1 => 'administrator',
+    ),
+    'module' => 'taxonomy',
+  );
+
+  // Exported permission: delete terms in 11.
+  $permissions['delete terms in 11'] = array(
+    'name' => 'delete terms in 11',
+    'roles' => array(
+      0 => 'Bestyrelse',
+      1 => 'administrator',
+    ),
+    'module' => 'taxonomy',
+  );
+
+  // Exported permission: delete terms in 12.
+  $permissions['delete terms in 12'] = array(
+    'name' => 'delete terms in 12',
+    'roles' => array(),
+    'module' => 'taxonomy',
+  );
+
+  // Exported permission: delete terms in 13.
+  $permissions['delete terms in 13'] = array(
+    'name' => 'delete terms in 13',
+    'roles' => array(
+      0 => 'Bestyrelse',
+      1 => 'administrator',
+    ),
+    'module' => 'taxonomy',
+  );
+
+  // Exported permission: delete terms in 14.
+  $permissions['delete terms in 14'] = array(
+    'name' => 'delete terms in 14',
+    'roles' => array(),
+    'module' => 'taxonomy',
+  );
+
   // Exported permission: delete terms in 2.
   $permissions['delete terms in 2'] = array(
     'name' => 'delete terms in 2',
     'roles' => array(
       0 => 'Bestyrelse',
+      1 => 'administrator',
     ),
     'module' => 'taxonomy',
   );
@@ -728,6 +781,17 @@ function huf_user_user_default_permissions() {
     'name' => 'delete terms in 3',
     'roles' => array(
       0 => 'Bestyrelse',
+      1 => 'administrator',
+    ),
+    'module' => 'taxonomy',
+  );
+
+  // Exported permission: delete terms in 9.
+  $permissions['delete terms in 9'] = array(
+    'name' => 'delete terms in 9',
+    'roles' => array(
+      0 => 'Bestyrelse',
+      1 => 'administrator',
     ),
     'module' => 'taxonomy',
   );
@@ -737,6 +801,7 @@ function huf_user_user_default_permissions() {
     'name' => 'edit any event content',
     'roles' => array(
       0 => 'Bestyrelse',
+      1 => 'administrator',
     ),
     'module' => 'node',
   );
@@ -746,6 +811,7 @@ function huf_user_user_default_permissions() {
     'name' => 'edit any gallery content',
     'roles' => array(
       0 => 'Bestyrelse',
+      1 => 'administrator',
     ),
     'module' => 'node',
   );
@@ -755,6 +821,7 @@ function huf_user_user_default_permissions() {
     'name' => 'edit any gruppe content',
     'roles' => array(
       0 => 'Bestyrelse',
+      1 => 'administrator',
     ),
     'module' => 'node',
   );
@@ -773,6 +840,7 @@ function huf_user_user_default_permissions() {
     'name' => 'edit any panel content',
     'roles' => array(
       0 => 'Bestyrelse',
+      1 => 'administrator',
     ),
     'module' => 'node',
   );
@@ -812,6 +880,7 @@ function huf_user_user_default_permissions() {
     'name' => 'edit own gallery content',
     'roles' => array(
       0 => 'Bestyrelse',
+      1 => 'administrator',
     ),
     'module' => 'node',
   );
@@ -839,6 +908,7 @@ function huf_user_user_default_permissions() {
     'name' => 'edit own panel content',
     'roles' => array(
       0 => 'Bestyrelse',
+      1 => 'administrator',
     ),
     'module' => 'node',
   );
@@ -862,11 +932,56 @@ function huf_user_user_default_permissions() {
     'module' => 'taxonomy',
   );
 
+  // Exported permission: edit terms in 10.
+  $permissions['edit terms in 10'] = array(
+    'name' => 'edit terms in 10',
+    'roles' => array(
+      0 => 'Bestyrelse',
+      1 => 'administrator',
+    ),
+    'module' => 'taxonomy',
+  );
+
+  // Exported permission: edit terms in 11.
+  $permissions['edit terms in 11'] = array(
+    'name' => 'edit terms in 11',
+    'roles' => array(
+      0 => 'Bestyrelse',
+      1 => 'administrator',
+    ),
+    'module' => 'taxonomy',
+  );
+
+  // Exported permission: edit terms in 12.
+  $permissions['edit terms in 12'] = array(
+    'name' => 'edit terms in 12',
+    'roles' => array(),
+    'module' => 'taxonomy',
+  );
+
+  // Exported permission: edit terms in 13.
+  $permissions['edit terms in 13'] = array(
+    'name' => 'edit terms in 13',
+    'roles' => array(
+      0 => 'Bestyrelse',
+      1 => 'administrator',
+    ),
+    'module' => 'taxonomy',
+  );
+
+  // Exported permission: edit terms in 14.
+  $permissions['edit terms in 14'] = array(
+    'name' => 'edit terms in 14',
+    'roles' => array(),
+    'module' => 'taxonomy',
+  );
+
   // Exported permission: edit terms in 2.
   $permissions['edit terms in 2'] = array(
     'name' => 'edit terms in 2',
     'roles' => array(
       0 => 'Bestyrelse',
+      1 => 'administrator',
     ),
     'module' => 'taxonomy',
   );
@@ -876,6 +991,17 @@ function huf_user_user_default_permissions() {
     'name' => 'edit terms in 3',
     'roles' => array(
       0 => 'Bestyrelse',
+      1 => 'administrator',
+    ),
+    'module' => 'taxonomy',
+  );
+
+  // Exported permission: edit terms in 9.
+  $permissions['edit terms in 9'] = array(
+    'name' => 'edit terms in 9',
+    'roles' => array(
+      0 => 'Bestyrelse',
+      1 => 'administrator',
     ),
     'module' => 'taxonomy',
   );
@@ -979,6 +1105,15 @@ function huf_user_user_default_permissions() {
       1 => 'administrator',
     ),
     'module' => 'locale',
+  );
+
+  // Exported permission: use PHP for settings.
+  $permissions['use PHP for settings'] = array(
+    'name' => 'use PHP for settings',
+    'roles' => array(
+      0 => 'administrator',
+    ),
+    'module' => 'php',
   );
 
   // Exported permission: use admin toolbar.

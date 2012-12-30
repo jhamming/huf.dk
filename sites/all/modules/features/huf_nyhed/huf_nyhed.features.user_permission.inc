@@ -88,6 +88,7 @@ function huf_nyhed_user_default_permissions() {
     'name' => 'create nyhed content',
     'roles' => array(
       0 => 'Bestyrelse',
+      1 => 'administrator',
     ),
     'module' => 'node',
   );
@@ -107,6 +108,7 @@ function huf_nyhed_user_default_permissions() {
     'name' => 'delete any nyhed content',
     'roles' => array(
       0 => 'Bestyrelse',
+      1 => 'administrator',
     ),
     'module' => 'node',
   );
@@ -126,6 +128,7 @@ function huf_nyhed_user_default_permissions() {
     'name' => 'delete own nyhed content',
     'roles' => array(
       0 => 'Bestyrelse',
+      1 => 'administrator',
     ),
     'module' => 'node',
   );
@@ -135,6 +138,7 @@ function huf_nyhed_user_default_permissions() {
     'name' => 'edit any nyhed content',
     'roles' => array(
       0 => 'Bestyrelse',
+      1 => 'administrator',
     ),
     'module' => 'node',
   );
@@ -144,6 +148,7 @@ function huf_nyhed_user_default_permissions() {
     'name' => 'edit own nyhed content',
     'roles' => array(
       0 => 'Bestyrelse',
+      1 => 'administrator',
     ),
     'module' => 'node',
   );

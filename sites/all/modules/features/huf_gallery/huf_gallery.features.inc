@@ -19,7 +19,7 @@ function huf_gallery_node_info() {
     'gallery' => array(
       'name' => t('Gallery'),
       'base' => 'node_content',
-      'description' => t('Content type for galleries'),
+      'description' => t('Indholdstype til billedgallerier.'),
       'has_title' => '1',
       'title_label' => t('Title'),
       'help' => '',

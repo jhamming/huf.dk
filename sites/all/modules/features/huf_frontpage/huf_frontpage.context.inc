@@ -67,200 +67,6 @@ function huf_frontpage_context_default_contexts() {
         ),
       ),
     ),
-    'region' => array(
-      'arctica' => array(
-        'disable' => array(
-          'header' => 0,
-          'featured' => 0,
-          'preblocks' => 0,
-          'sidebar_first' => 0,
-          'sidebar_second' => 0,
-          'content_top' => 0,
-          'help' => 0,
-          'content' => 0,
-          'content_bottom' => 0,
-          'postblocks' => 0,
-          'footer' => 0,
-          'dashboard_main' => 0,
-          'dashboard_sidebar' => 0,
-          'dashboard_inactive' => 0,
-        ),
-      ),
-      'bartik' => array(
-        'disable' => array(
-          'header' => 0,
-          'help' => 0,
-          'page_top' => 0,
-          'page_bottom' => 0,
-          'highlighted' => 0,
-          'featured' => 0,
-          'content' => 0,
-          'sidebar_first' => 0,
-          'sidebar_second' => 0,
-          'triptych_first' => 0,
-          'triptych_middle' => 0,
-          'triptych_last' => 0,
-          'footer_firstcolumn' => 0,
-          'footer_secondcolumn' => 0,
-          'footer_thirdcolumn' => 0,
-          'footer_fourthcolumn' => 0,
-          'footer' => 0,
-          'dashboard_main' => 0,
-          'dashboard_sidebar' => 0,
-          'dashboard_inactive' => 0,
-        ),
-      ),
-      'responsive' => array(
-        'disable' => array(
-          'sidebar_first' => 0,
-          'header' => 0,
-          'front_welcome' => 0,
-          'content' => 0,
-          'content_top' => 0,
-          'help' => 0,
-          'footer' => 0,
-          'footer_first' => 0,
-          'footer_second' => 0,
-          'footer_third' => 0,
-          'footer_fourth' => 0,
-          'dashboard_main' => 0,
-          'dashboard_sidebar' => 0,
-          'dashboard_inactive' => 0,
-        ),
-      ),
-      'rubik' => array(
-        'disable' => array(
-          'content' => 0,
-          'help' => 0,
-          'page_top' => 0,
-          'page_bottom' => 0,
-          'dashboard_main' => 0,
-          'dashboard_sidebar' => 0,
-          'dashboard_inactive' => 0,
-        ),
-      ),
-      'seven' => array(
-        'disable' => array(
-          'content' => 0,
-          'help' => 0,
-          'page_top' => 0,
-          'page_bottom' => 0,
-          'sidebar_first' => 0,
-          'dashboard_main' => 0,
-          'dashboard_sidebar' => 0,
-          'dashboard_inactive' => 0,
-        ),
-      ),
-      'tao' => array(
-        'disable' => array(
-          'sidebar_first' => 0,
-          'sidebar_second' => 0,
-          'content' => 0,
-          'header' => 0,
-          'help' => 0,
-          'footer' => 0,
-          'page_top' => 0,
-          'page_bottom' => 0,
-          'highlighted' => 0,
-          'dashboard_main' => 0,
-          'dashboard_sidebar' => 0,
-          'dashboard_inactive' => 0,
-        ),
-      ),
-      'touch' => array(
-        'disable' => array(
-          'sidebar_first' => 'sidebar_first',
-          'search_box' => 0,
-          'sidebar_second' => 0,
-          'header' => 0,
-          'highlighted' => 0,
-          'content' => 0,
-          'navigation' => 0,
-          'help' => 0,
-          'footer_first' => 0,
-          'footer_second' => 0,
-          'footer_third' => 0,
-          'footer_fourth' => 0,
-          'footer' => 0,
-          'dashboard_main' => 0,
-          'dashboard_sidebar' => 0,
-          'dashboard_inactive' => 0,
-        ),
-      ),
-      'touchpro' => array(
-        'disable' => array(
-          'sidebar_first' => 'sidebar_first',
-          'header' => 0,
-          'featured' => 0,
-          'preblocks' => 0,
-          'sidebar_second' => 0,
-          'content_top' => 0,
-          'help' => 0,
-          'content' => 0,
-          'content_bottom' => 0,
-          'postblocks' => 0,
-          'footer' => 0,
-          'dashboard_main' => 0,
-          'dashboard_sidebar' => 0,
-          'dashboard_inactive' => 0,
-        ),
-      ),
-      'touchpro_subtheme' => array(
-        'disable' => array(
-          'header' => 0,
-          'featured' => 0,
-          'preblocks' => 0,
-          'sidebar_first' => 0,
-          'sidebar_second' => 0,
-          'content_top' => 0,
-          'help' => 0,
-          'content' => 0,
-          'content_bottom' => 0,
-          'postblocks' => 0,
-          'footer' => 0,
-          'footer_extra' => 0,
-          'dashboard_main' => 0,
-          'dashboard_sidebar' => 0,
-          'dashboard_inactive' => 0,
-        ),
-      ),
-      'tundra' => array(
-        'disable' => array(
-          'header' => 0,
-          'featured' => 0,
-          'preblocks' => 0,
-          'sidebar_first' => 0,
-          'sidebar_second' => 0,
-          'content_top' => 0,
-          'help' => 0,
-          'content' => 0,
-          'content_bottom' => 0,
-          'postblocks' => 0,
-          'footer' => 0,
-          'dashboard_main' => 0,
-          'dashboard_sidebar' => 0,
-          'dashboard_inactive' => 0,
-        ),
-      ),
-      'zen' => array(
-        'disable' => array(
-          'header' => 0,
-          'navigation' => 0,
-          'highlighted' => 0,
-          'help' => 0,
-          'content' => 0,
-          'sidebar_first' => 0,
-          'sidebar_second' => 0,
-          'footer' => 0,
-          'bottom' => 0,
-          'page_top' => 0,
-          'page_bottom' => 0,
-          'dashboard_main' => 0,
-          'dashboard_sidebar' => 0,
-          'dashboard_inactive' => 0,
-        ),
-      ),
-    ),
   );
   $context->condition_mode = 0;
 
@@ -365,11 +171,6 @@ function huf_frontpage_context_default_contexts() {
   $context->description = 'Frontpage of huf.dk context for anonymus users';
   $context->tag = 'section';
   $context->conditions = array(
-    'path' => array(
-      'values' => array(
-        '<front>' => '<front>',
-      ),
-    ),
     'user' => array(
       'values' => array(
         'anonymous user' => 'anonymous user',
@@ -379,118 +180,29 @@ function huf_frontpage_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'user-login' => array(
-          'module' => 'user',
-          'delta' => 'login',
-          'region' => 'sidebar_first',
-          'weight' => '-25',
-        ),
-        'newsletter-newsletter_subscribe' => array(
-          'module' => 'newsletter',
-          'delta' => 'newsletter_subscribe',
-          'region' => 'sidebar_first',
-          'weight' => '-23',
-        ),
         'block-2' => array(
           'module' => 'block',
           'delta' => '2',
-          'region' => 'sidebar_first',
-          'weight' => '-22',
-        ),
-        'panels_mini-statistik' => array(
-          'module' => 'panels_mini',
-          'delta' => 'statistik',
-          'region' => 'sidebar_first',
-          'weight' => '-21',
-        ),
-        'search-form' => array(
-          'module' => 'search',
-          'delta' => 'form',
-          'region' => 'sidebar_second',
+          'region' => 'preblocks',
           'weight' => '-10',
         ),
         'panels_mini-kalender_og_kommende' => array(
           'module' => 'panels_mini',
           'delta' => 'kalender_og_kommende',
-          'region' => 'sidebar_second',
-          'weight' => '-9',
-        ),
-        'views-gallery_slideshow-block' => array(
-          'module' => 'views',
-          'delta' => 'gallery_slideshow-block',
-          'region' => 'sidebar_second',
-          'weight' => '-7',
-        ),
-      ),
-    ),
-  );
-  $context->condition_mode = 1;
-
-  // Translatables
-  // Included for use with string extractors like potx.
-  t('Frontpage of huf.dk context for anonymus users');
-  t('section');
-  $export['frontpage_anonymus'] = $context;
-
-  $context = new stdClass();
-  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
-  $context->api_version = 3;
-  $context->name = 'tekster';
-  $context->description = 'All pages concerning texts from huf.dk';
-  $context->tag = 'section';
-  $context->conditions = array(
-    'node' => array(
-      'values' => array(
-        'article' => 'article',
-      ),
-      'options' => array(
-        'node_form' => '1',
-      ),
-    ),
-    'path' => array(
-      'values' => array(
-        '*/tekster*' => '*/tekster*',
-      ),
-    ),
-    'views' => array(
-      'values' => array(
-        'seneste_tekster' => 'seneste_tekster',
-        'seneste_tekster:page' => 'seneste_tekster:page',
-      ),
-    ),
-  );
-  $context->reactions = array(
-    'block' => array(
-      'blocks' => array(
-        'search-form' => array(
-          'module' => 'search',
-          'delta' => 'form',
-          'region' => 'sidebar_second',
+          'region' => 'sidebar_first',
           'weight' => '-10',
         ),
         'newsletter-newsletter_subscribe' => array(
           'module' => 'newsletter',
           'delta' => 'newsletter_subscribe',
-          'region' => 'sidebar_second',
-          'weight' => '-7',
+          'region' => 'sidebar_first',
+          'weight' => '-10',
         ),
-        'tagclouds-2' => array(
-          'module' => 'tagclouds',
-          'delta' => '2',
-          'region' => 'sidebar_second',
-          'weight' => '-5',
-        ),
-        'panels_mini-nyeste_indhold' => array(
-          'module' => 'panels_mini',
-          'delta' => 'nyeste_indhold',
-          'region' => 'sidebar_second',
-          'weight' => '-1',
-        ),
-        'views-seneste_tekster-block_2' => array(
-          'module' => 'views',
-          'delta' => 'seneste_tekster-block_2',
-          'region' => 'sidebar_second',
-          'weight' => '-9',
+        'user-login' => array(
+          'module' => 'user',
+          'delta' => 'login',
+          'region' => 'sidebar_first',
+          'weight' => '-10',
         ),
       ),
     ),
@@ -532,6 +244,22 @@ function huf_frontpage_context_default_contexts() {
           'footer_thirdcolumn' => 0,
           'footer_fourthcolumn' => 0,
           'footer' => 0,
+          'dashboard_main' => 0,
+          'dashboard_sidebar' => 0,
+          'dashboard_inactive' => 0,
+        ),
+      ),
+      'garland' => array(
+        'disable' => array(
+          'sidebar_first' => 0,
+          'sidebar_second' => 0,
+          'content' => 0,
+          'header' => 0,
+          'footer' => 0,
+          'highlighted' => 0,
+          'help' => 0,
+          'page_top' => 0,
+          'page_bottom' => 0,
           'dashboard_main' => 0,
           'dashboard_sidebar' => 0,
           'dashboard_inactive' => 0,
@@ -596,8 +324,8 @@ function huf_frontpage_context_default_contexts() {
       ),
       'touch' => array(
         'disable' => array(
-          'sidebar_first' => 'sidebar_first',
           'search_box' => 0,
+          'sidebar_first' => 0,
           'sidebar_second' => 0,
           'header' => 0,
           'highlighted' => 0,
@@ -616,11 +344,11 @@ function huf_frontpage_context_default_contexts() {
       ),
       'touchpro' => array(
         'disable' => array(
-          'sidebar_first' => 'sidebar_first',
+          'sidebar_second' => 'sidebar_second',
           'header' => 0,
           'featured' => 0,
           'preblocks' => 0,
-          'sidebar_second' => 0,
+          'sidebar_first' => 0,
           'content_top' => 0,
           'help' => 0,
           'content' => 0,
@@ -689,6 +417,70 @@ function huf_frontpage_context_default_contexts() {
       ),
     ),
   );
+  $context->condition_mode = 1;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Frontpage of huf.dk context for anonymus users');
+  t('section');
+  $export['frontpage_anonymus'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
+  $context->name = 'tekster';
+  $context->description = 'All pages concerning texts from huf.dk';
+  $context->tag = 'section';
+  $context->conditions = array(
+    'path' => array(
+      'values' => array(
+        '*/tekster*' => '*/tekster*',
+        '*taxonomy*' => '*taxonomy*',
+      ),
+    ),
+    'views' => array(
+      'values' => array(
+        'seneste_tekster' => 'seneste_tekster',
+        'seneste_tekster:page' => 'seneste_tekster:page',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'search-form' => array(
+          'module' => 'search',
+          'delta' => 'form',
+          'region' => 'sidebar_second',
+          'weight' => '-10',
+        ),
+        'views-seneste_tekster-block_2' => array(
+          'module' => 'views',
+          'delta' => 'seneste_tekster-block_2',
+          'region' => 'sidebar_second',
+          'weight' => '-9',
+        ),
+        'newsletter-newsletter_subscribe' => array(
+          'module' => 'newsletter',
+          'delta' => 'newsletter_subscribe',
+          'region' => 'sidebar_second',
+          'weight' => '-7',
+        ),
+        'tagclouds-2' => array(
+          'module' => 'tagclouds',
+          'delta' => '2',
+          'region' => 'sidebar_second',
+          'weight' => '-5',
+        ),
+        'panels_mini-nyeste_indhold' => array(
+          'module' => 'panels_mini',
+          'delta' => 'nyeste_indhold',
+          'region' => 'sidebar_second',
+          'weight' => '-1',
+        ),
+      ),
+    ),
+  );
   $context->condition_mode = 0;
 
   // Translatables
@@ -696,6 +488,72 @@ function huf_frontpage_context_default_contexts() {
   t('All pages concerning texts from huf.dk');
   t('section');
   $export['tekster'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
+  $context->name = 'tekster_underside';
+  $context->description = 'All pages concerning texts from huf.dk';
+  $context->tag = 'section';
+  $context->conditions = array(
+    'node' => array(
+      'values' => array(
+        'article' => 'article',
+      ),
+      'options' => array(
+        'node_form' => '1',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'search-form' => array(
+          'module' => 'search',
+          'delta' => 'form',
+          'region' => 'sidebar_second',
+          'weight' => '-11',
+        ),
+        'views-seneste_tekster-block_3' => array(
+          'module' => 'views',
+          'delta' => 'seneste_tekster-block_3',
+          'region' => 'sidebar_second',
+          'weight' => '-10',
+        ),
+        'views-seneste_tekster-block_2' => array(
+          'module' => 'views',
+          'delta' => 'seneste_tekster-block_2',
+          'region' => 'sidebar_second',
+          'weight' => '-9',
+        ),
+        'newsletter-newsletter_subscribe' => array(
+          'module' => 'newsletter',
+          'delta' => 'newsletter_subscribe',
+          'region' => 'sidebar_second',
+          'weight' => '-7',
+        ),
+        'tagclouds-2' => array(
+          'module' => 'tagclouds',
+          'delta' => '2',
+          'region' => 'sidebar_second',
+          'weight' => '-5',
+        ),
+        'panels_mini-nyeste_indhold' => array(
+          'module' => 'panels_mini',
+          'delta' => 'nyeste_indhold',
+          'region' => 'sidebar_second',
+          'weight' => '-1',
+        ),
+      ),
+    ),
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('All pages concerning texts from huf.dk');
+  t('section');
+  $export['tekster_underside'] = $context;
 
   return $export;
 }

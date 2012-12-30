@@ -12,7 +12,7 @@ function article_node_info() {
     'article' => array(
       'name' => t('Tekster'),
       'base' => 'node_content',
-      'description' => t('Tekster skrevet af HUF\'s medlemmer'),
+      'description' => t('Indholdstype til at skive tekster forfatter af HUFs medlemmer.'),
       'has_title' => '1',
       'title_label' => t('Title'),
       'help' => '',

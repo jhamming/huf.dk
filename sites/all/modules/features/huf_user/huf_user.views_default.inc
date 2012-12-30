@@ -140,6 +140,106 @@ function huf_user_views_default_views() {
   $export['active_users'] = $view;
 
   $view = new view();
+  $view->name = 'medlemmer';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'users';
+  $view->human_name = 'Medlemmer';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Medlemmer';
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['access']['perm'] = 'access user profiles';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Sorter';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Gendan';
+  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sorter efter';
+  $handler->display->display_options['exposed_form']['options']['autosubmit'] = TRUE;
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '50';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« første';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ forrige';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'næste ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'sidste »';
+  $handler->display->display_options['style_plugin'] = 'list';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['hide_empty'] = TRUE;
+  /* Felt: Bruger: Navn */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'users';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['label'] = 'Brugernavn';
+  /* Felt: Bruger: Navn */
+  $handler->display->display_options['fields']['field_navn']['id'] = 'field_navn';
+  $handler->display->display_options['fields']['field_navn']['table'] = 'field_data_field_navn';
+  $handler->display->display_options['fields']['field_navn']['field'] = 'field_navn';
+  $handler->display->display_options['fields']['field_navn']['label'] = '';
+  $handler->display->display_options['fields']['field_navn']['element_label_colon'] = FALSE;
+  /* Sort criterion: Bruger: Created date */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'users';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  $handler->display->display_options['sorts']['created']['exposed'] = TRUE;
+  $handler->display->display_options['sorts']['created']['expose']['label'] = 'Oprettelse';
+  /* Sort criterion: Bruger: Navn (field_navn) */
+  $handler->display->display_options['sorts']['field_navn_value']['id'] = 'field_navn_value';
+  $handler->display->display_options['sorts']['field_navn_value']['table'] = 'field_data_field_navn';
+  $handler->display->display_options['sorts']['field_navn_value']['field'] = 'field_navn_value';
+  $handler->display->display_options['sorts']['field_navn_value']['exposed'] = TRUE;
+  $handler->display->display_options['sorts']['field_navn_value']['expose']['label'] = 'Navn';
+  /* Filter criterion: Bruger: Aktiv */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'users';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = '1';
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+
+  /* Display: Page */
+  $handler = $view->new_display('page', 'Page', 'page');
+  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['path'] = 'medlemmer/alle';
+
+  /* Display: Blok */
+  $handler = $view->new_display('block', 'Blok', 'block_1');
+  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '5';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $translatables['medlemmer'] = array(
+    t('Master'),
+    t('Medlemmer'),
+    t('more'),
+    t('Sorter'),
+    t('Gendan'),
+    t('Sorter efter'),
+    t('Asc'),
+    t('Desc'),
+    t('Items per page'),
+    t('- All -'),
+    t('Offset'),
+    t('« første'),
+    t('‹ forrige'),
+    t('næste ›'),
+    t('sidste »'),
+    t('Brugernavn'),
+    t('Oprettelse'),
+    t('Navn'),
+    t('Page'),
+    t('Blok'),
+  );
+  $export['medlemmer'] = $view;
+
+  $view = new view();
   $view->name = 'most_active_users';
   $view->description = '';
   $view->tag = 'default';
@@ -209,6 +309,209 @@ function huf_user_views_default_views() {
     t('Author uid'),
   );
   $export['most_active_users'] = $view;
+
+  $view = new view();
+  $view->name = 'sidst_online';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'users';
+  $view->human_name = 'Sidst online';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Sidst online';
+  $handler->display->display_options['use_more'] = TRUE;
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['use_more_text'] = 'Find flere medlemmer';
+  $handler->display->display_options['link_display'] = 'custom_url';
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['access']['perm'] = 'access user profiles';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Gendan';
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '5';
+  $handler->display->display_options['style_plugin'] = 'list';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  /* Felt: Bruger: Navn */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'users';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['label'] = '';
+  $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
+  /* Sort criterion: Bruger: Seneste login */
+  $handler->display->display_options['sorts']['login']['id'] = 'login';
+  $handler->display->display_options['sorts']['login']['table'] = 'users';
+  $handler->display->display_options['sorts']['login']['field'] = 'login';
+  $handler->display->display_options['sorts']['login']['order'] = 'DESC';
+  /* Filter criterion: Bruger: Aktiv */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'users';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = '1';
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+
+  /* Display: Block */
+  $handler = $view->new_display('block', 'Block', 'block');
+  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['link_url'] = 'users';
+  $translatables['sidst_online'] = array(
+    t('Master'),
+    t('Sidst online'),
+    t('Find flere medlemmer'),
+    t('Apply'),
+    t('Gendan'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Block'),
+    t('more'),
+  );
+  $export['sidst_online'] = $view;
+
+  $view = new view();
+  $view->name = 'users';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'users';
+  $view->human_name = 'users';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Find HUF.dk brugere';
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['access']['perm'] = 'access user profiles';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Gendan';
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '20';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« første';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ forrige';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'næste ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'sidste »';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['inline'] = array(
+    'name' => 'name',
+  );
+  /* Felt: Bruger: Navn */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'users';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['label'] = 'Brugernavn';
+  /* Felt: Bruger: Navn */
+  $handler->display->display_options['fields']['field_navn']['id'] = 'field_navn';
+  $handler->display->display_options['fields']['field_navn']['table'] = 'field_data_field_navn';
+  $handler->display->display_options['fields']['field_navn']['field'] = 'field_navn';
+  /* Felt: Bruger: Kommune */
+  $handler->display->display_options['fields']['field_kommune']['id'] = 'field_kommune';
+  $handler->display->display_options['fields']['field_kommune']['table'] = 'field_data_field_kommune';
+  $handler->display->display_options['fields']['field_kommune']['field'] = 'field_kommune';
+  /* Felt: Bruger: Region */
+  $handler->display->display_options['fields']['field_region']['id'] = 'field_region';
+  $handler->display->display_options['fields']['field_region']['table'] = 'field_data_field_region';
+  $handler->display->display_options['fields']['field_region']['field'] = 'field_region';
+  /* Sort criterion: Bruger: Created date */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'users';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Filter criterion: Bruger: Aktiv */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'users';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = '1';
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Bruger: Name (raw) */
+  $handler->display->display_options['filters']['name']['id'] = 'name';
+  $handler->display->display_options['filters']['name']['table'] = 'users';
+  $handler->display->display_options['filters']['name']['field'] = 'name';
+  $handler->display->display_options['filters']['name']['operator'] = 'contains';
+  $handler->display->display_options['filters']['name']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['name']['expose']['operator_id'] = 'name_op';
+  $handler->display->display_options['filters']['name']['expose']['label'] = 'Navn';
+  $handler->display->display_options['filters']['name']['expose']['operator'] = 'name_op';
+  $handler->display->display_options['filters']['name']['expose']['identifier'] = 'name';
+  $handler->display->display_options['filters']['name']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    4 => 0,
+    3 => 0,
+  );
+  /* Filter criterion: Bruger: Region (field_region) */
+  $handler->display->display_options['filters']['field_region_value']['id'] = 'field_region_value';
+  $handler->display->display_options['filters']['field_region_value']['table'] = 'field_data_field_region';
+  $handler->display->display_options['filters']['field_region_value']['field'] = 'field_region_value';
+  $handler->display->display_options['filters']['field_region_value']['operator'] = 'contains';
+  $handler->display->display_options['filters']['field_region_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_region_value']['expose']['operator_id'] = 'field_region_value_op';
+  $handler->display->display_options['filters']['field_region_value']['expose']['label'] = 'Region';
+  $handler->display->display_options['filters']['field_region_value']['expose']['operator'] = 'field_region_value_op';
+  $handler->display->display_options['filters']['field_region_value']['expose']['identifier'] = 'field_region_value';
+  $handler->display->display_options['filters']['field_region_value']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    4 => 0,
+    3 => 0,
+  );
+  /* Filter criterion: Bruger: Kommune (field_kommune) */
+  $handler->display->display_options['filters']['field_kommune_value']['id'] = 'field_kommune_value';
+  $handler->display->display_options['filters']['field_kommune_value']['table'] = 'field_data_field_kommune';
+  $handler->display->display_options['filters']['field_kommune_value']['field'] = 'field_kommune_value';
+  $handler->display->display_options['filters']['field_kommune_value']['operator'] = 'contains';
+  $handler->display->display_options['filters']['field_kommune_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_kommune_value']['expose']['operator_id'] = 'field_kommune_value_op';
+  $handler->display->display_options['filters']['field_kommune_value']['expose']['label'] = 'Kommune';
+  $handler->display->display_options['filters']['field_kommune_value']['expose']['operator'] = 'field_kommune_value_op';
+  $handler->display->display_options['filters']['field_kommune_value']['expose']['identifier'] = 'field_kommune_value';
+  $handler->display->display_options['filters']['field_kommune_value']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    4 => 0,
+    3 => 0,
+  );
+
+  /* Display: Page */
+  $handler = $view->new_display('page', 'Page', 'page');
+  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['path'] = 'users';
+  $translatables['users'] = array(
+    t('Master'),
+    t('Find HUF.dk brugere'),
+    t('more'),
+    t('Apply'),
+    t('Gendan'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Items per page'),
+    t('- All -'),
+    t('Offset'),
+    t('« første'),
+    t('‹ forrige'),
+    t('næste ›'),
+    t('sidste »'),
+    t('Brugernavn'),
+    t('Navn'),
+    t('Kommune'),
+    t('Region'),
+    t('Page'),
+  );
+  $export['users'] = $view;
 
   return $export;
 }

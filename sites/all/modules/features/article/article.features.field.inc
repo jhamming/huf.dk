@@ -386,6 +386,7 @@ function article_field_default_fields() {
             'parent' => '0',
           ),
         ),
+        'options_list_callback' => '_taxonomy_access_term_options',
       ),
       'translatable' => '0',
       'type' => 'taxonomy_term_reference',
@@ -529,6 +530,7 @@ function article_field_default_fields() {
             'parent' => '0',
           ),
         ),
+        'options_list_callback' => '_taxonomy_access_term_options',
       ),
       'translatable' => '0',
       'type' => 'taxonomy_term_reference',
@@ -603,6 +605,7 @@ function article_field_default_fields() {
             'parent' => 0,
           ),
         ),
+        'options_list_callback' => '_taxonomy_access_term_options',
       ),
       'translatable' => '0',
       'type' => 'taxonomy_term_reference',
@@ -643,6 +646,82 @@ function article_field_default_fields() {
         ),
         'type' => 'taxonomy_autocomplete',
         'weight' => '-4',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-article-field_tekststadie'.
+  $fields['node-article-field_tekststadie'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_tekststadie',
+      'foreign keys' => array(
+        'tid' => array(
+          'columns' => array(
+            'tid' => 'tid',
+          ),
+          'table' => 'taxonomy_term_data',
+        ),
+      ),
+      'indexes' => array(
+        'tid' => array(
+          0 => 'tid',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'taxonomy',
+      'settings' => array(
+        'allowed_values' => array(
+          0 => array(
+            'vocabulary' => 'tekststadie',
+            'parent' => 0,
+          ),
+        ),
+        'options_list_callback' => '_taxonomy_access_term_options',
+      ),
+      'translatable' => '0',
+      'type' => 'taxonomy_term_reference',
+    ),
+    'field_instance' => array(
+      'bundle' => 'article',
+      'default_value' => array(
+        0 => array(
+          'tid' => '753',
+        ),
+      ),
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'hidden',
+          'module' => 'taxonomy',
+          'settings' => array(),
+          'type' => 'taxonomy_term_reference_link',
+          'weight' => '-2',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_tekststadie',
+      'label' => 'Tekststadie',
+      'required' => 1,
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'options',
+        'settings' => array(),
+        'type' => 'options_select',
+        'weight' => '8',
       ),
     ),
   );
@@ -738,6 +817,7 @@ function article_field_default_fields() {
   t('Note');
   t('Samling');
   t('Tags');
+  t('Tekststadie');
   t('Upload et billede til denne artikel.');
 
   return $fields;

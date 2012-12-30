@@ -35,6 +35,7 @@ function huf_forum_user_default_permissions() {
     'name' => 'delete any forum content',
     'roles' => array(
       0 => 'Bestyrelse',
+      1 => 'administrator',
     ),
     'module' => 'node',
   );
@@ -44,6 +45,7 @@ function huf_forum_user_default_permissions() {
     'name' => 'delete own forum content',
     'roles' => array(
       0 => 'Bestyrelse',
+      1 => 'administrator',
     ),
     'module' => 'node',
   );
@@ -53,6 +55,7 @@ function huf_forum_user_default_permissions() {
     'name' => 'delete terms in 8',
     'roles' => array(
       0 => 'Bestyrelse',
+      1 => 'administrator',
     ),
     'module' => 'taxonomy',
   );
@@ -62,6 +65,7 @@ function huf_forum_user_default_permissions() {
     'name' => 'edit any forum content',
     'roles' => array(
       0 => 'Bestyrelse',
+      1 => 'administrator',
     ),
     'module' => 'node',
   );
@@ -81,6 +85,7 @@ function huf_forum_user_default_permissions() {
     'name' => 'edit terms in 8',
     'roles' => array(
       0 => 'Bestyrelse',
+      1 => 'administrator',
     ),
     'module' => 'taxonomy',
   );
