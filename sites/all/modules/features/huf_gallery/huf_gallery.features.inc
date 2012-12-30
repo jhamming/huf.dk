@@ -5,6 +5,13 @@
  */
 
 /**
+ * Implements hook_views_api().
+ */
+function huf_gallery_views_api() {
+  return array("version" => "3.0");
+}
+
+/**
  * Implements hook_node_info().
  */
 function huf_gallery_node_info() {
@@ -12,7 +19,7 @@ function huf_gallery_node_info() {
     'gallery' => array(
       'name' => t('Gallery'),
       'base' => 'node_content',
-      'description' => t('Content type for galleries'),
+      'description' => t('Indholdstype til billedgallerier.'),
       'has_title' => '1',
       'title_label' => t('Title'),
       'help' => '',

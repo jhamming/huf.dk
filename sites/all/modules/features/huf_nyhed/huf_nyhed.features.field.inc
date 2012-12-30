@@ -10,6 +10,69 @@
 function huf_nyhed_field_default_fields() {
   $fields = array();
 
+  // Exported field: 'comment-comment_node_event-comment_body'.
+  $fields['comment-comment_node_event-comment_body'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(
+        0 => 'comment',
+      ),
+      'field_name' => 'comment_body',
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'text',
+      'settings' => array(),
+      'translatable' => '0',
+      'type' => 'text_long',
+    ),
+    'field_instance' => array(
+      'bundle' => 'comment_node_event',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'comment',
+      'field_name' => 'comment_body',
+      'label' => 'Kommentar',
+      'required' => 1,
+      'settings' => array(
+        'text_processing' => '1',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'rows' => '5',
+        ),
+        'type' => 'text_textarea',
+        'weight' => 0,
+      ),
+    ),
+  );
+
   // Exported field: 'comment-comment_node_nyhed-comment_body'.
   $fields['comment-comment_node_nyhed-comment_body'] = array(
     'field_config' => array(
@@ -50,7 +113,7 @@ function huf_nyhed_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => 0,
+          'weight' => '0',
         ),
       ),
       'entity_type' => 'comment',
@@ -308,6 +371,77 @@ function huf_nyhed_field_default_fields() {
         ),
         'type' => 'image_image',
         'weight' => '-1',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-event-field_nyhedskategorier'.
+  $fields['node-event-field_nyhedskategorier'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '-1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_nyhedskategorier',
+      'foreign keys' => array(
+        'tid' => array(
+          'columns' => array(
+            'tid' => 'tid',
+          ),
+          'table' => 'taxonomy_term_data',
+        ),
+      ),
+      'indexes' => array(
+        'tid' => array(
+          0 => 'tid',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'taxonomy',
+      'settings' => array(
+        'allowed_values' => array(
+          0 => array(
+            'vocabulary' => 'nyhedskategorier',
+            'parent' => 0,
+          ),
+        ),
+        'options_list_callback' => '_taxonomy_access_term_options',
+      ),
+      'translatable' => '0',
+      'type' => 'taxonomy_term_reference',
+    ),
+    'field_instance' => array(
+      'bundle' => 'event',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => 'Angiv nyhedskategorien for denne side, nyheder og udgivelser kan ses af både anonyme brugere og medlemmer, mens resten kun kan ses af registrerede medlemmer. Vælges nyheder ryger historien også ud på forsiden.',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '5',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_nyhedskategorier',
+      'label' => 'Nyhedskategorier',
+      'required' => 0,
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'options',
+        'settings' => array(),
+        'type' => 'options_select',
+        'weight' => '3',
       ),
     ),
   );
@@ -669,7 +803,7 @@ function huf_nyhed_field_default_fields() {
             'colorbox_gallery' => 'post',
             'colorbox_gallery_custom' => '',
             'colorbox_image_style' => 'gallery',
-            'colorbox_node_style' => 'large',
+            'colorbox_node_style' => 'gallery',
           ),
           'type' => 'colorbox',
           'weight' => '0',
@@ -717,7 +851,7 @@ function huf_nyhed_field_default_fields() {
   $fields['node-nyhed-field_nyhedskategori'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => '1',
+      'cardinality' => '-1',
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_nyhedskategori',
@@ -743,21 +877,59 @@ function huf_nyhed_field_default_fields() {
             'parent' => '0',
           ),
         ),
+        'options_list_callback' => '_taxonomy_access_term_options',
       ),
       'translatable' => '0',
       'type' => 'taxonomy_term_reference',
     ),
     'field_instance' => array(
       'bundle' => 'nyhed',
-      'default_value' => NULL,
+      'default_value' => array(
+        0 => array(
+          'tid' => '758',
+          'vid' => '9',
+          'name' => 'nyheder',
+          'description' => '',
+          'format' => 'filtered_html',
+          'weight' => '0',
+          'vocabulary_machine_name' => 'nyhedskategorier',
+          'rdf_mapping' => array(
+            'description' => array(
+              'predicates' => array(
+                0 => 'skos:definition',
+              ),
+            ),
+            'name' => array(
+              'predicates' => array(
+                0 => 'rdfs:label',
+                1 => 'skos:prefLabel',
+              ),
+            ),
+            'parent' => array(
+              'predicates' => array(
+                0 => 'skos:broader',
+              ),
+              'type' => 'rel',
+            ),
+            'rdftype' => array(
+              0 => 'skos:Concept',
+            ),
+            'vid' => array(
+              'predicates' => array(
+                0 => 'skos:inScheme',
+              ),
+              'type' => 'rel',
+            ),
+          ),
+        ),
+      ),
       'deleted' => '0',
-      'description' => '',
+      'description' => 'Angiv nyhedskategorien for denne side, nyheder og udgivelser kan ses af både anonyme brugere og medlemmer, mens resten kun kan ses af registrerede medlemmer. Vælges nyheder ryger historien også ud på forsiden.',
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
+          'type' => 'hidden',
           'weight' => '2',
         ),
         'teaser' => array(
@@ -770,11 +942,12 @@ function huf_nyhed_field_default_fields() {
       'entity_type' => 'node',
       'field_name' => 'field_nyhedskategori',
       'label' => 'Nyhedskategori',
-      'required' => FALSE,
+      'required' => 0,
       'settings' => array(
         'user_register_form' => FALSE,
       ),
       'widget' => array(
+        'active' => 0,
         'module' => 'taxonomy',
         'settings' => array(
           'autocomplete_path' => 'taxonomy/autocomplete',
@@ -869,6 +1042,7 @@ function huf_nyhed_field_default_fields() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Aktuelt');
+  t('Angiv nyhedskategorien for denne side, nyheder og udgivelser kan ses af både anonyme brugere og medlemmer, mens resten kun kan ses af registrerede medlemmer. Vælges nyheder ryger historien også ud på forsiden.');
   t('Billede');
   t('Body');
   t('Comment');
@@ -876,7 +1050,9 @@ function huf_nyhed_field_default_fields() {
   t('Dato for begivenhed');
   t('Groups audience');
   t('Hvis nyhed sættes til aktuelt vil den blive vist fremhævet i toppen af forsiden');
+  t('Kommentar');
   t('Nyhedskategori');
+  t('Nyhedskategorier');
   t('Tilmelding');
 
   return $fields;

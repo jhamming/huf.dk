@@ -16,8 +16,15 @@ function huf_frontpage_menu_default_menu_custom() {
     'title' => 'Hovedmenu',
     'description' => 'Menuen <em>Main</em> bruges på mange sites til at vise sitets overordnede sektioner, typisk i en navigationsbjælke i toppen af siden.',
   );
+  // Exported menu: menu-arrangementer.
+  $menus['menu-arrangementer'] = array(
+    'menu_name' => 'menu-arrangementer',
+    'title' => 'Arrangementer',
+    'description' => '',
+  );
   // Translatables
   // Included for use with string extractors like potx.
+  t('Arrangementer');
   t('Hovedmenu');
   t('Menuen <em>Main</em> bruges på mange sites til at vise sitets overordnede sektioner, typisk i en navigationsbjælke i toppen af siden.');
 

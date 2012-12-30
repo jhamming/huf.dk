@@ -232,13 +232,13 @@ ul a {
 	text-decoration: none;
 }
 
-body:nth-of-type(1) ul li.views-row, .more-link {
+body:nth-of-type(1) ul li.views-row, body:nth-of-type(1) ul.views-summary li, .more-link {
 list-style-type:none;
 padding: 0 0 0 25px;
 position:relative;
 }
 
-body:nth-of-type(1) ul li.views-row:after {
+body:nth-of-type(1) ul li.views-row:after, body:nth-of-type(1) ul.views-summary li:after {
 /*Add another block-level blank space*/
 content:"\00a0";
 display:block;
@@ -268,10 +268,24 @@ span.views-field > span.field-content {
 	display:block;
 }
 
+/* Adjusting archive news listing */
+.view-nyheder > .item-list > ul.views-summary > li {
+	padding-bottom: 6px;
+	font-size: 1.3em;
+}
+
 /* Adjusting the more links on lists */
 .more-link > a {
 	font-size: 1.1em;
 	text-decoration: none;
+}
+
+.view > .more-link {
+	float: right;
+}
+/* Now making sure that the more link will not flow up next to a title in a mini pane */
+h2.pane-title {
+	clear: both;
 }
 
 body:nth-of-type(1)  .more-link > a:after{
@@ -302,4 +316,123 @@ margin-top: -3px;
 /* Adding mouse over to all links */
 a:hover {
 	text-decoration: underline;
+}
+
+/* Styling of gallery node view */
+.field-name-field-image-gallery .field-item {
+	margin-right: 10px;
+	float: left;
+}
+
+.node .field-name-body {
+	clear: both;
+	font-size: 1.2em;
+	padding-top: 10px;
+}
+
+/* Styling af article node view */
+article.node.clearfix > .content.clearfix {
+	padding-left: 0px;
+}
+
+article.node.clearfix > .content > .field.field-type-image {
+	margin-left: 0px;
+	width: 100%;
+}
+
+/* Removing more link from tag-cload */
+article.block-tagclouds > .content > .more-link {
+	display: none;
+} 
+
+/* Styling the text state display */
+article.node-article > .content > header {
+	float: left;
+}
+
+article.node-article > .content > .field-name-field-tekststadie {
+float: right;
+padding: 0 0 0 35px;
+position:relative;
+}
+
+article.node-article > .content > .field-name-field-tekststadie:before {
+/*Add another block-level blank space*/
+/*fill it with a blank space*/
+content:"\00a0";
+ 
+/*make it a block element*/
+display: block;
+ 
+/*adding an 8px round border to a 0x0 element creates an 8px circle*/
+border-radius: 9px;
+-moz-border-radius: 9px;
+-webkit-border-radius: 9px;
+height: 0;
+width: 0;
+ 
+/*Now position it on the left of the list item, and center it vertically
+(so that it will work with multiple line list-items)*/
+position: absolute;
+left: 7px;
+top: 40%;
+margin-top: -8px;
+box-shadow: 2px 2px 4px #666;
+-o-box-shadow: 2px 2px 5px #888;
+-icab-box-shadow: 2px 2px 5px #888;
+-khtml-box-shadow: 2px 2px 5px #888;
+-moz-box-shadow: 2px 2px 5px #888;
+-webkit-box-shadow: 2px 2px 5px #888;
+}
+
+/* Now the color determined by the taxonomy term
+- Green */
+.taxonomy-foerste-udkast article.node-article > .content > .field-name-field-tekststadie:before {
+	border: solid 9px #1b7a1a;
+}
+
+/* yellow */
+.taxonomy-gennemarbejdet article.node-article > .content > .field-name-field-tekststadie:before {
+	border: solid 9px #f1bc28;
+}
+
+/* red */
+.taxonomy-klar-til-udgivelse article.node-article > .content > .field-name-field-tekststadie:before {
+	border: solid 9px #c4181b;
+}
+
+/* Making comment field smaller */
+td#cke_contents_edit-comment-body-und-0-value, td#cke_contents_edit-field-profiltekst-und-0-value {
+	height: auto !important;
+}
+
+td#cke_contents_edit-comment-body-und-0-value > iframe, td#cke_contents_edit-field-profiltekst-und-0-value > iframe {
+	height: auto !important;
+}
+
+fieldset#edit-comment-body-und-0-format {
+	display: none;
+}
+
+/* Removing underlining from tag cloud terms and adding lineheight */
+.tagclouds-term > a {
+	text-decoration: none;
+	line-height: 1.8em;
+}
+
+/* Setting first letter of page titles always to be upper case, 
+so i can use all lower case taxonomy terms for the more with same 
+term lists, where i want to term to be all lower case */
+h1.page-title:first-letter {
+	text-transform: uppercase;
+}
+
+/*Pusing up font size for taxonomy term description */
+.taxonomy-term-description {
+	font-size: 1.2em;
+}
+
+/* Getting some space between the article content and left side */
+article.node.clearfix > .content.clearfix {
+	padding-left: 10px;
 }

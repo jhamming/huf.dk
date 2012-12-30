@@ -21,6 +21,7 @@ features[field][] = node-article-field_kategori
 features[field][] = node-article-field_note
 features[field][] = node-article-field_samling
 features[field][] = node-article-field_tags
+features[field][] = node-article-field_tekststadie
 features[field][] = node-article-group_audience
 features[node][] = article
 features[taxonomy][] = kategori

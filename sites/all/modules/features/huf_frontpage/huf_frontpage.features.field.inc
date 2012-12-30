@@ -1,79 +1,17 @@
 <?php
 /**
  * @file
- * huf_forum.features.field.inc
+ * huf_frontpage.features.field.inc
  */
 
 /**
  * Implements hook_field_default_fields().
  */
-function huf_forum_field_default_fields() {
+function huf_frontpage_field_default_fields() {
   $fields = array();
 
-  // Exported field: 'comment-comment_node_forum-comment_body'.
-  $fields['comment-comment_node_forum-comment_body'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(
-        0 => 'comment',
-      ),
-      'field_name' => 'comment_body',
-      'foreign keys' => array(
-        'format' => array(
-          'columns' => array(
-            'format' => 'format',
-          ),
-          'table' => 'filter_format',
-        ),
-      ),
-      'indexes' => array(
-        'format' => array(
-          0 => 'format',
-        ),
-      ),
-      'locked' => '0',
-      'module' => 'text',
-      'settings' => array(),
-      'translatable' => '0',
-      'type' => 'text_long',
-    ),
-    'field_instance' => array(
-      'bundle' => 'comment_node_forum',
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => '',
-      'display' => array(
-        'default' => array(
-          'label' => 'hidden',
-          'module' => 'text',
-          'settings' => array(),
-          'type' => 'text_default',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'comment',
-      'field_name' => 'comment_body',
-      'label' => 'Comment',
-      'required' => TRUE,
-      'settings' => array(
-        'text_processing' => 1,
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'module' => 'text',
-        'settings' => array(
-          'rows' => 5,
-        ),
-        'type' => 'text_textarea',
-        'weight' => 0,
-      ),
-    ),
-  );
-
-  // Exported field: 'node-forum-body'.
-  $fields['node-forum-body'] = array(
+  // Exported field: 'node-page-body'.
+  $fields['node-page-body'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
@@ -102,7 +40,7 @@ function huf_forum_field_default_fields() {
       'type' => 'text_with_summary',
     ),
     'field_instance' => array(
-      'bundle' => 'forum',
+      'bundle' => 'page',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
@@ -112,7 +50,7 @@ function huf_forum_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => 11,
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'hidden',
@@ -121,7 +59,7 @@ function huf_forum_field_default_fields() {
             'trim_length' => 600,
           ),
           'type' => 'text_summary_or_trimmed',
-          'weight' => 11,
+          'weight' => 0,
         ),
       ),
       'entity_type' => 'node',
@@ -140,19 +78,19 @@ function huf_forum_field_default_fields() {
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => 1,
+        'weight' => '-4',
       ),
     ),
   );
 
-  // Exported field: 'node-forum-taxonomy_forums'.
-  $fields['node-forum-taxonomy_forums'] = array(
+  // Exported field: 'node-page-field_anonym_adgang'.
+  $fields['node-page-field_anonym_adgang'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => '1',
+      'cardinality' => '-1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'taxonomy_forums',
+      'field_name' => 'field_anonym_adgang',
       'foreign keys' => array(
         'tid' => array(
           'columns' => array(
@@ -171,7 +109,7 @@ function huf_forum_field_default_fields() {
       'settings' => array(
         'allowed_values' => array(
           0 => array(
-            'vocabulary' => 'forums',
+            'vocabulary' => 'anonym_adgang',
             'parent' => 0,
           ),
         ),
@@ -181,50 +119,49 @@ function huf_forum_field_default_fields() {
       'type' => 'taxonomy_term_reference',
     ),
     'field_instance' => array(
-      'bundle' => 'forum',
+      'bundle' => 'page',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
-          'weight' => 10,
+          'type' => 'hidden',
+          'weight' => '2',
         ),
         'teaser' => array(
           'label' => 'above',
-          'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
-          'weight' => 10,
+          'type' => 'hidden',
+          'weight' => 0,
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'taxonomy_forums',
-      'label' => 'Forummer',
-      'required' => TRUE,
+      'field_name' => 'field_anonym_adgang',
+      'label' => 'Anonym adgang',
+      'required' => 0,
       'settings' => array(
         'user_register_form' => FALSE,
       ),
       'widget' => array(
+        'active' => 1,
         'module' => 'options',
         'settings' => array(),
-        'type' => 'options_select',
+        'type' => 'options_buttons',
         'weight' => 0,
       ),
     ),
   );
 
-  // Exported field: 'taxonomy_term-forums-field_forum_type'.
-  $fields['taxonomy_term-forums-field_forum_type'] = array(
+  // Exported field: 'node-page-field_nyhedskategori'.
+  $fields['node-page-field_nyhedskategori'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => '1',
+      'cardinality' => '-1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_forum_type',
+      'field_name' => 'field_nyhedskategori',
       'foreign keys' => array(
         'tid' => array(
           'columns' => array(
@@ -243,7 +180,7 @@ function huf_forum_field_default_fields() {
       'settings' => array(
         'allowed_values' => array(
           0 => array(
-            'vocabulary' => 'forumtype',
+            'vocabulary' => 'nyhedskategorier',
             'parent' => '0',
           ),
         ),
@@ -253,22 +190,27 @@ function huf_forum_field_default_fields() {
       'type' => 'taxonomy_term_reference',
     ),
     'field_instance' => array(
-      'bundle' => 'forums',
+      'bundle' => 'page',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => '',
+      'description' => 'Angiv nyhedskategorien for denne side, nyheder og udgivelser kan ses af både anonyme brugere og medlemmer, mens resten kun kan ses af registrerede medlemmer. Vælges nyheder ryger historien også ud på forsiden.',
       'display' => array(
         'default' => array(
-          'label' => 'above',
-          'module' => 'taxonomy',
+          'label' => 'hidden',
           'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
+          'type' => 'hidden',
+          'weight' => '1',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
           'weight' => 0,
         ),
       ),
-      'entity_type' => 'taxonomy_term',
-      'field_name' => 'field_forum_type',
-      'label' => 'Forum type',
+      'entity_type' => 'node',
+      'field_name' => 'field_nyhedskategori',
+      'label' => 'Nyhedskategori',
       'required' => 0,
       'settings' => array(
         'user_register_form' => FALSE,
@@ -281,17 +223,17 @@ function huf_forum_field_default_fields() {
           'size' => 60,
         ),
         'type' => 'taxonomy_autocomplete',
-        'weight' => '1',
+        'weight' => '-2',
       ),
     ),
   );
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Angiv nyhedskategorien for denne side, nyheder og udgivelser kan ses af både anonyme brugere og medlemmer, mens resten kun kan ses af registrerede medlemmer. Vælges nyheder ryger historien også ud på forsiden.');
+  t('Anonym adgang');
   t('Body');
-  t('Comment');
-  t('Forum type');
-  t('Forummer');
+  t('Nyhedskategori');
 
   return $fields;
 }

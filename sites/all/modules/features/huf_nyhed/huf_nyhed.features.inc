@@ -29,7 +29,7 @@ function huf_nyhed_node_info() {
     'event' => array(
       'name' => t('Arrangement'),
       'base' => 'node_content',
-      'description' => t('Content type for calendar events'),
+      'description' => t('Indholdstype til at oprette arrangementer til kalenderen.'),
       'has_title' => '1',
       'title_label' => t('Title'),
       'help' => '',
@@ -37,7 +37,7 @@ function huf_nyhed_node_info() {
     'nyhed' => array(
       'name' => t('Nyhed'),
       'base' => 'node_content',
-      'description' => t('Seneste nyt fra HUF'),
+      'description' => t('Indholdstype til nyheder, referater og artikler.'),
       'has_title' => '1',
       'title_label' => t('Title'),
       'help' => '',
