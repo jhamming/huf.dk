@@ -402,11 +402,11 @@ box-shadow: 2px 2px 4px #666;
 }
 
 /* Making comment field smaller */
-td#cke_contents_edit-comment-body-und-0-value {
+td#cke_contents_edit-comment-body-und-0-value, td#cke_contents_edit-field-profiltekst-und-0-value {
 	height: auto !important;
 }
 
-td#cke_contents_edit-comment-body-und-0-value > iframe {
+td#cke_contents_edit-comment-body-und-0-value > iframe, td#cke_contents_edit-field-profiltekst-und-0-value > iframe {
 	height: auto !important;
 }
 
@@ -430,4 +430,9 @@ h1.page-title:first-letter {
 /*Pusing up font size for taxonomy term description */
 .taxonomy-term-description {
 	font-size: 1.2em;
+}
+
+/* Getting some space between the article content and left side */
+article.node.clearfix > .content.clearfix {
+	padding-left: 10px;
 }
