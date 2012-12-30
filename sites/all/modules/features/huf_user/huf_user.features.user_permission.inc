@@ -732,16 +732,6 @@ function huf_user_user_default_permissions() {
     'module' => 'taxonomy',
   );
 
-  // Exported permission: delete terms in 11.
-  $permissions['delete terms in 11'] = array(
-    'name' => 'delete terms in 11',
-    'roles' => array(
-      0 => 'Bestyrelse',
-      1 => 'administrator',
-    ),
-    'module' => 'taxonomy',
-  );
-
   // Exported permission: delete terms in 12.
   $permissions['delete terms in 12'] = array(
     'name' => 'delete terms in 12',
