@@ -1,3 +1,4 @@
+/* Handling width of facebook like plugin */
 jQuery(window).load(function () {
 	//Manipulate facebook box width. Since the iframe has no ID i need to match on the source attribute
 	var facebookIframe = new Array();
