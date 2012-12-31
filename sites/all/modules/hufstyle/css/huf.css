@@ -436,3 +436,9 @@ h1.page-title:first-letter {
 article.node.clearfix > .content.clearfix {
 	padding-left: 10px;
 }
+
+/* Styling for "aktuelt" view in top of frontpage */
+.view-id-aktuelt .field-content {
+	font-size: 2em;
+	line-height: 1.5em;
+}
