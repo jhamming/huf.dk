@@ -742,30 +742,6 @@ function huf_user_user_default_permissions() {
     'module' => 'taxonomy',
   );
 
-  // Exported permission: delete terms in 12.
-  $permissions['delete terms in 12'] = array(
-    'name' => 'delete terms in 12',
-    'roles' => array(),
-    'module' => 'taxonomy',
-  );
-
-  // Exported permission: delete terms in 13.
-  $permissions['delete terms in 13'] = array(
-    'name' => 'delete terms in 13',
-    'roles' => array(
-      0 => 'Bestyrelse',
-      1 => 'administrator',
-    ),
-    'module' => 'taxonomy',
-  );
-
-  // Exported permission: delete terms in 14.
-  $permissions['delete terms in 14'] = array(
-    'name' => 'delete terms in 14',
-    'roles' => array(),
-    'module' => 'taxonomy',
-  );
-
   // Exported permission: delete terms in 2.
   $permissions['delete terms in 2'] = array(
     'name' => 'delete terms in 2',
@@ -949,30 +925,6 @@ function huf_user_user_default_permissions() {
       0 => 'Bestyrelse',
       1 => 'administrator',
     ),
-    'module' => 'taxonomy',
-  );
-
-  // Exported permission: edit terms in 12.
-  $permissions['edit terms in 12'] = array(
-    'name' => 'edit terms in 12',
-    'roles' => array(),
-    'module' => 'taxonomy',
-  );
-
-  // Exported permission: edit terms in 13.
-  $permissions['edit terms in 13'] = array(
-    'name' => 'edit terms in 13',
-    'roles' => array(
-      0 => 'Bestyrelse',
-      1 => 'administrator',
-    ),
-    'module' => 'taxonomy',
-  );
-
-  // Exported permission: edit terms in 14.
-  $permissions['edit terms in 14'] = array(
-    'name' => 'edit terms in 14',
-    'roles' => array(),
     'module' => 'taxonomy',
   );
 
