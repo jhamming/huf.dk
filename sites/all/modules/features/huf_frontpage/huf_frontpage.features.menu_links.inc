@@ -192,24 +192,6 @@ function huf_frontpage_menu_default_menu_links() {
     'expanded' => '0',
     'weight' => '-47',
   );
-  // Exported menu link: menu-arrangementer:begivenheder
-  $menu_links['menu-arrangementer:begivenheder'] = array(
-    'menu_name' => 'menu-arrangementer',
-    'link_path' => 'begivenheder',
-    'router_path' => 'begivenheder',
-    'link_title' => 'Arrangementer',
-    'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
-    ),
-    'module' => 'menu',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '0',
-  );
   // Translatables
   // Included for use with string extractors like potx.
   t('Afholdte arrangementer');
