@@ -108,50 +108,44 @@ function huf_frontpage_context_default_contexts() {
         'user-login' => array(
           'module' => 'user',
           'delta' => 'login',
-          'region' => 'sidebar_first',
-          'weight' => '-9',
-        ),
-        'views-gallery_slideshow-block' => array(
-          'module' => 'views',
-          'delta' => 'gallery_slideshow-block',
-          'region' => 'sidebar_first',
-          'weight' => '-8',
-        ),
-        'newsletter-newsletter_subscribe' => array(
-          'module' => 'newsletter',
-          'delta' => 'newsletter_subscribe',
-          'region' => 'sidebar_first',
-          'weight' => '-7',
-        ),
-        'block-2' => array(
-          'module' => 'block',
-          'delta' => '2',
-          'region' => 'sidebar_first',
-          'weight' => '-6',
-        ),
-        'panels_mini-statistik' => array(
-          'module' => 'panels_mini',
-          'delta' => 'statistik',
-          'region' => 'sidebar_first',
-          'weight' => '-5',
-        ),
-        'panels_mini-kalender_og_kommende' => array(
-          'module' => 'panels_mini',
-          'delta' => 'kalender_og_kommende',
           'region' => 'sidebar_second',
-          'weight' => '-9',
-        ),
-        'panels_mini-nyeste_indhold' => array(
-          'module' => 'panels_mini',
-          'delta' => 'nyeste_indhold',
-          'region' => 'sidebar_second',
-          'weight' => '-7',
+          'weight' => '-10',
         ),
         'search-form' => array(
           'module' => 'search',
           'delta' => 'form',
           'region' => 'sidebar_second',
-          'weight' => '-10',
+          'weight' => '-9',
+        ),
+        'newsletter-newsletter_subscribe' => array(
+          'module' => 'newsletter',
+          'delta' => 'newsletter_subscribe',
+          'region' => 'sidebar_second',
+          'weight' => '-8',
+        ),
+        'panels_mini-kalender_og_kommende' => array(
+          'module' => 'panels_mini',
+          'delta' => 'kalender_og_kommende',
+          'region' => 'sidebar_second',
+          'weight' => '-7',
+        ),
+        'views-gallery_slideshow-block' => array(
+          'module' => 'views',
+          'delta' => 'gallery_slideshow-block',
+          'region' => 'sidebar_second',
+          'weight' => '-6',
+        ),
+        'panels_mini-nyeste_indhold' => array(
+          'module' => 'panels_mini',
+          'delta' => 'nyeste_indhold',
+          'region' => 'sidebar_second',
+          'weight' => '-5',
+        ),
+        'panels_mini-statistik' => array(
+          'module' => 'panels_mini',
+          'delta' => 'statistik',
+          'region' => 'sidebar_second',
+          'weight' => '-4',
         ),
       ),
     ),
@@ -429,7 +423,7 @@ function huf_frontpage_context_default_contexts() {
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
   $context->name = 'tekster';
-  $context->description = 'All pages concerning texts from huf.dk';
+  $context->description = 'All pages concerning text content from huf.dk';
   $context->tag = 'section';
   $context->conditions = array(
     'path' => array(
@@ -452,7 +446,7 @@ function huf_frontpage_context_default_contexts() {
           'module' => 'search',
           'delta' => 'form',
           'region' => 'sidebar_second',
-          'weight' => '-10',
+          'weight' => '-13',
         ),
         'views-seneste_tekster-block_2' => array(
           'module' => 'views',
@@ -485,7 +479,7 @@ function huf_frontpage_context_default_contexts() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('All pages concerning texts from huf.dk');
+  t('All pages concerning text content from huf.dk');
   t('section');
   $export['tekster'] = $context;
 
@@ -554,6 +548,62 @@ function huf_frontpage_context_default_contexts() {
   t('All pages concerning texts from huf.dk');
   t('section');
   $export['tekster_underside'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
+  $context->name = 'udgivelser';
+  $context->description = 'All pages concerning publications from huf.dk';
+  $context->tag = 'section';
+  $context->conditions = array(
+    'node' => array(
+      'values' => array(
+        'webform' => 'webform',
+      ),
+      'options' => array(
+        'node_form' => '1',
+      ),
+    ),
+    'node_taxonomy' => array(
+      'values' => array(
+        757 => 757,
+      ),
+      'options' => array(
+        'node_form' => '1',
+      ),
+    ),
+    'path' => array(
+      'values' => array(
+        '*/done*' => '*/done*',
+        'udgivelser*' => 'udgivelser*',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'block-5' => array(
+          'module' => 'block',
+          'delta' => '5',
+          'region' => 'sidebar_second',
+          'weight' => '-9',
+        ),
+        'block-6' => array(
+          'module' => 'block',
+          'delta' => '6',
+          'region' => 'sidebar_second',
+          'weight' => '-8',
+        ),
+      ),
+    ),
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('All pages concerning publications from huf.dk');
+  t('section');
+  $export['udgivelser'] = $context;
 
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */

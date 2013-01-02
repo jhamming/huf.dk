@@ -84,12 +84,12 @@ function huf_frontpage_menu_default_menu_links() {
     'weight' => '-5',
     'parent_path' => 'calendar-node-field-dato',
   );
-  // Exported menu link: main-menu:group-list
-  $menu_links['main-menu:group-list'] = array(
+  // Exported menu link: main-menu:node/100010242
+  $menu_links['main-menu:node/100010242'] = array(
     'menu_name' => 'main-menu',
-    'link_path' => 'group-list',
-    'router_path' => 'group-list',
-    'link_title' => 'Medlemmer',
+    'link_path' => 'node/100010242',
+    'router_path' => 'node/%',
+    'link_title' => 'Bestil bøger',
     'options' => array(
       'attributes' => array(
         'title' => '',
@@ -100,7 +100,8 @@ function huf_frontpage_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '-49',
+    'weight' => '-50',
+    'parent_path' => 'taxonomy/term/757',
   );
   // Exported menu link: main-menu:node/1858
   $menu_links['main-menu:node/1858'] = array(
@@ -170,8 +171,8 @@ function huf_frontpage_menu_default_menu_links() {
     'module' => 'menu',
     'hidden' => '0',
     'external' => '0',
-    'has_children' => '0',
-    'expanded' => '0',
+    'has_children' => '1',
+    'expanded' => '1',
     'weight' => '-45',
   );
   // Exported menu link: main-menu:tekster
@@ -197,9 +198,9 @@ function huf_frontpage_menu_default_menu_links() {
   t('Afholdte arrangementer');
   t('Arrangementer');
   t('Artikler');
+  t('Bestil bøger');
   t('Forum');
   t('Galleri');
-  t('Medlemmer');
   t('Nyheder');
   t('Om huf');
   t('Tekster');
