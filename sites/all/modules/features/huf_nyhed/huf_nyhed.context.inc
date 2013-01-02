@@ -14,13 +14,14 @@ function huf_nyhed_context_default_contexts() {
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
   $context->name = 'nyheder';
-  $context->description = 'All pages concerning news from huf.dk';
+  $context->description = 'All pages concerning news content from huf.dk';
   $context->tag = 'section';
   $context->conditions = array(
     'node' => array(
       'values' => array(
         'event' => 'event',
         'nyhed' => 'nyhed',
+        'webform' => 'webform',
       ),
       'options' => array(
         'node_form' => '1',
@@ -29,6 +30,7 @@ function huf_nyhed_context_default_contexts() {
     'path' => array(
       'values' => array(
         '/nyheder/*' => '/nyheder/*',
+        '*/done*' => '*/done*',
       ),
     ),
     'views' => array(
@@ -47,25 +49,19 @@ function huf_nyhed_context_default_contexts() {
           'module' => 'search',
           'delta' => 'form',
           'region' => 'sidebar_second',
-          'weight' => '-10',
+          'weight' => '-12',
         ),
         'views-nyheder-block_1' => array(
           'module' => 'views',
           'delta' => 'nyheder-block_1',
           'region' => 'sidebar_second',
-          'weight' => '-9',
+          'weight' => '-8',
         ),
         'newsletter-newsletter_subscribe' => array(
           'module' => 'newsletter',
           'delta' => 'newsletter_subscribe',
           'region' => 'sidebar_second',
           'weight' => '-7',
-        ),
-        'tagclouds-2' => array(
-          'module' => 'tagclouds',
-          'delta' => '2',
-          'region' => 'sidebar_second',
-          'weight' => '-5',
         ),
         'views-nyheder-block' => array(
           'module' => 'views',
@@ -86,7 +82,7 @@ function huf_nyhed_context_default_contexts() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('All pages concerning news from huf.dk');
+  t('All pages concerning news content from huf.dk');
   t('section');
   $export['nyheder'] = $context;
 
