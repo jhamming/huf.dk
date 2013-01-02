@@ -1,12 +1,12 @@
 jQuery(window).load(function () {
 
 		// Create the dropdown base
-		jQuery("<select />").appendTo("nav");
+		jQuery("<select />").appendTo("nav.primary-menu");
 		// Create default option "Go to..."
 		jQuery("<option />", {
 		   "selected": "selected",
 		   "value"   : "",
-		   "text"    : "Gå til..."
+		   "text"    : "Menu"
 		}).appendTo("nav select");
 
 		// Populate dropdown with menu items
