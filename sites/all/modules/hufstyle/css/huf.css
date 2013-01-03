@@ -112,6 +112,9 @@ nav.primary-menu {
   		width: 100%;
   		top: 10px;
   	}
+  	body.html > .masthead.clearfix > .mast {
+	padding-bottom: 20px;
+	}
 }
 
 
@@ -246,13 +249,13 @@ ul a {
 	text-decoration: none;
 }
 
-body:nth-of-type(1) ul li.views-row, body:nth-of-type(1) ul.views-summary li, .more-link {
+body:nth-of-type(1) ul li.views-row, body:nth-of-type(1) ul.views-summary li, ul.action-links li, .more-link {
 list-style-type:none;
 padding: 0 0 0 25px;
 position:relative;
 }
 
-body:nth-of-type(1) ul li.views-row:after, body:nth-of-type(1) ul.views-summary li:after {
+body:nth-of-type(1) ul li.views-row:after, body:nth-of-type(1) ul.views-summary li:after, {
 /*Add another block-level blank space*/
 content:"\00a0";
 display:block;
@@ -487,9 +490,87 @@ article.node.clearfix > .content.clearfix {
 	a.logo > img {
 		width: 60px;
 	}
+	body.html > .masthead.clearfix > .mast {
+	padding-bottom: 20px;
+	}
 }
 
 /* Reducing hight of top navigation banner */
 body > .masthead.clearfix {
 	padding-bottom: 0px;
+}
+
+body > .masthead.clearfix > .mast {
+	padding-bottom: 0px;
+}
+
+#page.mast {
+	margin-top: 10px;
+}
+
+/* Styling for the forum pages */
+th {
+	min-width: 60px;
+	text-align: left;
+}
+
+.forum > .description {
+	padding-left: 28px;
+} 
+
+.forum > table {
+	width: 100%;
+}
+
+ul.action-links {
+	display: block;
+	float: right;
+	background-color: transparent;
+	right: 10px;
+	width: 121px;
+	height: 25px;
+	position: relative;
+	top: -30px;
+}
+
+ul.action-links > li > a {
+	color: transparent;
+}
+
+ul.action-links > li > a:before {
+	content: "Tilføj nyt emne";
+	display: block;
+	color: white;
+	position: absolute;
+}
+
+body:nth-of-type(1) ul.action-links li:after {
+/*Add another block-level blank space*/
+content:"\00a0";
+display:block;
+ 
+/*Make it a small rectangle so the border will create an V-shape*/
+width: 3px;
+height: 3px;
+ 
+/*Add a blue border on the bottom and left, creating that 'V' */
+border: solid white;
+border-width: 0 2px 2px 0;
+ 
+/*Position it on top of the circle*/
+position:absolute;
+left: 10px;
+top: 50%;
+margin-top: -12px;
+ 
+/*Rotate the V -45 degrees to turn it into a arrow pointer*/
+-webkit-transform: rotate(-45deg);
+-moz-transform: rotate(-45deg);
+-o-transform: rotate(-45deg);
+}
+
+body.page-forum .main > section {
+	clear: both;
+	top: -25px;
+	position: relative;
 }
