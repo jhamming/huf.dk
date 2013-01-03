@@ -158,9 +158,9 @@ function huf_frontpage_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'views-aktuelt-block' => array(
-          'module' => 'views',
-          'delta' => 'aktuelt-block',
+        'block-1' => array(
+          'module' => 'block',
+          'delta' => '1',
           'region' => 'preblocks',
           'weight' => '-10',
         ),
@@ -481,6 +481,72 @@ function huf_frontpage_context_default_contexts() {
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
+  $context->name = 'omhuf';
+  $context->description = 'Kontekst til Om Huf siderne';
+  $context->tag = 'section';
+  $context->conditions = array(
+    'node_taxonomy' => array(
+      'values' => array(
+        761 => 761,
+      ),
+      'options' => array(
+        'node_form' => '1',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'search-form' => array(
+          'module' => 'search',
+          'delta' => 'form',
+          'region' => 'sidebar_second',
+          'weight' => '-10',
+        ),
+        'block-8' => array(
+          'module' => 'block',
+          'delta' => '8',
+          'region' => 'sidebar_second',
+          'weight' => '-9',
+        ),
+        'block-9' => array(
+          'module' => 'block',
+          'delta' => '9',
+          'region' => 'sidebar_second',
+          'weight' => '-8',
+        ),
+        'panels_mini-kalender_og_kommende' => array(
+          'module' => 'panels_mini',
+          'delta' => 'kalender_og_kommende',
+          'region' => 'sidebar_second',
+          'weight' => '-7',
+        ),
+        'block-5' => array(
+          'module' => 'block',
+          'delta' => '5',
+          'region' => 'sidebar_second',
+          'weight' => '-6',
+        ),
+        'webform-client-block-100010245' => array(
+          'module' => 'webform',
+          'delta' => 'client-block-100010245',
+          'region' => 'content_bottom',
+          'weight' => '-10',
+        ),
+      ),
+    ),
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Kontekst til Om Huf siderne');
+  t('section');
+  $export['omhuf'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
   $context->name = 'tekster';
   $context->description = 'All pages concerning text content from huf.dk';
   $context->tag = 'section';
@@ -615,14 +681,6 @@ function huf_frontpage_context_default_contexts() {
   $context->description = 'All pages concerning publications from huf.dk';
   $context->tag = 'section';
   $context->conditions = array(
-    'node' => array(
-      'values' => array(
-        'webform' => 'webform',
-      ),
-      'options' => array(
-        'node_form' => '1',
-      ),
-    ),
     'node_taxonomy' => array(
       'values' => array(
         757 => 757,
@@ -637,6 +695,7 @@ function huf_frontpage_context_default_contexts() {
         '*/done*' => '*/done*',
         'udgivelser*' => 'udgivelser*',
         'medlemsboeger*' => 'medlemsboeger*',
+        'bestil_udgivelse*' => 'bestil_udgivelse*',
       ),
     ),
   );
@@ -654,6 +713,12 @@ function huf_frontpage_context_default_contexts() {
           'delta' => '6',
           'region' => 'sidebar_second',
           'weight' => '-8',
+        ),
+        'webform-client-block-100010242' => array(
+          'module' => 'webform',
+          'delta' => 'client-block-100010242',
+          'region' => 'content_bottom',
+          'weight' => '-10',
         ),
       ),
     ),

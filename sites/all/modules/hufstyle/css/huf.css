@@ -255,6 +255,18 @@ padding: 0 0 0 25px;
 position:relative;
 }
 
+.view .item-list ul {
+	margin-left: 0px;
+}
+
+.view .item-list li{
+	margin-bottom: 10px;
+}
+
+.view .item-list a{
+	font-weight: normal;
+}
+
 body:nth-of-type(1) ul li.views-row:after, body:nth-of-type(1) ul.views-summary li:after, ul li.views-row:after {
 /*Add another block-level blank space*/
 content:"\00a0";
@@ -333,6 +345,15 @@ margin-top: -3px;
 /* Adding mouse over to all links */
 a:hover {
 	text-decoration: underline;
+}
+
+/* Styling gallery slideshow */
+.view-gallery-slideshow.view-display-id-block {
+	overflow: hidden;
+}
+
+.view-gallery-slideshow.view-display-id-block ul {
+	margin:	0 0 0 0;
 }
 
 /* Styling of gallery node view */
@@ -615,4 +636,14 @@ body.page-forum .main > section {
 	clear: both;
 	top: -25px;
 	position: relative;
+}
+
+/* Making som space on <br> */
+br {
+	line-height: 2em;
+}
+
+/* Work-bench patch */
+.my-workbench h3 {
+	margin-bottom: 15px;
 }

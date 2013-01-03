@@ -187,6 +187,16 @@ function huf_user_user_default_permissions() {
     'module' => 'user',
   );
 
+  // Exported permission: access workbench.
+  $permissions['access workbench'] = array(
+    'name' => 'access workbench',
+    'roles' => array(
+      0 => 'administrator',
+      1 => 'authenticated user',
+    ),
+    'module' => 'workbench',
+  );
+
   // Exported permission: administer actions.
   $permissions['administer actions'] = array(
     'name' => 'administer actions',
@@ -476,6 +486,15 @@ function huf_user_user_default_permissions() {
     'module' => 'views',
   );
 
+  // Exported permission: administer workbench.
+  $permissions['administer workbench'] = array(
+    'name' => 'administer workbench',
+    'roles' => array(
+      0 => 'administrator',
+    ),
+    'module' => 'workbench',
+  );
+
   // Exported permission: block IP addresses.
   $permissions['block IP addresses'] = array(
     'name' => 'block IP addresses',
@@ -642,8 +661,7 @@ function huf_user_user_default_permissions() {
   $permissions['delete any gallery content'] = array(
     'name' => 'delete any gallery content',
     'roles' => array(
-      0 => 'Bestyrelse',
-      1 => 'administrator',
+      0 => 'administrator',
     ),
     'module' => 'node',
   );
@@ -652,8 +670,7 @@ function huf_user_user_default_permissions() {
   $permissions['delete any gruppe content'] = array(
     'name' => 'delete any gruppe content',
     'roles' => array(
-      0 => 'Bestyrelse',
-      1 => 'administrator',
+      0 => 'administrator',
     ),
     'module' => 'node',
   );
@@ -698,8 +715,7 @@ function huf_user_user_default_permissions() {
   $permissions['delete own event content'] = array(
     'name' => 'delete own event content',
     'roles' => array(
-      0 => 'Bestyrelse',
-      1 => 'administrator',
+      0 => 'administrator',
     ),
     'module' => 'node',
   );
@@ -708,8 +724,7 @@ function huf_user_user_default_permissions() {
   $permissions['delete own gallery content'] = array(
     'name' => 'delete own gallery content',
     'roles' => array(
-      0 => 'Bestyrelse',
-      1 => 'administrator',
+      0 => 'administrator',
     ),
     'module' => 'node',
   );
@@ -718,8 +733,7 @@ function huf_user_user_default_permissions() {
   $permissions['delete own gruppe content'] = array(
     'name' => 'delete own gruppe content',
     'roles' => array(
-      0 => 'Bestyrelse',
-      1 => 'administrator',
+      0 => 'administrator',
     ),
     'module' => 'node',
   );
@@ -737,8 +751,7 @@ function huf_user_user_default_permissions() {
   $permissions['delete own panel content'] = array(
     'name' => 'delete own panel content',
     'roles' => array(
-      0 => 'Bestyrelse',
-      1 => 'administrator',
+      0 => 'administrator',
     ),
     'module' => 'node',
   );
@@ -756,8 +769,7 @@ function huf_user_user_default_permissions() {
   $permissions['delete own webform content'] = array(
     'name' => 'delete own webform content',
     'roles' => array(
-      0 => 'Bestyrelse',
-      1 => 'administrator',
+      0 => 'administrator',
     ),
     'module' => 'node',
   );

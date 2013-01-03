@@ -56,15 +56,16 @@ function huf_gallery_field_default_fields() {
       'entity_type' => 'comment',
       'field_name' => 'comment_body',
       'label' => 'Comment',
-      'required' => TRUE,
+      'required' => 1,
       'settings' => array(
-        'text_processing' => 1,
+        'text_processing' => '0',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
+        'active' => 1,
         'module' => 'text',
         'settings' => array(
-          'rows' => 5,
+          'rows' => '5',
         ),
         'type' => 'text_textarea',
         'weight' => 0,

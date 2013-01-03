@@ -55,16 +55,17 @@ function huf_forum_field_default_fields() {
       ),
       'entity_type' => 'comment',
       'field_name' => 'comment_body',
-      'label' => 'Comment',
-      'required' => TRUE,
+      'label' => 'Indlæg',
+      'required' => 1,
       'settings' => array(
-        'text_processing' => 1,
+        'text_processing' => '1',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
+        'active' => 1,
         'module' => 'text',
         'settings' => array(
-          'rows' => 5,
+          'rows' => '5',
         ),
         'type' => 'text_textarea',
         'weight' => 0,
@@ -112,7 +113,7 @@ function huf_forum_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => 11,
+          'weight' => '11',
         ),
         'teaser' => array(
           'label' => 'hidden',
@@ -188,10 +189,9 @@ function huf_forum_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
-          'weight' => 10,
+          'type' => 'hidden',
+          'weight' => '10',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -289,9 +289,9 @@ function huf_forum_field_default_fields() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Body');
-  t('Comment');
   t('Forum type');
   t('Forummer');
+  t('Indlæg');
 
   return $fields;
 }

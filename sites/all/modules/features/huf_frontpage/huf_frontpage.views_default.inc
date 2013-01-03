@@ -188,17 +188,6 @@ function huf_frontpage_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'nyhed' => 'nyhed',
   );
-  /* Filter criterion: SUM(Indhold: Aktuelt (field_aktuelt)) */
-  $handler->display->display_options['filters']['field_aktuelt_value']['id'] = 'field_aktuelt_value';
-  $handler->display->display_options['filters']['field_aktuelt_value']['table'] = 'field_data_field_aktuelt';
-  $handler->display->display_options['filters']['field_aktuelt_value']['field'] = 'field_aktuelt_value';
-  $handler->display->display_options['filters']['field_aktuelt_value']['group_type'] = 'sum';
-  $handler->display->display_options['filters']['field_aktuelt_value']['operator'] = '>';
-  $handler->display->display_options['filters']['field_aktuelt_value']['value']['value'] = '0';
-
-  /* Display: Block */
-  $handler = $view->new_display('block', 'Block', 'block');
-  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $translatables['aktuelt'] = array(
     t('Master'),
     t('more'),
@@ -207,7 +196,6 @@ function huf_frontpage_views_default_views() {
     t('Sort by'),
     t('Asc'),
     t('Desc'),
-    t('Block'),
   );
   $export['aktuelt'] = $view;
 
@@ -240,6 +228,7 @@ function huf_frontpage_views_default_views() {
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Gendan';
   $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Elementer per side';
   $handler->display->display_options['pager']['options']['tags']['first'] = '« første';
   $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ forrige';
   $handler->display->display_options['pager']['options']['tags']['next'] = 'næste ›';
@@ -585,6 +574,7 @@ function huf_frontpage_views_default_views() {
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Elementer per side';
   $handler->display->display_options['pager']['options']['tags']['first'] = '« første';
   $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ forrige';
   $handler->display->display_options['pager']['options']['tags']['next'] = 'næste ›';
@@ -628,6 +618,7 @@ function huf_frontpage_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Elementer per side';
   $handler->display->display_options['pager']['options']['tags']['first'] = '« første';
   $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ forrige';
   $handler->display->display_options['pager']['options']['tags']['next'] = 'næste ›';
@@ -700,7 +691,7 @@ function huf_frontpage_views_default_views() {
     t('Sort by'),
     t('Asc'),
     t('Desc'),
-    t('Items per page'),
+    t('Elementer per side'),
     t('- All -'),
     t('Offset'),
     t('« første'),
@@ -751,6 +742,7 @@ function huf_frontpage_views_default_views() {
   $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Gendan';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '3';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Elementer per side';
   $handler->display->display_options['pager']['options']['tags']['first'] = '« første';
   $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ forrige';
   $handler->display->display_options['pager']['options']['tags']['next'] = 'næste ›';
@@ -791,13 +783,17 @@ function huf_frontpage_views_default_views() {
     'event' => 'event',
     'nyhed' => 'nyhed',
   );
-  /* Filter criterion: SUM(Indhold: Aktuelt (field_aktuelt)) */
+  /* Filter criterion: Broken/missing handler */
   $handler->display->display_options['filters']['field_aktuelt_value']['id'] = 'field_aktuelt_value';
   $handler->display->display_options['filters']['field_aktuelt_value']['table'] = 'field_data_field_aktuelt';
   $handler->display->display_options['filters']['field_aktuelt_value']['field'] = 'field_aktuelt_value';
   $handler->display->display_options['filters']['field_aktuelt_value']['group_type'] = 'sum';
   $handler->display->display_options['filters']['field_aktuelt_value']['operator'] = '<';
-  $handler->display->display_options['filters']['field_aktuelt_value']['value']['value'] = '1';
+  $handler->display->display_options['filters']['field_aktuelt_value']['value'] = array(
+    'min' => '',
+    'max' => '',
+    'value' => '1',
+  );
   /* Filter criterion: Felt: Groups audience (group_audience:gid) */
   $handler->display->display_options['filters']['group_audience_gid']['id'] = 'group_audience_gid';
   $handler->display->display_options['filters']['group_audience_gid']['table'] = 'field_data_group_audience';
@@ -821,6 +817,7 @@ function huf_frontpage_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Elementer per side';
   $handler->display->display_options['pager']['options']['tags']['first'] = '« første';
   $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ forrige';
   $handler->display->display_options['pager']['options']['tags']['next'] = 'næste ›';
@@ -886,7 +883,7 @@ function huf_frontpage_views_default_views() {
     t('Sort by'),
     t('Asc'),
     t('Desc'),
-    t('Items per page'),
+    t('Elementer per side'),
     t('- All -'),
     t('Offset'),
     t('« første'),
@@ -1061,6 +1058,7 @@ function huf_frontpage_views_default_views() {
   $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Gendan';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Elementer per side';
   $handler->display->display_options['pager']['options']['tags']['first'] = '« første';
   $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ forrige';
   $handler->display->display_options['pager']['options']['tags']['next'] = 'næste ›';
@@ -1083,7 +1081,7 @@ function huf_frontpage_views_default_views() {
   $handler->display->display_options['fields']['field_image_gallery']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_image_gallery']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_image_gallery']['settings'] = array(
-    'image_style' => 'gallery-thumb',
+    'image_style' => 'gallery-list-thumb',
     'image_link' => 'content',
   );
   $handler->display->display_options['fields']['field_image_gallery']['delta_limit'] = '1';
@@ -1132,7 +1130,7 @@ function huf_frontpage_views_default_views() {
     t('Sort by'),
     t('Asc'),
     t('Desc'),
-    t('Items per page'),
+    t('Elementer per side'),
     t('- All -'),
     t('Offset'),
     t('« første'),
@@ -1171,6 +1169,7 @@ function huf_frontpage_views_default_views() {
   $handler->display->display_options['exposed_form']['options']['autosubmit'] = TRUE;
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '50';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Elementer per side';
   $handler->display->display_options['pager']['options']['tags']['first'] = '« første';
   $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ forrige';
   $handler->display->display_options['pager']['options']['tags']['next'] = 'næste ›';
@@ -1231,7 +1230,7 @@ function huf_frontpage_views_default_views() {
     t('Sorter efter'),
     t('Asc'),
     t('Desc'),
-    t('Items per page'),
+    t('Elementer per side'),
     t('- All -'),
     t('Offset'),
     t('« første'),
@@ -1403,6 +1402,7 @@ function huf_frontpage_views_default_views() {
   $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Gendan';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '3';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Elementer per side';
   $handler->display->display_options['pager']['options']['tags']['first'] = '« første';
   $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ forrige';
   $handler->display->display_options['pager']['options']['tags']['next'] = 'næste ›';
@@ -1593,7 +1593,7 @@ function huf_frontpage_views_default_views() {
     t('Sort by'),
     t('Asc'),
     t('Desc'),
-    t('Items per page'),
+    t('Elementer per side'),
     t('- All -'),
     t('Offset'),
     t('« første'),
@@ -1641,6 +1641,7 @@ function huf_frontpage_views_default_views() {
   $handler->display->display_options['pager']['options']['items_per_page'] = '50';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Elementer per side';
   $handler->display->display_options['pager']['options']['tags']['first'] = '« første';
   $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ forrige';
   $handler->display->display_options['pager']['options']['tags']['next'] = 'næste ›';
@@ -1990,7 +1991,7 @@ return $uid;';
     t('Sort by'),
     t('Asc'),
     t('Desc'),
-    t('Items per page'),
+    t('Elementer per side'),
     t('- All -'),
     t('Offset'),
     t('« første'),
@@ -2321,18 +2322,56 @@ return $uid;';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Anvend';
+  $handler->display->display_options['exposed_form']['options']['reset_button'] = TRUE;
   $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Gendan';
   $handler->display->display_options['pager']['type'] = 'full';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '20';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '45';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['quantity'] = '9';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Elementer per side';
   $handler->display->display_options['pager']['options']['tags']['first'] = '« første';
   $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ forrige';
   $handler->display->display_options['pager']['options']['tags']['next'] = 'næste ›';
   $handler->display->display_options['pager']['options']['tags']['last'] = 'sidste »';
-  $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
-  $handler->display->display_options['row_plugin'] = 'fields';
-  $handler->display->display_options['row_options']['inline'] = array(
+  $handler->display->display_options['style_plugin'] = 'table';
+  $handler->display->display_options['style_options']['columns'] = array(
     'name' => 'name',
+    'field_navn' => 'field_navn',
+    'field_kommune' => 'field_kommune',
+    'field_region' => 'field_region',
+  );
+  $handler->display->display_options['style_options']['default'] = '-1';
+  $handler->display->display_options['style_options']['info'] = array(
+    'name' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_navn' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_kommune' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_region' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
   );
   /* Felt: Bruger: Navn */
   $handler->display->display_options['fields']['name']['id'] = 'name';
@@ -2368,12 +2407,30 @@ return $uid;';
   $handler->display->display_options['filters']['name']['table'] = 'users';
   $handler->display->display_options['filters']['name']['field'] = 'name';
   $handler->display->display_options['filters']['name']['operator'] = 'contains';
+  $handler->display->display_options['filters']['name']['group'] = 1;
   $handler->display->display_options['filters']['name']['exposed'] = TRUE;
   $handler->display->display_options['filters']['name']['expose']['operator_id'] = 'name_op';
-  $handler->display->display_options['filters']['name']['expose']['label'] = 'Navn';
+  $handler->display->display_options['filters']['name']['expose']['label'] = 'Brugernavn';
   $handler->display->display_options['filters']['name']['expose']['operator'] = 'name_op';
   $handler->display->display_options['filters']['name']['expose']['identifier'] = 'name';
   $handler->display->display_options['filters']['name']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    4 => 0,
+    3 => 0,
+  );
+  /* Filter criterion: Bruger: Navn (field_navn) */
+  $handler->display->display_options['filters']['field_navn_value']['id'] = 'field_navn_value';
+  $handler->display->display_options['filters']['field_navn_value']['table'] = 'field_data_field_navn';
+  $handler->display->display_options['filters']['field_navn_value']['field'] = 'field_navn_value';
+  $handler->display->display_options['filters']['field_navn_value']['operator'] = 'contains';
+  $handler->display->display_options['filters']['field_navn_value']['group'] = 1;
+  $handler->display->display_options['filters']['field_navn_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_navn_value']['expose']['operator_id'] = 'field_navn_value_op';
+  $handler->display->display_options['filters']['field_navn_value']['expose']['label'] = 'Navn';
+  $handler->display->display_options['filters']['field_navn_value']['expose']['operator'] = 'field_navn_value_op';
+  $handler->display->display_options['filters']['field_navn_value']['expose']['identifier'] = 'field_navn_value';
+  $handler->display->display_options['filters']['field_navn_value']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
     4 => 0,
@@ -2384,6 +2441,7 @@ return $uid;';
   $handler->display->display_options['filters']['field_region_value']['table'] = 'field_data_field_region';
   $handler->display->display_options['filters']['field_region_value']['field'] = 'field_region_value';
   $handler->display->display_options['filters']['field_region_value']['operator'] = 'contains';
+  $handler->display->display_options['filters']['field_region_value']['group'] = 1;
   $handler->display->display_options['filters']['field_region_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_region_value']['expose']['operator_id'] = 'field_region_value_op';
   $handler->display->display_options['filters']['field_region_value']['expose']['label'] = 'Region';
@@ -2400,6 +2458,7 @@ return $uid;';
   $handler->display->display_options['filters']['field_kommune_value']['table'] = 'field_data_field_kommune';
   $handler->display->display_options['filters']['field_kommune_value']['field'] = 'field_kommune_value';
   $handler->display->display_options['filters']['field_kommune_value']['operator'] = 'contains';
+  $handler->display->display_options['filters']['field_kommune_value']['group'] = 1;
   $handler->display->display_options['filters']['field_kommune_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_kommune_value']['expose']['operator_id'] = 'field_kommune_value_op';
   $handler->display->display_options['filters']['field_kommune_value']['expose']['label'] = 'Kommune';
@@ -2420,12 +2479,12 @@ return $uid;';
     t('Master'),
     t('Find HUF.dk brugere'),
     t('more'),
-    t('Apply'),
+    t('Anvend'),
     t('Gendan'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
-    t('Items per page'),
+    t('Elementer per side'),
     t('- All -'),
     t('Offset'),
     t('« første'),

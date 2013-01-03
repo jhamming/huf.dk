@@ -25,8 +25,7 @@ function article_user_default_permissions() {
   $permissions['delete any article content'] = array(
     'name' => 'delete any article content',
     'roles' => array(
-      0 => 'Bestyrelse',
-      1 => 'administrator',
+      0 => 'administrator',
     ),
     'module' => 'node',
   );
@@ -35,8 +34,7 @@ function article_user_default_permissions() {
   $permissions['delete own article content'] = array(
     'name' => 'delete own article content',
     'roles' => array(
-      0 => 'Bestyrelse',
-      1 => 'administrator',
+      0 => 'administrator',
     ),
     'module' => 'node',
   );

@@ -107,8 +107,7 @@ function huf_nyhed_user_default_permissions() {
   $permissions['delete any nyhed content'] = array(
     'name' => 'delete any nyhed content',
     'roles' => array(
-      0 => 'Bestyrelse',
-      1 => 'administrator',
+      0 => 'administrator',
     ),
     'module' => 'node',
   );
@@ -127,8 +126,7 @@ function huf_nyhed_user_default_permissions() {
   $permissions['delete own nyhed content'] = array(
     'name' => 'delete own nyhed content',
     'roles' => array(
-      0 => 'Bestyrelse',
-      1 => 'administrator',
+      0 => 'administrator',
     ),
     'module' => 'node',
   );
