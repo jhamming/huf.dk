@@ -79,6 +79,65 @@ function huf_frontpage_context_default_contexts() {
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
+  $context->name = 'forum';
+  $context->description = 'Kontekst til forumsider';
+  $context->tag = 'section';
+  $context->conditions = array(
+    'node' => array(
+      'values' => array(
+        'forum' => 'forum',
+      ),
+      'options' => array(
+        'node_form' => '1',
+      ),
+    ),
+    'path' => array(
+      'values' => array(
+        'forum*' => 'forum*',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'user-login' => array(
+          'module' => 'user',
+          'delta' => 'login',
+          'region' => 'sidebar_second',
+          'weight' => '-41',
+        ),
+        'search-form' => array(
+          'module' => 'search',
+          'delta' => 'form',
+          'region' => 'sidebar_second',
+          'weight' => '-40',
+        ),
+        'views-forum-block' => array(
+          'module' => 'views',
+          'delta' => 'forum-block',
+          'region' => 'sidebar_second',
+          'weight' => '-39',
+        ),
+        'views-forum-block_1' => array(
+          'module' => 'views',
+          'delta' => 'forum-block_1',
+          'region' => 'sidebar_second',
+          'weight' => '-38',
+        ),
+      ),
+    ),
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Kontekst til forumsider');
+  t('section');
+  $export['forum'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
   $context->name = 'frontpage';
   $context->description = 'Frontpage of huf.dk context';
   $context->tag = 'section';
@@ -452,7 +511,7 @@ function huf_frontpage_context_default_contexts() {
           'module' => 'views',
           'delta' => 'seneste_tekster-block_2',
           'region' => 'sidebar_second',
-          'weight' => '-9',
+          'weight' => '-8',
         ),
         'newsletter-newsletter_subscribe' => array(
           'module' => 'newsletter',
@@ -567,6 +626,7 @@ function huf_frontpage_context_default_contexts() {
     'node_taxonomy' => array(
       'values' => array(
         757 => 757,
+        760 => 760,
       ),
       'options' => array(
         'node_form' => '1',
@@ -576,6 +636,7 @@ function huf_frontpage_context_default_contexts() {
       'values' => array(
         '*/done*' => '*/done*',
         'udgivelser*' => 'udgivelser*',
+        'medlemsboeger*' => 'medlemsboeger*',
       ),
     ),
   );

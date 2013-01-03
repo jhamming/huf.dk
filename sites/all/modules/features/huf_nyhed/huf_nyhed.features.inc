@@ -35,9 +35,9 @@ function huf_nyhed_node_info() {
       'help' => '',
     ),
     'nyhed' => array(
-      'name' => t('Nyhed'),
+      'name' => t('Artikel'),
       'base' => 'node_content',
-      'description' => t('Indholdstype til nyheder, referater og artikler.'),
+      'description' => t('Indholdstype til nyheder, referater, bøger og artikler.'),
       'has_title' => '1',
       'title_label' => t('Title'),
       'help' => '',
