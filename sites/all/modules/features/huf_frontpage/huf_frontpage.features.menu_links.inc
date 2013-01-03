@@ -45,7 +45,7 @@ function huf_frontpage_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '1',
     'expanded' => '1',
-    'weight' => '-48',
+    'weight' => '-49',
   );
   // Exported menu link: main-menu:forum
   $menu_links['main-menu:forum'] = array(
@@ -63,7 +63,7 @@ function huf_frontpage_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '-44',
+    'weight' => '-43',
   );
   // Exported menu link: main-menu:gallerier
   $menu_links['main-menu:gallerier'] = array(
@@ -110,16 +110,14 @@ function huf_frontpage_menu_default_menu_links() {
     'router_path' => 'node/%',
     'link_title' => 'Om huf',
     'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
+      'attributes' => array(),
     ),
     'module' => 'menu',
     'hidden' => '0',
     'external' => '0',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '-43',
+    'has_children' => '1',
+    'expanded' => '1',
+    'weight' => '-46',
   );
   // Exported menu link: main-menu:nyheder
   $menu_links['main-menu:nyheder'] = array(
@@ -155,7 +153,7 @@ function huf_frontpage_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '-46',
+    'weight' => '-47',
   );
   // Exported menu link: main-menu:taxonomy/term/757
   $menu_links['main-menu:taxonomy/term/757'] = array(
@@ -191,7 +189,7 @@ function huf_frontpage_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '-47',
+    'weight' => '-48',
   );
   // Translatables
   // Included for use with string extractors like potx.
