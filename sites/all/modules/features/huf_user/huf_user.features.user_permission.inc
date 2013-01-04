@@ -94,16 +94,6 @@ function huf_user_user_default_permissions() {
     'module' => 'dashboard',
   );
 
-  // Exported permission: access newsletter statistics.
-  $permissions['access newsletter statistics'] = array(
-    'name' => 'access newsletter statistics',
-    'roles' => array(
-      0 => 'Bestyrelse',
-      1 => 'administrator',
-    ),
-    'module' => 'newsletter',
-  );
-
   // Exported permission: access overlay.
   $permissions['access overlay'] = array(
     'name' => 'access overlay',
@@ -338,16 +328,6 @@ function huf_user_user_default_permissions() {
     'module' => 'system',
   );
 
-  // Exported permission: administer newsletters.
-  $permissions['administer newsletters'] = array(
-    'name' => 'administer newsletters',
-    'roles' => array(
-      0 => 'Bestyrelse',
-      1 => 'administrator',
-    ),
-    'module' => 'newsletter',
-  );
-
   // Exported permission: administer nodes.
   $permissions['administer nodes'] = array(
     'name' => 'administer nodes',
@@ -428,15 +408,6 @@ function huf_user_user_default_permissions() {
       0 => 'administrator',
     ),
     'module' => 'system',
-  );
-
-  // Exported permission: administer smtp module.
-  $permissions['administer smtp module'] = array(
-    'name' => 'administer smtp module',
-    'roles' => array(
-      0 => 'administrator',
-    ),
-    'module' => 'smtp',
   );
 
   // Exported permission: administer software updates.
@@ -1157,18 +1128,6 @@ function huf_user_user_default_permissions() {
       1 => 'authenticated user',
     ),
     'module' => 'comment',
-  );
-
-  // Exported permission: subscribe newsletters.
-  $permissions['subscribe newsletters'] = array(
-    'name' => 'subscribe newsletters',
-    'roles' => array(
-      0 => 'Bestyrelse',
-      1 => 'administrator',
-      2 => 'anonymous user',
-      3 => 'authenticated user',
-    ),
-    'module' => 'newsletter',
   );
 
   // Exported permission: switch shortcut sets.
