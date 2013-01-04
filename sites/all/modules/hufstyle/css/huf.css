@@ -176,10 +176,15 @@ nav.primary-menu {
 	margin-bottom: 2em;
 }
 
+.calendar-calendar > div {
+	margin-top: 37px;
+}
+
 #mini-panel-kalender_og_kommende .pane-title {
 	font-size: 18px;
 	line-height: 18px;
 }
+
 
 /* Aktuelt box in top of front page */
 
@@ -532,7 +537,7 @@ body > .masthead.clearfix > .mast {
 /* ==Styling for the forum pages== */
 
 /* General column style */
-th {
+.main th {
 	min-width: 60px;
 	text-align: left;
 }
@@ -584,6 +589,12 @@ section#comments.comment-wrapper > article.comment {
 }
 
 /* Handling the links for creating new topics */
+
+/* Dont display the link when users arent logged in */
+body.page-forum.not-logged-in .action-links{
+	display: none;
+}
+
 
 body.page-forum ul.action-links {
 	display: block;
@@ -646,4 +657,13 @@ br {
 /* Work-bench patch */
 .my-workbench h3 {
 	margin-bottom: 15px;
+}
+
+/* Reducing advanced search possibilities */
+.main fieldset.search-advanced .fieldset-wrapper .criterion {
+	display: none;
+}
+
+.main fieldset.search-advanced .fieldset-wrapper .criterion:first-child {
+	display: block;
 }

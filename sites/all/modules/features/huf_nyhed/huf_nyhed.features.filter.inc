@@ -22,7 +22,7 @@ function huf_nyhed_filter_default_formats() {
         'weight' => '0',
         'status' => '1',
         'settings' => array(
-          'filter_url_length' => 72,
+          'filter_url_length' => '72',
         ),
       ),
       'filter_html' => array(
@@ -35,6 +35,11 @@ function huf_nyhed_filter_default_formats() {
         ),
       ),
       'filter_autop' => array(
+        'weight' => '2',
+        'status' => '1',
+        'settings' => array(),
+      ),
+      'media_filter' => array(
         'weight' => '2',
         'status' => '1',
         'settings' => array(),

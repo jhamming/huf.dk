@@ -110,6 +110,7 @@ function huf_user_user_default_permissions() {
     'roles' => array(
       0 => 'Bestyrelse',
       1 => 'administrator',
+      2 => 'authenticated user',
     ),
     'module' => 'overlay',
   );
@@ -298,6 +299,15 @@ function huf_user_user_default_permissions() {
       0 => 'administrator',
     ),
     'module' => 'locale',
+  );
+
+  // Exported permission: administer media.
+  $permissions['administer media'] = array(
+    'name' => 'administer media',
+    'roles' => array(
+      0 => 'administrator',
+    ),
+    'module' => 'media',
   );
 
   // Exported permission: administer menu.
@@ -920,6 +930,16 @@ function huf_user_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: edit media.
+  $permissions['edit media'] = array(
+    'name' => 'edit media',
+    'roles' => array(
+      0 => 'Bestyrelse',
+      1 => 'administrator',
+    ),
+    'module' => 'media',
+  );
+
   // Exported permission: edit own comments.
   $permissions['edit own comments'] = array(
     'name' => 'edit own comments',
@@ -1058,6 +1078,17 @@ function huf_user_user_default_permissions() {
     'module' => 'taxonomy',
   );
 
+  // Exported permission: import media.
+  $permissions['import media'] = array(
+    'name' => 'import media',
+    'roles' => array(
+      0 => 'Bestyrelse',
+      1 => 'administrator',
+      2 => 'authenticated user',
+    ),
+    'module' => 'media',
+  );
+
   // Exported permission: manage features.
   $permissions['manage features'] = array(
     'name' => 'manage features',
@@ -1173,6 +1204,7 @@ function huf_user_user_default_permissions() {
     'name' => 'use admin toolbar',
     'roles' => array(
       0 => 'administrator',
+      1 => 'authenticated user',
     ),
     'module' => 'admin',
   );
@@ -1252,6 +1284,17 @@ function huf_user_user_default_permissions() {
     'module' => 'filter',
   );
 
+  // Exported permission: use workbench_media add form.
+  $permissions['use workbench_media add form'] = array(
+    'name' => 'use workbench_media add form',
+    'roles' => array(
+      0 => 'Bestyrelse',
+      1 => 'administrator',
+      2 => 'authenticated user',
+    ),
+    'module' => 'workbench_media',
+  );
+
   // Exported permission: view advanced help index.
   $permissions['view advanced help index'] = array(
     'name' => 'view advanced help index',
@@ -1280,6 +1323,18 @@ function huf_user_user_default_permissions() {
       1 => 'administrator',
     ),
     'module' => 'advanced_help',
+  );
+
+  // Exported permission: view media.
+  $permissions['view media'] = array(
+    'name' => 'view media',
+    'roles' => array(
+      0 => 'Bestyrelse',
+      1 => 'administrator',
+      2 => 'anonymous user',
+      3 => 'authenticated user',
+    ),
+    'module' => 'media',
   );
 
   // Exported permission: view own unpublished content.

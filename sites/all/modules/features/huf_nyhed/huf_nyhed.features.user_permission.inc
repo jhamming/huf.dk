@@ -60,7 +60,8 @@ function huf_nyhed_user_default_permissions() {
   $permissions['create huf_event registration'] = array(
     'name' => 'create huf_event registration',
     'roles' => array(
-      0 => 'authenticated user',
+      0 => 'anonymous user',
+      1 => 'authenticated user',
     ),
     'module' => 'registration',
   );
@@ -69,7 +70,8 @@ function huf_nyhed_user_default_permissions() {
   $permissions['create huf_event registration other anonymous'] = array(
     'name' => 'create huf_event registration other anonymous',
     'roles' => array(
-      0 => 'authenticated user',
+      0 => 'anonymous user',
+      1 => 'authenticated user',
     ),
     'module' => 'registration',
   );

@@ -112,10 +112,9 @@ function article_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'list',
           'settings' => array(),
-          'type' => 'list_default',
-          'weight' => 2,
+          'type' => 'hidden',
+          'weight' => '2',
         ),
       ),
       'entity_type' => 'comment',

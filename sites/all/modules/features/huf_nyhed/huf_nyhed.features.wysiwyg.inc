@@ -34,6 +34,9 @@ function huf_nyhed_wysiwyg_default_profiles() {
           'PasteFromWord' => 1,
           'FontSize' => 1,
         ),
+        'drupal' => array(
+          'media' => 1,
+        ),
       ),
       'toolbar_loc' => 'top',
       'toolbar_align' => 'left',

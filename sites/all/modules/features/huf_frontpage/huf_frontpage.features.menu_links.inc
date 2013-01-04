@@ -91,9 +91,7 @@ function huf_frontpage_menu_default_menu_links() {
     'router_path' => 'node/%',
     'link_title' => 'Bestil bøger',
     'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
+      'attributes' => array(),
     ),
     'module' => 'menu',
     'hidden' => '0',
