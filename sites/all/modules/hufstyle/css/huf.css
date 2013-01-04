@@ -654,10 +654,6 @@ br {
 	line-height: 2em;
 }
 
-/* Work-bench patch */
-.my-workbench h3 {
-	margin-bottom: 15px;
-}
 
 /* Reducing advanced search possibilities */
 .main fieldset.search-advanced .fieldset-wrapper .criterion {
@@ -666,4 +662,10 @@ br {
 
 .main fieldset.search-advanced .fieldset-wrapper .criterion:first-child {
 	display: block;
+}
+
+/* Making views tables appear normally on admin pages */
+
+body.page-admin .views-table {
+	top: 0px;
 }
