@@ -18,7 +18,6 @@ dependencies[] = huf_user
 dependencies[] = hufstyle
 dependencies[] = image
 dependencies[] = menu
-dependencies[] = newsletter
 dependencies[] = panels_mini
 dependencies[] = php
 dependencies[] = search
