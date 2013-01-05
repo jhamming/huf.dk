@@ -567,6 +567,36 @@ td.icon {
 	vertical-align: top;
 }
 
+#forum-pager-top.forum-pager .item-list .pager, #forum-pager-bottom.forum-pager .item-list .pager {
+	width: auto;
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
+form#advanced-forum-forum-topic-list-sort-form, form#ctools-jump-menu {
+	outline: none;
+	padding: 0px;
+}
+
+.forum-table td.views-field-title {
+	font-weight: normal;
+	font-size: 1.1em;
+}
+
+.forum-table td.views-field-title > a {
+	text-decoration: none;
+}
+
+.node-type-forum .content-column .forum-post-footer a, .node-type-forum .content-column .forum-topic-header a, a.af-button-large {
+	text-decoration: none;
+	padding: 5px;
+	margin: 6px;
+}
+
+.page-forum .forum-node-create-links {
+	margin-bottom: 12px;
+}
+
 /* Fixing styling of headers and links */
 body.page-forum td > div > a {
 	text-decoration: none;
@@ -588,64 +618,11 @@ section#comments.comment-wrapper > article.comment {
 	font-size: 1.2em;
 }
 
-/* Handling the links for creating new topics */
 
-/* Dont display the link when users arent logged in */
-body.page-forum.not-logged-in .action-links{
-	display: none;
-}
-
-
-body.page-forum ul.action-links {
-	display: block;
-	float: right;
-	background-color: transparent;
-	right: 10px;
-	width: 121px;
-	height: 25px;
-	position: relative;
-	top: -30px;
-}
-
-body.page-forum ul.action-links > li > a {
-	color: transparent;
-}
-
-body.page-forum ul.action-links > li > a:before {
-	content: "Tilføj nyt emne";
-	display: block;
-	color: white;
-	position: absolute;
-}
-
-body.page-forum ul.action-links li:after {
-/*Add another block-level blank space*/
-content:"\00a0";
-display:block;
- 
-/*Make it a small rectangle so the border will create an V-shape*/
-width: 3px;
-height: 3px;
- 
-/*Add a blue border on the bottom and left, creating that 'V' */
-border: solid white;
-border-width: 0 2px 2px 0;
- 
-/*Position it on top of the circle*/
-position:absolute;
-left: 10px;
-top: 50%;
-margin-top: -12px;
- 
-/*Rotate the V -45 degrees to turn it into a arrow pointer*/
--webkit-transform: rotate(-45deg);
--moz-transform: rotate(-45deg);
--o-transform: rotate(-45deg);
-}
 
 body.page-forum .main > section {
 	clear: both;
-	top: -25px;
+	top: -65px;
 	position: relative;
 }
 
