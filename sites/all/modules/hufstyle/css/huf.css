@@ -218,6 +218,43 @@ nav.primary-menu {
 	line-height: 1.8em;
 }
 
+/* Removing some of the columns on small devices */
+@media only screen and (max-width: 680px), only screen and (max-device-width: 680px) {
+	table th, table td {
+		display: none;
+	}
+	
+	th:first-child, th:nth-child(2), td:first-child, td:nth-child(2), .calendar-calendar th, .calendar-calendar td {
+		display: table-cell;
+	}
+	.calendar-calendar th, .calendar-calendar td {
+
+	}
+	.html .calendar-calendar .month-view .full tr.single-day .no-entry, .calendar-calendar .month-view .full tr.single-day .no-entry .inner {
+		display: none
+	}
+	.calendar-calendar table thead th {
+		min-width: 20px;
+	}
+	.view .date-nav-wrapper .date-nav .date-heading h3  {
+		font-size: 1.2em;
+	}
+	body.page-calendar-node-field-dato .block .tabs, body.page-calendar-node-field-dato #block-panels-mini-kalender-og-kommende {
+		display: none;
+	}
+	.tabs.primary li {
+		max-width: 22%;
+		overflow: hidden;
+		font-size: 0.8em;
+	}
+	.tabs.primary li a {
+		height: 40px;
+	}
+	ul.tabs.primary {
+		margin: 0px;
+	}
+}
+
 /*User search page styling*/
 section.region-content > article > .content {
 	border: 1px solid white;
@@ -367,7 +404,7 @@ a:hover {
 	float: left;
 }
 
-.node .field-name-body {
+.node .field-name-body, .block-content {
 	clear: both;
 	font-size: 1.2em;
 	padding-top: 10px;
@@ -517,7 +554,7 @@ article.node.clearfix > .content.clearfix {
 		width: 60px;
 	}
 	body.html > .masthead.clearfix > .mast {
-	padding-bottom: 20px;
+	padding: 0px 0px 20px 0px;
 	}
 }
 
@@ -631,6 +668,11 @@ br {
 	line-height: 2em;
 }
 
+/* And some lineheight */
+p {
+	line-height: 1.2em;
+}
+
 
 /* Reducing advanced search possibilities */
 .main fieldset.search-advanced .fieldset-wrapper .criterion {
@@ -645,4 +687,22 @@ br {
 
 body.page-admin .views-table {
 	top: 0px;
+}
+
+/* Optimizing for small resolutions */
+@media only screen and (max-width: 680px), only screen and (max-device-width: 680px) {
+	.block ul.pager a, .block ul.pager .pager-current {
+		padding: 0 9px;
+	}
+	.content .forum-node-create-links {
+		width: 100%;
+	}
+	.content .forum-topic-header .topic-reply-link, .forum-topic-header .topic-new-post-link, .forum-topic-header .last-post-link {
+		float: none;
+		margin: 0px;
+		height: 36px;
+	}
+	nav.breadcrumb {
+		display: none;
+	}
 }
