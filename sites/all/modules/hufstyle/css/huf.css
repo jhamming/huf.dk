@@ -367,7 +367,7 @@ a:hover {
 	float: left;
 }
 
-.node .field-name-body {
+.node .field-name-body, .block-content {
 	clear: both;
 	font-size: 1.2em;
 	padding-top: 10px;
@@ -517,7 +517,7 @@ article.node.clearfix > .content.clearfix {
 		width: 60px;
 	}
 	body.html > .masthead.clearfix > .mast {
-	padding-bottom: 20px;
+	padding: 0px 0px 20px 0px;
 	}
 }
 
@@ -646,3 +646,4 @@ br {
 body.page-admin .views-table {
 	top: 0px;
 }
+
