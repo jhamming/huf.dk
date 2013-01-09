@@ -224,8 +224,23 @@ nav.primary-menu {
 		display: none;
 	}
 	
-	th:first-child, th:nth-child(2), td:first-child, td:nth-child(2) {
+	th:first-child, th:nth-child(2), td:first-child, td:nth-child(2), .calendar-calendar th, .calendar-calendar td {
 		display: table-cell;
+	}
+	.calendar-calendar th, .calendar-calendar td {
+
+	}
+	.html .calendar-calendar .month-view .full tr.single-day .no-entry, .calendar-calendar .month-view .full tr.single-day .no-entry .inner {
+		display: none
+	}
+	.calendar-calendar table thead th {
+		min-width: 20px;
+	}
+	.view .date-nav-wrapper .date-nav .date-heading h3  {
+		font-size: 1.2em;
+	}
+	body.page-calendar-node-field-dato .block .tabs, body.page-calendar-node-field-dato #block-panels-mini-kalender-og-kommende {
+		display: none;
 	}
 	.tabs.primary li {
 		max-width: 22%;
@@ -653,6 +668,11 @@ br {
 	line-height: 2em;
 }
 
+/* And some lineheight */
+p {
+	line-height: 1.2em;
+}
+
 
 /* Reducing advanced search possibilities */
 .main fieldset.search-advanced .fieldset-wrapper .criterion {
@@ -681,5 +701,8 @@ body.page-admin .views-table {
 		float: none;
 		margin: 0px;
 		height: 36px;
+	}
+	nav.breadcrumb {
+		display: none;
 	}
 }
