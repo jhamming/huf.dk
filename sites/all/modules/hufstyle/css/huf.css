@@ -218,6 +218,28 @@ nav.primary-menu {
 	line-height: 1.8em;
 }
 
+/* Removing some of the columns on small devices */
+@media only screen and (max-width: 680px), only screen and (max-device-width: 680px) {
+	table th, table td {
+		display: none;
+	}
+	
+	th:first-child, th:nth-child(2), td:first-child, td:nth-child(2) {
+		display: table-cell;
+	}
+	.tabs.primary li {
+		max-width: 22%;
+		overflow: hidden;
+		font-size: 0.8em;
+	}
+	.tabs.primary li a {
+		height: 40px;
+	}
+	ul.tabs.primary {
+		margin: 0px;
+	}
+}
+
 /*User search page styling*/
 section.region-content > article > .content {
 	border: 1px solid white;
@@ -647,3 +669,17 @@ body.page-admin .views-table {
 	top: 0px;
 }
 
+/* Optimizing for small resolutions */
+@media only screen and (max-width: 680px), only screen and (max-device-width: 680px) {
+	.block ul.pager a, .block ul.pager .pager-current {
+		padding: 0 9px;
+	}
+	.content .forum-node-create-links {
+		width: 100%;
+	}
+	.content .forum-topic-header .topic-reply-link, .forum-topic-header .topic-new-post-link, .forum-topic-header .last-post-link {
+		float: none;
+		margin: 0px;
+		height: 36px;
+	}
+}
