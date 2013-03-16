@@ -384,7 +384,6 @@ function tagclouds_display_term_link_weight($name, $tid, $weight, $description) 
     $uri = entity_uri('taxonomy_term', $term);
     $uri['options']['attributes']['class'][] = 'tagclouds';
     $uri['options']['attributes']['class'][] = 'level' . $weight;
-    $uri['options']['attributes']['rel'] = 'tag';
     $uri['options']['attributes']['title'] = $description;
     return "<span class='tagclouds-term'>" . l($name, $uri['path'], $uri['options']) . "</span>\n";
   }
@@ -398,7 +397,6 @@ function tagclouds_display_node_link_count($name, $tid, $nid, $count, $descripti
   if ($term = taxonomy_term_load($tid) && $node = node_load($nid)) {
     $uri = entity_uri('node', $node);
     $uri['options']['attributes']['class'][] = 'tagclouds';
-    $uri['options']['attributes']['rel'] = 'tag';
     $uri['options']['attributes']['title'] = $description;
     return "<span class='tagclouds-term'>" . l($name, $uri['path'], $uri['options']) . " (" . $count . ")" . "</span>\n";
   }
@@ -408,7 +406,6 @@ function tagclouds_display_term_link_count($name, $tid, $count, $description) {
   if ($term = taxonomy_term_load($tid)) {
     $uri = entity_uri('taxonomy_term', $term);
     $uri['options']['attributes']['class'][] = 'tagclouds';
-    $uri['options']['attributes']['rel'] = 'tag';
     $uri['options']['attributes']['title'] = $description;
     return "<span class='tagclouds-term'>" . l($name, $uri['path'], $uri['options']) . " (" . $count . ")" . "</span>\n";
   }
@@ -466,7 +463,7 @@ function tagclouds_block_info() {
  * Implements hook_block_view().
  */
 function tagclouds_block_view($delta = '') {
-  $block = array();
+  $blocks = array();
   if ($voc = taxonomy_vocabulary_load($delta)) {
     $blocks['subject'] = variable_get('tagclouds_block_title_' . $delta, t('Tags in @voc',
             array('@voc' => $voc->name)));
