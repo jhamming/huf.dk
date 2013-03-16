@@ -4,9 +4,9 @@ core = 7.x
 dependencies[] = taxonomy
 package = "Taxonomy"
 configure = admin/config/content/tagclouds
-; Information added by drupal.org packaging script on 2012-11-05
-version = "7.x-1.7"
+; Information added by drupal.org packaging script on 2013-02-10
+version = "7.x-1.9"
 core = "7.x"
 project = "tagclouds"
-datestamp = "1352088449"
+datestamp = "1360479605"
 
