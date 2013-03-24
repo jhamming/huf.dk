@@ -634,6 +634,15 @@ form#advanced-forum-forum-topic-list-sort-form, form#ctools-jump-menu {
 	margin-bottom: 12px;
 }
 
+.page-forum .item-list > ul.pager {
+    height: 100%;
+    border: none;
+}
+
+.page-forum ul.pager > li.pager-last > a {
+    width: 47px;
+}
+
 /* Fixing styling of headers and links */
 body.page-forum td > div > a {
 	text-decoration: none;
@@ -704,5 +713,11 @@ body.page-admin .views-table {
 	}
 	nav.breadcrumb {
 		display: none;
+	}
+	.item-list > ul.pager > li.pager-first, 
+	.item-list > ul.pager > li.pager-previous, 
+	.item-list > ul.pager > li.pager-next, 
+	.item-list > ul.pager > li.pager-last {
+	    display: none;
 	}
 }
