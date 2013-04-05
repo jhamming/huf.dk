@@ -1,94 +1,22 @@
-/*
-.field-name-field-image-gallery .field-item { 
-	float: left;
-	margin-top: 5px;
-	margin-right: 5px; 
+.content-column article.node footer.link-wrapper ul.links {
+  	width: 100%;
 }
-
-.views-row .node-teaser {
-	height: auto;
-	width: auto;
-}
-
-#highlighted .content {
-	background: yellow;
-	border-radius: 5px;
-	padding: 0px 0px 4px 6px;
-}
-
-#highlighted p {
-	color: black;
-	font-size: 18px;
-	font-weight: normal;
-}
-/*
- body.html {
-	background: #FAFAF0;
-}
-
-#header-top img {
-	width: 745px;
-	border-radius: 10px;
-}
-
-#header.clearfix {
-	margin-top: 0px;
-}
-
-.views-slideshow-controls-text-pause {
-	line-height: 0px;
-	display: block;
-	text-indent: -5000px;
-}
-
-.views-slideshow-controls-text-previous {
-	display: block;
-	background: url(/sites/all/modules/hufstyle/arrow_left.png) no-repeat;
-	background-size: 20px;
-	width: 31px;
-	height: 46px;
-	text-indent: -5000px;
-	position: absolute;
-	top: 44%;
-	left: 7px;
-}
-
-.views-slideshow-controls-text-next {
-	display: block;
-	background: url(/sites/all/modules/hufstyle/arrow_right.png) no-repeat;
-	background-size: 20px;
-	width: 31px;
-	height: 46px;
-	text-indent: -5000px;
-	position: absolute;
-	top: 44%;
-	right: 5px;
-}
-
-.views_slideshow_cycle_teaser_section {
-	left: 25px;
-}
-
-.item-list .pager {
-	margin: 10px;
-}
-
-#block-panels-mini-nyeste-indhold > .content {
-	margin-top: -20px;
-}
-
-*/
 
 /* TouchPro Theme styling */
 /* Making the menu responsive */
 
 nav select {
-  display: none;
+  	display: none;
 }
 
 nav.primary-menu {
 	float: right;
 	color: black;
+  	padding: 0;
+}
+
+.masthead nav.primary-menu > ul.menu {
+  	padding-top: 1em;
 }
 
 @media (max-width: 1100px) {
@@ -119,25 +47,25 @@ nav.primary-menu {
 
 
 .masthead select {
-  position: relative;
-  padding: 12px 11px;
-  background-color: #323232;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #3f3f3f), color-stop(100%, #242424));
-  background-image: -webkit-linear-gradient(#3f3f3f, #242424);
-  background-image: -moz-linear-gradient(#3f3f3f, #242424);
-  background-image: -o-linear-gradient(#3f3f3f, #242424);
-  background-image: -ms-linear-gradient(#3f3f3f, #242424);
-  background-image: linear-gradient(#3f3f3f, #242424);
-  -pie-background: linear-gradient(#3f3f3f, #242424);
-  -moz-box-shadow: rgba(255, 255, 255, 0.2) 0 0 0 1px inset;
-  -webkit-box-shadow: rgba(255, 255, 255, 0.2) 0 0 0 1px inset;
-  -o-box-shadow: rgba(255, 255, 255, 0.2) 0 0 0 1px inset;
-  box-shadow: rgba(255, 255, 255, 0.2) 0 0 0 1px inset;
-  border: 1px solid #000;
-  color: #ebebeb;
-  text-shadow: black 1px 1px 1px;
-  filter: dropshadow(color=#333333, offX=1, offY=2);
-  min-width: 140px;
+	position: relative;
+	padding: 12px 11px;
+	background-color: #323232;
+	background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #3f3f3f), color-stop(100%, #242424));
+	background-image: -webkit-linear-gradient(#3f3f3f, #242424);
+	background-image: -moz-linear-gradient(#3f3f3f, #242424);
+	background-image: -o-linear-gradient(#3f3f3f, #242424);
+	background-image: -ms-linear-gradient(#3f3f3f, #242424);
+	background-image: linear-gradient(#3f3f3f, #242424);
+	-pie-background: linear-gradient(#3f3f3f, #242424);
+	-moz-box-shadow: rgba(255, 255, 255, 0.2) 0 0 0 1px inset;
+	-webkit-box-shadow: rgba(255, 255, 255, 0.2) 0 0 0 1px inset;
+	-o-box-shadow: rgba(255, 255, 255, 0.2) 0 0 0 1px inset;
+	box-shadow: rgba(255, 255, 255, 0.2) 0 0 0 1px inset;
+	border: 1px solid #000;
+	color: #ebebeb;
+	text-shadow: black 1px 1px 1px;
+	filter: dropshadow(color=#333333, offX=1, offY=2);
+	min-width: 140px;
   }
 
 /* The calender block for the frontpage */
@@ -292,9 +220,9 @@ ul a {
 }
 
 body:nth-of-type(1) ul li.views-row, body:nth-of-type(1) ul.views-summary li, body.page-forum ul.action-links li, .more-link {
-list-style-type:none;
-padding: 0 0 0 25px;
-position:relative;
+	list-style-type:none;
+	padding: 0 0 0 25px;
+	position:relative;
 }
 
 .view .item-list ul {
@@ -310,28 +238,28 @@ position:relative;
 }
 
 body:nth-of-type(1) ul li.views-row:after, body:nth-of-type(1) ul.views-summary li:after, ul li.views-row:after {
-/*Add another block-level blank space*/
-content:"\00a0";
-display:block;
- 
-/*Make it a small rectangle so the border will create an V-shape*/
-width: 3px;
-height: 3px;
- 
-/*Add a blue border on the bottom and left, creating that 'V' */
-border: solid #004D7D;
-border-width: 0 2px 2px 0;
- 
-/*Position it on top of the circle*/
-position:absolute;
-left: 4px;
-top: 40%;
-margin-top: -4px;
- 
-/*Rotate the V -45 degrees to turn it into a arrow pointer*/
--webkit-transform: rotate(-45deg);
--moz-transform: rotate(-45deg);
--o-transform: rotate(-45deg);
+	/*Add another block-level blank space*/
+	content:"\00a0";
+	display:block;
+	 
+	/*Make it a small rectangle so the border will create an V-shape*/
+	width: 3px;
+	height: 3px;
+	 
+	/*Add a blue border on the bottom and left, creating that 'V' */
+	border: solid #004D7D;
+	border-width: 0 2px 2px 0;
+	 
+	/*Position it on top of the circle*/
+	position:absolute;
+	left: 4px;
+	top: 40%;
+	margin-top: -4px;
+	 
+	/*Rotate the V -45 degrees to turn it into a arrow pointer*/
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
 }
 
 /* Making sure that the active users listing will go into two lines*/
@@ -354,34 +282,35 @@ span.views-field > span.field-content {
 .view > .more-link {
 	float: right;
 }
+
 /* Now making sure that the more link will not flow up next to a title in a mini pane */
 h2.pane-title {
 	clear: both;
 }
 
 body:nth-of-type(1)  .more-link > a:after{
-/*Add another block-level blank space*/
-content:"\00a0";
-display:block;
- 
-/*Make it a small rectangle so the border will create an V-shape*/
-width: 4px;
-height: 4px;
- 
-/*Add a blue border on the bottom and left, creating that 'V' */
-border: solid #004D7D;
-border-width: 0 2px 2px 0;
- 
-/*Position it on top of the circle*/
-position:absolute;
-left: 4px;
-top: 40%;
-margin-top: -3px;
- 
-/*Rotate the V -45 degrees to turn it into a arrow pointer*/
--webkit-transform: rotate(-45deg);
--moz-transform: rotate(-45deg);
--o-transform: rotate(-45deg);
+	/*Add another block-level blank space*/
+	content:"\00a0";
+	display:block;
+	 
+	/*Make it a small rectangle so the border will create an V-shape*/
+	width: 4px;
+	height: 4px;
+	 
+	/*Add a blue border on the bottom and left, creating that 'V' */
+	border: solid #004D7D;
+	border-width: 0 2px 2px 0;
+	 
+	/*Position it on top of the circle*/
+	position:absolute;
+	left: 4px;
+	top: 40%;
+	margin-top: -3px;
+	 
+	/*Rotate the V -45 degrees to turn it into a arrow pointer*/
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
 }
 
 /* Adding mouse over to all links */
@@ -431,38 +360,38 @@ article.node-article > .content > header {
 }
 
 article.node-article > .content > .field-name-field-tekststadie {
-float: right;
-padding: 0 0 0 35px;
-position:relative;
+	float: right;
+	padding: 0 0 0 35px;
+	position:relative;
 }
 
 article.node-article > .content > .field-name-field-tekststadie:before {
-/*Add another block-level blank space*/
-/*fill it with a blank space*/
-content:"\00a0";
- 
-/*make it a block element*/
-display: block;
- 
-/*adding an 8px round border to a 0x0 element creates an 8px circle*/
-border-radius: 9px;
--moz-border-radius: 9px;
--webkit-border-radius: 9px;
-height: 0;
-width: 0;
- 
-/*Now position it on the left of the list item, and center it vertically
-(so that it will work with multiple line list-items)*/
-position: absolute;
-left: 7px;
-top: 40%;
-margin-top: -8px;
-box-shadow: 2px 2px 4px #666;
--o-box-shadow: 2px 2px 5px #888;
--icab-box-shadow: 2px 2px 5px #888;
--khtml-box-shadow: 2px 2px 5px #888;
--moz-box-shadow: 2px 2px 5px #888;
--webkit-box-shadow: 2px 2px 5px #888;
+	/*Add another block-level blank space*/
+	/*fill it with a blank space*/
+	content:"\00a0";
+	 
+	/*make it a block element*/
+	display: block;
+	 
+	/*adding an 8px round border to a 0x0 element creates an 8px circle*/
+	border-radius: 9px;
+	-moz-border-radius: 9px;
+	-webkit-border-radius: 9px;
+	height: 0;
+	width: 0;
+	 
+	/*Now position it on the left of the list item, and center it vertically
+	(so that it will work with multiple line list-items)*/
+	position: absolute;
+	left: 7px;
+	top: 40%;
+	margin-top: -8px;
+	box-shadow: 2px 2px 4px #666;
+	-o-box-shadow: 2px 2px 5px #888;
+	-icab-box-shadow: 2px 2px 5px #888;
+	-khtml-box-shadow: 2px 2px 5px #888;
+	-moz-box-shadow: 2px 2px 5px #888;
+	-webkit-box-shadow: 2px 2px 5px #888;
 }
 
 /* Now the color determined by the taxonomy term
@@ -503,8 +432,8 @@ fieldset#edit-comment-body-und-0-format {
 /* Setting first letter of page titles always to be upper case, 
 so i can use all lower case taxonomy terms for the more with same 
 term lists, where i want to term to be all lower case */
-h1.page-title:first-letter {
-	text-transform: uppercase;
+.page-taxonomy h1.page-title {
+	text-transform: capitalize;
 }
 
 /*Pusing up font size for taxonomy term description */
@@ -533,11 +462,16 @@ article.node.clearfix > .content.clearfix {
 	content:" - Håbefulde Unge Forfattere";
 	font-size: 40px;
 	display: block;
-	padding-top: 40px;
+	margin-top: 40px;
 	float: right;
 	left: 140px;
 	position: absolute;
 	top: 8px;
+}
+
+/* Removing filter to avoid IE8 bug with overlay menu */
+body > .masthead {
+  	filter: none;
 }
 
 @media only screen and (max-width: 680px), only screen and (max-device-width: 680px) {
@@ -634,6 +568,15 @@ form#advanced-forum-forum-topic-list-sort-form, form#ctools-jump-menu {
 	margin-bottom: 12px;
 }
 
+.page-forum .item-list > ul.pager {
+    height: 100%;
+    border: none;
+}
+
+.page-forum ul.pager > li.pager-last > a {
+    width: 47px;
+}
+
 /* Fixing styling of headers and links */
 body.page-forum td > div > a {
 	text-decoration: none;
@@ -705,4 +648,10 @@ body.page-admin .views-table {
 	nav.breadcrumb {
 		display: none;
 	}
+  	.item-list > ul.pager > li.pager-first,
+    .item-list > ul.pager > li.pager-previous,
+    .item-list > ul.pager > li.pager-next,
+    .item-list > ul.pager > li.pager-last {
+       	display: none;
+   	}
 }
