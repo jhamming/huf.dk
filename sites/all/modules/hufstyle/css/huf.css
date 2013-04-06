@@ -113,6 +113,15 @@ nav.primary-menu {
 	line-height: 18px;
 }
 
+.content-column .content ul.pager li.date-next {
+	width: 100px;
+}
+
+.content-column .view-calendar .calendar-calendar #multi-day-container,
+.content-column .view-calendar .calendar-calendar #single-day-container {
+	height: auto;
+	overflow: hidden;
+}
 
 /* Aktuelt box in top of front page */
 
@@ -219,7 +228,10 @@ ul a {
 	text-decoration: none;
 }
 
-body:nth-of-type(1) ul li.views-row, body:nth-of-type(1) ul.views-summary li, body.page-forum ul.action-links li, .more-link {
+body:nth-of-type(1) ul li.views-row, 
+body:nth-of-type(1) ul.views-summary li, 
+body.page-forum ul.action-links li, 
+.more-link {
 	list-style-type:none;
 	padding: 0 0 0 25px;
 	position:relative;
@@ -227,6 +239,7 @@ body:nth-of-type(1) ul li.views-row, body:nth-of-type(1) ul.views-summary li, bo
 
 .view .item-list ul {
 	margin-left: 0px;
+	list-style-type: none;
 }
 
 .view .item-list li{
@@ -521,6 +534,23 @@ body > .masthead.clearfix > .mast {
 	width: 100%;
 }
 
+#forum .forum-tools {
+	margin-top: 0px;
+}
+
+#forum form {
+	border: none;
+}
+
+#forum .container-inline input {
+	height: 30px;
+}
+
+/* Has to be important since the forum module adds its own important css */
+#forum-sort {
+	padding-bottom: 10px !important;
+}
+
 body.page-forum- th {
 	min-width: 25px;
 }
@@ -574,7 +604,7 @@ form#advanced-forum-forum-topic-list-sort-form, form#ctools-jump-menu {
 }
 
 .page-forum ul.pager > li.pager-last > a {
-    width: 47px;
+    width: 48px;
 }
 
 /* Fixing styling of headers and links */
@@ -654,4 +684,9 @@ body.page-admin .views-table {
     .item-list > ul.pager > li.pager-last {
        	display: none;
    	}
+}
+
+/* Fixing colorbox issue in IE8 with image collapsing */
+#cboxLoadedContent img {
+    max-width: none;
 }
