@@ -26,7 +26,6 @@ dependencies[] = menu
 dependencies[] = migrate_ui
 dependencies[] = node_reference
 dependencies[] = number
-dependencies[] = og
 dependencies[] = panels
 dependencies[] = panels_mini
 dependencies[] = panels_node

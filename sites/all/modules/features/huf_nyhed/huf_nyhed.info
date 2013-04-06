@@ -12,7 +12,6 @@ dependencies[] = features
 dependencies[] = huf_user
 dependencies[] = image
 dependencies[] = newsletter
-dependencies[] = og
 dependencies[] = panels_mini
 dependencies[] = php
 dependencies[] = registration
