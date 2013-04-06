@@ -685,3 +685,8 @@ body.page-admin .views-table {
        	display: none;
    	}
 }
+
+/* Fixing colorbox issue in IE8 with image collapsing */
+#cboxLoadedContent img {
+    max-width: none;
+}
