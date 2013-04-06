@@ -133,7 +133,3 @@ DirectoryIndex index.php index.html index.htm
     </FilesMatch>
   </IfModule>
 </IfModule>
-AuthType Basic
-AuthName "webroot"
-AuthUserFile "/home/hufdk/.htpasswds/public_html/passwd"
-require valid-user
