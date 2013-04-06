@@ -43,10 +43,6 @@
 
     <?php print render($page['preblocks']); ?>
 
-    <?php if ($breadcrumb): ?>
-      <nav class="breadcrumb block boxed"><?php print $breadcrumb; ?></nav>
-    <?php endif; ?>
-
     <?php print $messages; ?>
 
     <div class="wrap-columns clearfix">
