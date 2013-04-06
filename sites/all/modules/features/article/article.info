@@ -9,7 +9,6 @@ dependencies[] = huf_user
 dependencies[] = image
 dependencies[] = migrate
 dependencies[] = number
-dependencies[] = og
 dependencies[] = taxonomy
 features[features_api][] = api:1
 features[field][] = comment-comment_node_article-comment_body
