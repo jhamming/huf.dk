@@ -113,6 +113,9 @@ nav.primary-menu {
 	line-height: 18px;
 }
 
+.content-column .content ul.pager li.date-next {
+	width: 100px;
+}
 
 /* Aktuelt box in top of front page */
 
