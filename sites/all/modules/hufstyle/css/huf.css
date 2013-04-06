@@ -117,6 +117,12 @@ nav.primary-menu {
 	width: 100px;
 }
 
+.content-column .view-calendar .calendar-calendar #multi-day-container,
+.content-column .view-calendar .calendar-calendar #single-day-container {
+	height: auto;
+	overflow: hidden;
+}
+
 /* Aktuelt box in top of front page */
 
 .region-preblocks .field-content > p {
