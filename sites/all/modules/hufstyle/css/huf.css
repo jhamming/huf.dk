@@ -472,7 +472,7 @@ article.node.clearfix > .content.clearfix {
 	margin: auto;
 }
 .logo-container:after { 
-	content:" - Håbefulde Unge Forfattere";
+	content:"Håbefulde Unge Forfattere";
 	font-size: 40px;
 	display: block;
 	margin-top: 40px;
@@ -482,6 +482,17 @@ article.node.clearfix > .content.clearfix {
 	top: 8px;
 }
 
+.logo-container a:after {
+	content:"Hvorfor skrive alene?";
+	color: black;
+	text-shadow: none;
+	font-size: 24px;
+	left: 200px;
+	position: absolute;
+	top: 100px;
+	float: right;
+}
+
 /* Removing filter to avoid IE8 bug with overlay menu */
 body > .masthead {
   	filter: none;
@@ -489,7 +500,7 @@ body > .masthead {
 
 @media only screen and (max-width: 680px), only screen and (max-device-width: 680px) {
 	.logo-container:after { 
-	content:" - Håbefulde Unge Forfattere";
+	content:"Håbefulde Unge Forfattere";
 	font-size: 22px;
 	display: block;
 	position: absolute;
@@ -686,7 +697,74 @@ body.page-admin .views-table {
    	}
 }
 
+#newsletter-subscribe-form .form-item {
+	margin-bottom: 0px;
+}
+
+.block-newsletter .prefix {
+	line-height: 1.4em;
+}
+
 /* Fixing colorbox issue in IE8 with image collapsing */
 #cboxLoadedContent img {
     max-width: none;
+}
+
+/* Making a green version of touchpro */
+h1, 
+header > h2, 
+h1 > a, 
+.primary-menu a {
+	background-color: #5ba354 !important;
+	background-image: none !important;
+	border: 1px solid white !important;
+	color: black !important;
+	text-shadow: none !important;
+}
+
+.content article.node header .post-icon {
+	background: transparent;
+	border: none;
+}
+
+.masthead .primary-menu select {
+  	position: relative;
+  	padding: 12px 11px;
+  	background-color: #5ba354;
+  	background-image: none;
+  	box-shadow: rgba(255, 255, 255, 0.2) 0 0 0 1px inset;
+  	border: 1px solid white;
+  	color: black;
+  	min-width: 140px;
+  	text-shadow: none;
+}
+
+body .calendar-calendar tr td.today, 
+body .htm.calendar-calendar tr.odd td.today, 
+body .calendar-calendar tr.even td.today {
+	background-color: #5ba354;
+	color: black;
+}
+
+.mast > .block.logo-container {
+	background: transparent;
+	border: none;
+	color: black;
+	box-shadow: none;
+}
+
+body > .masthead {
+	background: -moz-linear-gradient(#ffffff, #5ba354);
+	background: -ms-linear-gradient(#ffffff, #5ba354);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(100%, #5ba354));
+	background: -webkit-linear-gradient(#ffffff, #5ba354);
+	background: -o-linear-gradient(#ffffff, #5ba354);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#5ba354')progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#5ba354')progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+	background: linear-gradient(#ffffff, #5ba354);
+	border-bottom: 2px solid white;
+}
+
+.masthead img {
+	width: 100px;
 }
