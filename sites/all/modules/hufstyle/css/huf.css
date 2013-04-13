@@ -767,6 +767,16 @@ body.html a {
 	color: black !important;
 	text-shadow: none !important;
 }
+.page-admin #page h1, 
+.page-admin #page header > h2, 
+.page-admin #page h1 > a, 
+.page-admin .primary-menu .menu a,
+.page-admin .masthead nav.primary-menu ul.menu li a.active,
+.page-admin .masthead nav.primary-menu ul.menu li a, 
+.page-admin .masthead nav.primary-menu ul.menu li span,
+.page-admin #page header > h2.block-title {
+	background-color: transparent;
+}
 
 .content article.node header .post-icon {
 	background: transparent;
