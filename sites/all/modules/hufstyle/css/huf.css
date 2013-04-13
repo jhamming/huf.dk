@@ -506,7 +506,7 @@ body > .masthead {
 @media only screen and (max-width: 680px), only screen and (max-device-width: 680px) {
 	.logo-container:after { 
 		content:"Håbefulde Unge Forfattere";
-		font-size: 22px;
+		font-size: 18px;
 		display: block;
 		position: absolute;
 		left: 95px;
@@ -523,8 +523,8 @@ body > .masthead {
 		content:"Hvorfor skrive alene?";
 		color: black;
 		text-shadow: none;
-		font-size: 16px;
-		left: 200px;
+		font-size: 14px;
+		left: 150px;
 		position: absolute;
 		top: 65px;
 		float: right;
@@ -842,7 +842,7 @@ body.page-forum .mast tbody {
 .masthead nav.primary-menu ul.menu li span:hover, 
 .masthead nav.primary-menu ul.menu li span:focus, 
 .masthead nav.primary-menu ul.menu li span.active {
-  background-color: white;
+  	background-color: white;
 }
 
 body.html .context-block-views-gallery_slideshow-block a {
@@ -852,3 +852,8 @@ body.html .context-block-views-gallery_slideshow-block a {
 .view-gallery-slideshow.view-display-id-block ul.slide {
 	margin-bottom: 10px;
 }
+
+.html #page .block-search .form-actions {
+	background: #5ba354;
+}
+border: 1px solid #5ba354;
