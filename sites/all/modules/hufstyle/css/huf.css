@@ -184,8 +184,9 @@ nav.primary-menu {
 		overflow: hidden;
 		font-size: 0.8em;
 	}
-	.tabs.primary li a {
+	.page-forum .tabs.primary li a {
 		height: 40px;
+		width: 50px;
 	}
 	ul.tabs.primary {
 		margin: 0px;
@@ -504,19 +505,30 @@ body > .masthead {
 
 @media only screen and (max-width: 680px), only screen and (max-device-width: 680px) {
 	.logo-container:after { 
-	content:"Håbefulde Unge Forfattere";
-	font-size: 22px;
-	display: block;
-	position: absolute;
-	left: 95px;
-	top: -5px;
-	float: right;
+		content:"Håbefulde Unge Forfattere";
+		font-size: 22px;
+		display: block;
+		position: absolute;
+		left: 95px;
+		top: -5px;
+		float: right;
 	}
 	a.logo > img {
 		width: 60px;
 	}
 	body.html > .masthead.clearfix > .mast {
-	padding: 0px 0px 20px 0px;
+		padding: 0px 0px 20px 0px;
+	}
+	.logo-container a:after {
+		content:"Hvorfor skrive alene?";
+		color: black;
+		text-shadow: none;
+		font-size: 16px;
+		left: 200px;
+		position: absolute;
+		top: 65px;
+		float: right;
+}
 	}
 }
 
