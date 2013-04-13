@@ -805,8 +805,8 @@ body > .masthead {
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(100%, #5ba354));
 	background: -webkit-linear-gradient(#ffffff, #5ba354);
 	background: -o-linear-gradient(#ffffff, #5ba354);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#5ba354')progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
-	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#5ba354')progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#5ba354')progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#5ba354')progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
 	background: linear-gradient(#ffffff, #5ba354);
 	border-bottom: 2px solid white;
 }
@@ -820,6 +820,7 @@ body > .masthead {
 .mast #forum-comments .pager-current, 
 .mast #forum-comments .pager a:hover {
 	background: #5ba354;
+	border: 1px solid #5ba354;
 }
 
 .mast .forum-table td.views-field-title {
