@@ -327,7 +327,7 @@ body:nth-of-type(1)  .more-link > a:after{
 }
 
 /* Adding mouse over to all links */
-a:hover {
+.html a:hover {
 	text-decoration: underline;
 }
 
@@ -615,7 +615,7 @@ form#advanced-forum-forum-topic-list-sort-form, form#ctools-jump-menu {
 }
 
 .page-forum ul.pager > li.pager-last > a {
-    width: 48px;
+    width: 55px;
 }
 
 /* Fixing styling of headers and links */
@@ -697,6 +697,7 @@ body.page-admin .views-table {
    	}
 }
 
+/* Making newsletter sign up block more readable */
 #newsletter-subscribe-form .form-item {
 	margin-bottom: 0px;
 }
@@ -705,17 +706,26 @@ body.page-admin .views-table {
 	line-height: 1.4em;
 }
 
+/* removing underline as default for links */
+body.html a {
+	text-decoration: none;
+}
+
 /* Fixing colorbox issue in IE8 with image collapsing */
 #cboxLoadedContent img {
     max-width: none;
 }
 
 /* Making a green version of touchpro */
-h1, 
-header > h2, 
-h1 > a, 
-.primary-menu a {
-	background-color: #5ba354 !important;
+#page h1, 
+#page header > h2, 
+#page h1 > a, 
+.primary-menu .menu a,
+.masthead nav.primary-menu ul.menu li a.active,
+.masthead nav.primary-menu ul.menu li a, 
+.masthead nav.primary-menu ul.menu li span,
+#page header > h2.block-title {
+	background-color: #5ba354;
 	background-image: none !important;
 	border: 1px solid white !important;
 	color: black !important;
@@ -767,4 +777,45 @@ body > .masthead {
 
 .masthead img {
 	width: 100px;
+}
+
+.mast .forum-pager .pager-current, 
+.mast .forum-pager .pager a:hover, 
+.mast #forum-comments .pager-current, 
+.mast #forum-comments .pager a:hover {
+	background: #5ba354;
+}
+
+.mast .forum-table td.views-field-title {
+	font-size: 1em;
+}
+
+body.page-forum .mast tbody {
+	font-size: 1em;
+}
+
+.mast .forum-table-wrap .forum-table-superheader, 
+.mast .forum-table-topics thead tr {
+	background: #5ba354;
+}
+
+.forum-table {
+	width: 100%;
+}
+
+.masthead nav.primary-menu ul.menu li a:hover, 
+.masthead nav.primary-menu ul.menu li a:focus, 
+.masthead nav.primary-menu ul.menu li a.active, 
+.masthead nav.primary-menu ul.menu li span:hover, 
+.masthead nav.primary-menu ul.menu li span:focus, 
+.masthead nav.primary-menu ul.menu li span.active {
+  background-color: white;
+}
+
+body.html .context-block-views-gallery_slideshow-block a {
+	font-size: 1.1em;
+}
+
+.view-gallery-slideshow.view-display-id-block ul.slide {
+	margin-bottom: 10px;
 }
