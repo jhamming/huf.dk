@@ -331,6 +331,10 @@ body:nth-of-type(1)  .more-link > a:after{
 	text-decoration: underline;
 }
 
+.html nav.primary-menu a:hover {
+	text-decoration: none;
+}
+
 /* Styling gallery slideshow */
 .view-gallery-slideshow.view-display-id-block {
 	overflow: hidden;
@@ -557,6 +561,22 @@ body > .masthead.clearfix > .mast {
 	height: 30px;
 }
 
+.forum-table td {
+	padding: 5px;
+}
+
+.mast tr.even td.forum-list-icon-default .forum-list-icon-wrapper span, 
+.mast tr.odd td.forum-list-icon-default .forum-list-icon-wrapper span, 
+.mast .forum-list-icon-legend .forum-list-icon-default {
+	background-color: #5ba354;
+}
+
+.mast tr.even td.forum-list-icon-new-posts .forum-list-icon-wrapper span, 
+.mast tr.odd td.forum-list-icon-new-posts .forum-list-icon-wrapper span, 
+.mast .forum-list-icon-legend .forum-list-icon-new-posts {
+	background-color: #5ba354;
+}
+
 /* Has to be important since the forum module adds its own important css */
 #forum-sort {
 	padding-bottom: 10px !important;
@@ -616,6 +636,10 @@ form#advanced-forum-forum-topic-list-sort-form, form#ctools-jump-menu {
 
 .page-forum ul.pager > li.pager-last > a {
     width: 55px;
+}
+
+.forum-table {
+	width: 100%;
 }
 
 /* Fixing styling of headers and links */
@@ -797,10 +821,6 @@ body.page-forum .mast tbody {
 .mast .forum-table-wrap .forum-table-superheader, 
 .mast .forum-table-topics thead tr {
 	background: #5ba354;
-}
-
-.forum-table {
-	width: 100%;
 }
 
 .masthead nav.primary-menu ul.menu li a:hover, 
