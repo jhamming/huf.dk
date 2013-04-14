@@ -23,6 +23,13 @@ nav.primary-menu {
 	li.leaf, li.expanded {
   		font-size: 11px; 
 	}
+	.masthead nav.primary-menu ul.menu li {
+    display: block;
+    float: left;
+    line-height: 1em;
+    margin: 0 0 10px 10px;
+    position: relative;
+	}
 }
 
 @media (max-width: 800px) {
