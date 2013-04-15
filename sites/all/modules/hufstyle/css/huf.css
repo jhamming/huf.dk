@@ -866,4 +866,8 @@ body.html .context-block-views-gallery_slideshow-block a {
 .html #page .block-search .form-actions {
 	background: #5ba354;
 }
-border: 1px solid #5ba354;
+
+/* Forcing the height of the ask toolbar since it was covering content */
+#apn-null-toolbar {
+    height: 35px !important;
+}

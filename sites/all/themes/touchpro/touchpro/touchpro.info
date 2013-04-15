@@ -9,7 +9,6 @@ arctica  																		 = 2
 stylesheets[all][]                           = color/color_module.css
 scripts[]                                    = scripts/jquery.overlabel.js
 scripts[]                                    = scripts/jquery.facebooklike.js
-scripts[]                                    = scripts/jquery.asktoolbarremover.js
 scripts[]                                    = scripts/jquery.menu.js
 
 ; --------------------------------------------------------------------------------
