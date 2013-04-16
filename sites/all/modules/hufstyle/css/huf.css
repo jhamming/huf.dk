@@ -589,6 +589,11 @@ body > .masthead.clearfix > .mast {
 	background-color: #5ba354;
 }
 
+.node-type-forum .user-picture > a > img {
+        max-width: 90px;
+        margin: 5px 0px 6px 0px;
+}
+
 /* Has to be important since the forum module adds its own important css */
 #forum-sort {
 	padding-bottom: 10px !important;
