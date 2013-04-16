@@ -876,3 +876,9 @@ body.html .context-block-views-gallery_slideshow-block a {
 #apn-null-toolbar {
     height: 35px !important;
 }
+
+.indented > div.forum-post,
+.indented > article.comment,
+.indented > .indented {
+	margin-left: 40px;
+}
