@@ -22,12 +22,6 @@
     hide($content['field_image']);
   ?>
 
-  <?php if ($display_submitted || $user_picture): ?>
-    <header class="author">
-      <?php print $user_picture; ?>
-      <?php print $submitted; ?>
-    </header>
-  <?php endif; ?>
     <?php
       // We hide the comments and links now so that we can render them later.
       $terms = render($content['field_tags']);
