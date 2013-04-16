@@ -24,7 +24,6 @@
 
   <?php if ($display_submitted || $user_picture): ?>
     <header class="author">
-      <?php print $user_picture; ?>
       <?php print $submitted; ?>
     </header>
   <?php endif; ?>
