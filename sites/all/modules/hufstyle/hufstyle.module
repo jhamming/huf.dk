@@ -4,6 +4,19 @@
 
    drupal_add_css(drupal_get_path('module', 'hufstyle') . '/css/huf.css', array('group' => CSS_DEFAULT, 'every_page' => TRUE));
 
+/* removing author field from node edit, for regular users (board and admin has bypass node access)*/
+
+function hufstyle_form_alter(&$form, &$form_state) {
+
+    if (arg(0) == 'node' && (arg(1) == 'add' || arg(2) == 'edit') && !user_access('bypass-node-access')) {
+	$form['author']['name']['#access'] = 0;
+    }
+
+}
+
+
 /* removing js for menu since its causing jQuery errors
-drupal_add_js(drupal_get_path('module', 'hufstyle') . '/js/menu.js', array('group' => JS_DEFAULT, 'every_page' => TRUE)); 
+   
+   drupal_add_js(drupal_get_path('module', 'hufstyle') . '/js/menu.js', array('group' => JS_DEFAULT, 'every_page' => TRUE)); 
+
 */
