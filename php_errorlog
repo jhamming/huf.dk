@@ -1,0 +1,2 @@
+[09-Nov-2013 09:03:01] PHP Fatal error:  Call to undefined function  node_access_needs_rebuild() in /home/hufdk/public_html/sites/all/modules/taxonomy_access/taxonomy_access.module on line 598
+[09-Nov-2013 09:22:02] PHP Fatal error:  Call to undefined function  node_access_needs_rebuild() in /home/hufdk/public_html/sites/all/modules/taxonomy_access/taxonomy_access.module on line 598
