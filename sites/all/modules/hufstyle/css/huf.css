@@ -367,23 +367,46 @@ article.node.clearfix > .content > .field.field-type-image {
 	width: 100%;
 }
 
+/* article info box */
+.article-info-box {
+	border: 1px solid #fff;
+	outline: 1px solid #d1d1d1;
+	padding: 10px;
+	max-width: 283px;
+	float: left;
+	margin-right: 10px;
+}
+@media only screen and (max-width: 680px), only screen and (max-device-width: 680px) {
+	article .content > .field.field-name-body {
+		clear: both;
+	}
+}
+
+article .content > .field {
+	margin-top: -15px;
+	clear: inherit;
+}
+
+.article-info-box .field {
+	padding: 7px 0 0 0px;
+}
+
 /* Removing more link from tag-cload */
 article.block-tagclouds > .content > .more-link {
 	display: none;
 } 
 
 /* Styling the text state display */
-article.node-article > .content > header {
+article.node-article > .content > .article-info-box > header {
 	float: left;
 }
 
-article.node-article > .content > .field-name-field-tekststadie {
-	float: right;
-	padding: 0 0 0 35px;
+article.node-article > .content > .article-info-box > .field-name-field-tekststadie {
+	padding: 0 0 0 28px;
 	position:relative;
 }
 
-article.node-article > .content > .field-name-field-tekststadie:before {
+article.node-article > .content > .article-info-box > .field-name-field-tekststadie:before {
 	/*Add another block-level blank space*/
 	/*fill it with a blank space*/
 	content:"\00a0";
@@ -401,7 +424,7 @@ article.node-article > .content > .field-name-field-tekststadie:before {
 	/*Now position it on the left of the list item, and center it vertically
 	(so that it will work with multiple line list-items)*/
 	position: absolute;
-	left: 7px;
+	left: 0px;
 	top: 40%;
 	margin-top: -8px;
 	box-shadow: 2px 2px 4px #666;
@@ -414,17 +437,17 @@ article.node-article > .content > .field-name-field-tekststadie:before {
 
 /* Now the color determined by the taxonomy term
 - Green */
-.taxonomy-foerste-udkast article.node-article > .content > .field-name-field-tekststadie:before {
+.taxonomy-foerste-udkast article.node-article > .content > .article-info-box > .field-name-field-tekststadie:before {
 	border: solid 9px #1b7a1a;
 }
 
 /* yellow */
-.taxonomy-gennemarbejdet article.node-article > .content > .field-name-field-tekststadie:before {
+.taxonomy-gennemarbejdet article.node-article > .content > .article-info-box > .field-name-field-tekststadie:before {
 	border: solid 9px #f1bc28;
 }
 
 /* red */
-.taxonomy-klar-til-udgivelse article.node-article > .content > .field-name-field-tekststadie:before {
+.taxonomy-klar-til-udgivelse article.node-article > .content > .article-info-box > .field-name-field-tekststadie:before {
 	border: solid 9px #c4181b;
 }
 
