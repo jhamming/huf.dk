@@ -493,8 +493,21 @@ article.node.clearfix > .content.clearfix {
 	line-height: 1.5em;
 }
 
-/* Adding HUF-slogan after logo */
+/* Adding HUF-watermark in masthead - only on big devices */
+.mast {
+	background: url("/sites/all/modules/hufstyle/css/Huf-Logo-invers-opacity.png");
+	background-position: right;
+	background-repeat: no-repeat;
+	background-size: 35%;
+}
 
+@media only screen and (max-width: 680px), only screen and (max-device-width: 680px) {
+	.mast {
+		background:none;
+	}
+}
+
+/* Adding HUF-slogan after logo */
 .mast > .block.logo-container {
 	width: 100%;
 	margin: auto;
