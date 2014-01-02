@@ -923,3 +923,26 @@ body.html .context-block-views-gallery_slideshow-block a {
 body.html th > a {
 	padding: 5px;
 }
+
+/* Styling of private message button on forum */
+.node-type-forum .privatemsg_link > a {
+	display: block;
+	border-top: 1px solid #EAF8E4;
+	background: #C1C1C1;
+	background: -webkit-gradient(linear, left top, left bottom, from(#DFDFDF), to(#C1C1C1));
+	background: -moz-linear-gradient(top, #DFDFDF, #C1C1C1);
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	-webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+	-moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+	box-shadow: rgba(0,0,0,1) 0 1px 0;
+	text-shadow: rgba(0,0,0,.4) 0 1px 0;
+	color: #333333;
+	font-family: Helvetica, Arial, Sans-Serif;
+	text-decoration: none;
+	vertical-align: middle;
+	color: #333333;
+	text-decoration: none;
+	font-size: 12px;
+}
