@@ -374,11 +374,12 @@ article.node.clearfix > .content > .field.field-type-image {
 	padding: 10px;
 	max-width: 283px;
 	float: right;
-	margin-right: 10px;
+	margin-left: 10px;
 }
 @media only screen and (max-width: 680px), only screen and (max-device-width: 680px) {
 	.article-info-box {
 		float: left;
+		margin-right: 10px
 	}
 }
 @media only screen and (max-width: 680px), only screen and (max-device-width: 680px) {
