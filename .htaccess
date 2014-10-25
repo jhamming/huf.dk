@@ -1,3 +1,7 @@
+# Added to set EDGE mode for Internet Explorer. Should be kept when updating drupal
+
+Header set X-UA-Compatible "IE=Edge, chrome=1"
+
 #
 # Apache/PHP/Drupal settings:
 #
