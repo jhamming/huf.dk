@@ -162,7 +162,7 @@ function og_ui_add_users($form, &$form_state, $group_type, $gid) {
     );
   }
 
-  $field_names = og_get_group_audience_fields();
+  $field_names = og_get_group_audience_fields('user', 'user', $group_type, $bundle);
   $field_name = !empty($form_state['values']['field_name']) ? $form_state['values']['field_name'] : key($field_names);
 
   if (count($field_names) > 1) {
@@ -298,6 +298,13 @@ function og_ui_edit_membership($form, &$form_state, $group_type, $gid, $og_membe
     '#title' => t('User name'),
     '#markup' => $account->name,
   );
+  $form['og_user']['state'] = array(
+    '#type' => 'select',
+    '#title' => t('Status'),
+    '#description' => t('Change the current membership status.'),
+    '#options' => og_group_content_states(),
+    '#default_value' => $og_membership->state,
+  );
   if ($og_roles) {
     $form['og_user']['roles'] = array(
       '#type' => 'checkboxes',
@@ -306,9 +313,6 @@ function og_ui_edit_membership($form, &$form_state, $group_type, $gid, $og_membe
       '#default_value' => array_keys(og_get_user_roles($group_type, $gid, $account->uid)),
     );
   }
-
- // Add group membership form.
-  $values = array();
 
   // Add group membership form. We still don't have the user or state.
   $form_state['og_membership'] = $og_membership;
@@ -323,6 +327,14 @@ function og_ui_edit_membership($form, &$form_state, $group_type, $gid, $og_membe
 
   $form['actions'] = array('#type' => 'actions');
   $form['actions']['submit'] = array('#type' => 'submit', '#value' => t('Update membership'));
+
+  // You can't delete the group manager.
+  if ($group->uid != $account->uid) {
+    $form['actions']['delete'] = array(
+      '#type' => 'markup',
+      '#markup' => l(t('Remove'), 'group/node/' . $gid . '/admin/people/delete-membership/' . $og_membership->id),
+    );
+  }
 
   return $form;
 }
@@ -342,8 +354,9 @@ function og_ui_edit_membership_submit($form, &$form_state) {
   $group_type = $form_state['values']['group_type'];
   $gid = $form_state['values']['gid'];
   $og_membership = $form_state['og_membership'];
+  $og_membership->state = $form_state['values']['state'];
   field_attach_submit('og_membership', $og_membership, $form['membership_fields'], $form_state);
-  $og_membership->save();
+
   $account = user_load($og_membership->etid);
   // Assign roles.
   $og_roles = og_get_user_roles($group_type, $gid, $account->uid);
@@ -357,10 +370,51 @@ function og_ui_edit_membership_submit($form, &$form_state) {
       og_role_grant($group_type, $gid, $og_membership->etid, $rid);
     }
   }
+
+  // Saving should be last in the process, so Rules can get a chance to
+  // assign or revoke roles.
+  $og_membership->save();
+
   drupal_set_message(t('The membership has been updated.'));
 }
 
+/**
+ * Delete a single membership from group.
+ */
+function og_ui_delete_membership($form, &$form_state, $group_type, $gid, $og_membership) {
+  og_set_breadcrumb($group_type, $gid, array(l(t('Group'), "$group_type/$gid/group")));
+  $group = entity_load_single($group_type, $gid);
+  $label = entity_label($group_type, $group);
+  $account = user_load($og_membership->etid);
 
+  // You can't delete the group manager.
+  if ($group->uid == $account->uid) {
+    drupal_set_message(t("You can't remove membership of the group manager"));
+    drupal_goto('group/' . $group_type . '/' . $gid . '/admin/people');
+  }
+
+  // Add group membership form. We still don't have the user or state.
+  $form_state['og_membership'] = $og_membership;
+
+  return confirm_form($form,
+    t('Remove membership in group @group', array('@group' => $label)),
+    'group/' . $group_type . '/' . $gid . '/admin/people',
+    t('Are you sure you would like to remove the membership for the user @user', array('@user' => $account->name)),
+    t('Remove'),
+    t('Cancel')
+  );
+}
+
+/**
+ * Submit handler;Delete the membership.
+ */
+function og_ui_delete_membership_submit($form, &$form_state) {
+  $membership = $form_state['og_membership'];
+  $membership->delete();
+  $form_state['redirect'] = 'group/' . $membership->group_type . '/' . $membership->gid . '/admin/people';
+
+  drupal_set_message(t('The membership was removed.'));
+}
 
 /**
  * Form builder; OG user administration page.
@@ -688,43 +742,44 @@ function og_ui_admin_permissions($form, $form_state, $group_type = '', $gid = 0,
 
   // Get a list of all the modules implementing a hook_permission() and sort by
   // display name.
-  $modules = array();
-  foreach (module_implements('og_permission') as $module) {
-    $modules[$module] = $module_info[$module]['name'];
+  $permissions_by_module = array();
+  foreach (og_get_permissions() as $perm => $value) {
+    $module = $value['module'];
+    $permissions_by_module[$module][$perm] = $value;
   }
-  asort($modules);
 
-  foreach ($modules as $module => $display_name) {
-    if ($permissions = module_invoke($module, 'og_permission')) {
-      $form['permission'][] = array(
-        '#markup' => $module_info[$module]['name'],
-        '#id' => $module,
+  asort($permissions_by_module);
+
+  foreach ($permissions_by_module as $module => $permissions) {
+    $form['permission'][] = array(
+      '#markup' => $module_info[$module]['name'],
+      '#id' => $module,
+    );
+
+    foreach ($permissions as $perm => $perm_item) {
+      // Fill in default values for the permission.
+      $perm_item += array(
+        'description' => '',
+        'restrict access' => FALSE,
+        'warning' => !empty($perm_item['restrict access']) ? t('Warning: Give to trusted roles only; this permission has security implications in the group context.') : '',
       );
-      foreach ($permissions as $perm => $perm_item) {
-        // Fill in default values for the permission.
-        $perm_item += array(
-          'description' => '',
-          'restrict access' => FALSE,
-          'warning' => !empty($perm_item['restrict access']) ? t('Warning: Give to trusted roles only; this permission has security implications in the group context.') : '',
-        );
-        // If the user can manage permissions, but does not have administer
-        // group permission, hide restricted permissions from them. This
-        // prevents users from escalating their privileges.
-        if ($gid && ($perm_item['restrict access'] && !og_user_access($group_type, $gid, 'administer group'))) {
-          continue;
-        }
+      // If the user can manage permissions, but does not have administer
+      // group permission, hide restricted permissions from them. This
+      // prevents users from escalating their privileges.
+      if ($gid && ($perm_item['restrict access'] && !og_user_access($group_type, $gid, 'administer group'))) {
+        continue;
+      }
 
-        $options[$perm] = '';
-        $form['permission'][$perm] = array(
-          '#type' => 'item',
-          '#markup' => $perm_item['title'],
-          '#description' => theme('user_permission_description', array('permission_item' => $perm_item)),
-        );
-        foreach ($role_names as $rid => $name) {
-          // Builds arrays for checked boxes for each role
-          if (isset($role_permissions[$rid][$perm])) {
-            $status[$rid][] = $perm;
-          }
+      $options[$perm] = '';
+      $form['permission'][$perm] = array(
+        '#type' => 'item',
+        '#markup' => $perm_item['title'],
+        '#description' => theme('user_permission_description', array('permission_item' => $perm_item)),
+      );
+      foreach ($role_names as $rid => $name) {
+        // Builds arrays for checked boxes for each role
+        if (isset($role_permissions[$rid][$perm])) {
+          $status[$rid][] = $perm;
         }
       }
     }
@@ -855,7 +910,7 @@ function theme_og_ui_admin_permissions($variables) {
 }
 
 /**
- * Allow site admin to add or remove group fields from fieldable enteies.
+ * Allow site admin to add or remove group fields from fieldable entities.
  */
 function og_ui_field_settings($form, &$form_state) {
   $form = array();

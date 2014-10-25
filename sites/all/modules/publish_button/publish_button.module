@@ -293,6 +293,10 @@ function _publish_button_menu_access($nid, $status) {
  * Callback to publish/unpublish node, preferable used via Views.
  */
 function publish_button_status($nid) {
+  if (!isset($_GET['csrf_token']) || !drupal_valid_token($_GET['csrf_token'], 'publish_button_' . $nid)) {
+    drupal_access_denied();
+    return;
+  }
   // Load the node in a object so we could use it.
   $node = node_load($nid);
   // If the node is published.

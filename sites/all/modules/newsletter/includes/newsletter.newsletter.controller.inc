@@ -55,6 +55,9 @@ class NewsletterNewsletterController extends DrupalDefaultEntityController {
    *   A full newsletter object.
    */
   public function save($newsletter) {
+    if (empty($newsletter->nnid)) {
+      return isset($newsletter->title) && isset($newsletter->ntid) ? $this->saveNew($newsletter) : FALSE;
+    }
     drupal_write_record('newsletter_newsletter', $newsletter, 'nnid');
     field_attach_update('newsletter_newsletter', $newsletter);
     module_invoke_all('entity_update', $newsletter, 'newsletter_newsletter');

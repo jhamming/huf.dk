@@ -23,13 +23,6 @@
           $('.form-item-exposed-' + i).toggle();
         });
       });
-
-      $('#newsletter-manage-subscriptions-form').submit(function() {
-        if(!$('input[type="checkbox"]', $(this)).is(':checked')){
-          alert(Drupal.t("Please select at least one newsletter list."));
-          return false;
-        }
-      });
     }
   };
 })(jQuery);

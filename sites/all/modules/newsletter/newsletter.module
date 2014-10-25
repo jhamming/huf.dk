@@ -424,8 +424,10 @@ function newsletter_taxonomy_vocabulary_insert($vocabulary) {
   if (($vocabulary->machine_name == 'tags' && $vocabulary->vid == 2) || $vocabulary->machine_name == 'newsletter_categories') {
     return;
   }
+  // Field names have 32 char limit.
+  $field_name = 'field_' . substr($vocabulary->machine_name, 0, 26);
   $field = array(
-    'field_name' => 'field_' . $vocabulary->machine_name,
+    'field_name' => 'field_' . $field_name,
     'type' => 'taxonomy_term_reference',
     'cardinality' => FIELD_CARDINALITY_UNLIMITED,
     'settings' => array(
@@ -551,18 +553,6 @@ function newsletter_block_save($delta = '', $edit = array()) {
     variable_set('newsletter_block_suffix', $edit['newsletter_block_suffix']);
   }
   return;
-}
-
-/**
- * Implements hook_colorbox_form_access().
- */
-function newsletter_colorbox_form_access($form_id) {
-  $form = explode('?', $form_id);
-  if ($form[0] == 'newsletter_manage_subscriptions_form') {
-    module_load_include('inc', 'newsletter', 'includes/newsletter.pages');
-    return user_access('subscribe newsletters');
-  }
-  return FALSE;
 }
 
 /**
@@ -795,6 +785,7 @@ function newsletter_entity_info() {
     'newsletter_subscriber' => array(
       'label' => t('Newsletter subscriber'),
       'controller class' => 'NewsletterSubscriberController',
+      'access callback' => 'newsletter_entity_access',
       'base table' => 'newsletter_subscriber',
       'fieldable' => TRUE,
       'entity keys' => array(
@@ -814,6 +805,7 @@ function newsletter_entity_info() {
     'newsletter_list' => array(
       'label' => t('Newsletter list'),
       'controller class' => 'NewsletterListController',
+      'access callback' => 'newsletter_entity_access',
       'base table' => 'newsletter_list',
       'fieldable' => TRUE,
       'entity keys' => array(
@@ -829,6 +821,7 @@ function newsletter_entity_info() {
     'newsletter_template' => array(
       'label' => t('Newsletter template'),
       'controller class' => 'NewsletterTemplateController',
+      'access callback' => 'newsletter_entity_access',
       'base table' => 'newsletter_template',
       'fieldable' => TRUE,
       'entity keys' => array(
@@ -848,6 +841,7 @@ function newsletter_entity_info() {
     'newsletter_newsletter' => array(
       'label' => t('Newsletter'),
       'controller class' => 'NewsletterNewsletterController',
+      'access callback' => 'newsletter_entity_access',
       'base table' => 'newsletter_newsletter',
       'fieldable' => TRUE,
       'entity keys' => array(
@@ -897,7 +891,7 @@ function newsletter_field_attach_presave($entity_type, $entity) {
       $terms = isset($entity->{'exposed_' . $exposed_list}) ? $entity->{'exposed_' . $exposed_list} : array();
       $tids = array();
       foreach ($terms as $tid => $value) {
-        if (!is_null($value)) {
+        if (!empty($value)) {
           $tids[] = $tid;
         }
       }
@@ -961,11 +955,25 @@ function newsletter_update_exposed_tids($entity, $type) {
       if (isset($list['target_id_tids'])) {
         db_update('field_data_field_newsletter_list')
           ->fields(array('target_id_tids' => $list['target_id_tids']))
+          ->condition('entity_id', $entity->nsid)
           ->condition('field_newsletter_list_target_id', $list['target_id'])
           ->execute();
       }
     }
   }
+}
+
+/**
+ * Determines whether the given user has access to a subscriber/list/template.
+ *
+ * @see entity_access()
+ */
+function newsletter_entity_access($op, $entity = NULL, $account = NULL) {
+  if (isset($entity->nlid) && $op == 'view') {
+    // The entity is a newsletter list and we are in the subscribe form.
+    return user_access('subscribe newsletters', $account);
+  }
+  return user_access('administer newsletters', $account);
 }
 
 /**
@@ -1324,11 +1332,11 @@ function newsletter_add_js() {
     $lang = language_default()->language;
   }
   drupal_add_js(array( 'exposed' => $lists, 'lang' => $lang), 'setting');
-  if (!module_exists('colorbox')) {
-    drupal_add_js('(function ($) {$(document).ready(function () {
-      Drupal.behaviors.newsletter.subscribeForm();
-    });})(jQuery);', 'inline');
-  }
+
+  drupal_add_js('(function ($) {$(document).ready(function () {
+    Drupal.behaviors.newsletter.subscribeForm();
+  });})(jQuery);', 'inline');
+
   $added++;
 }
 
@@ -1375,8 +1383,7 @@ function newsletter_subscribe_form($form, &$form_state) {
 
 /**
  * Callback of newsletter subscription block.Degrades when js is off.
- * Validates e-mail and sends user to next step which is
- * a colorbox if the module exists.Else simple http redirect.
+ * Validates e-mail and sends user to next step.
  */
 function newsletter_subscribe_form_submit($form, &$form_state) {
 
@@ -1401,26 +1408,12 @@ function newsletter_subscribe_form_submit($form, &$form_state) {
     'destination' => '',
     'email' => $mail,
   );
-  $colorbox_url = url('colorbox/form/newsletter_manage_subscriptions_form', array('query' => $q));
   $url = url('newsletter/subscribe', array('query' => $q));
   if ($is_ajax) {
-    return module_exists('colorbox') ?
-      "<script type='text/javascript'>
-        (function ($) {
-          $.fn.colorbox({
-            href: '$colorbox_url',
-            width: 600,
-            height: 650,
-            open: true,
-            onComplete: function(){Drupal.behaviors.newsletter.subscribeForm();}
-          })
-        })(jQuery);
-      </script>" :
-      "<script type='text/javascript'>
+    return "<script type='text/javascript'>
         location.href='$url'
       </script>";
   }
-  else {
-    drupal_goto('newsletter/subscribe', array('query' => $q));
-  }
+
+  drupal_goto('newsletter/subscribe', array('query' => $q));
 }
