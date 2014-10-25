@@ -4,9 +4,9 @@ core = 7.x
 
 files[] = publish_button_views_handler_node_link.inc
 
-; Information added by drupal.org packaging script on 2013-01-14
-version = "7.x-1.0-beta8"
+; Information added by Drupal.org packaging script on 2014-03-11
+version = "7.x-1.0"
 core = "7.x"
 project = "publish_button"
-datestamp = "1358158480"
+datestamp = "1394574209"
 

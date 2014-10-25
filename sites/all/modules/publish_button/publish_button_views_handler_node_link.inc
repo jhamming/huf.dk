@@ -57,9 +57,11 @@ class publish_button_views_handler_node_link extends views_handler_field_node_li
         $status = 'publish';
       }
       if (isset($this->options['alter'])) {
+        $csrf_token = drupal_get_token('publish_button_' . $data);
         $this->options['alter']['make_link'] = TRUE;
         $this->options['alter']['path'] = 'publish_button/' . $data . '/' . $status;
         $this->options['alter']['query'] = drupal_get_destination();
+        $this->options['alter']['query']['csrf_token'] = $csrf_token;
         $text = empty($this->options[$status]) ? t($status) : $this->options[$status];
         $publish_button = array(
           '#type' => 'button',

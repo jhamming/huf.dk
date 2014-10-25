@@ -36,7 +36,7 @@ class NewsletterMailSystem implements MailSystemInterface {
       }
 
       // Converts back from hmtl entities
-      return html_entity_decode($dom->saveHTML());
+      return decode_entities($dom->saveHTML());
     }
     return $message['body'];
   }

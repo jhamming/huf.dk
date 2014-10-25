@@ -57,6 +57,8 @@ class NewsletterSubscriberController extends DrupalDefaultEntityController {
     }
 
     field_attach_presave('newsletter_subscriber', $subscriber);
+    // Make sure to invoke the presave hook.
+    module_invoke_all('entity_presave', $subscriber, 'newsletter_subscriber');
 
     if (!isset($subscriber->nsid)) {
       if (!valid_email_address($subscriber->email))  {
